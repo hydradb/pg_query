@@ -1,0 +1,3 @@
+[submodule "native/pg_query/libpg_query-sys/c_src/libpg_query"]
+	path = native/pg_query/libpg_query-sys/c_src/libpg_query
+	url = https://github.com/pganalyze/libpg_query.git
