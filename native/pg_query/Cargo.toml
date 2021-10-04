@@ -11,3 +11,8 @@ crate-type = ["cdylib"]
 
 [dependencies]
 rustler = "0.22.0"
+
+[dependencies.pg_query-sys]
+package = "libpg_query-sys"
+path = "libpg_query-sys"
+version = "0.1"

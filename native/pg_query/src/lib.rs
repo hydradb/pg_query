@@ -1,6 +1,8 @@
+mod query;
+
 #[rustler::nif]
-fn add(a: i64, b: i64) -> i64 {
-    a + b
+fn parse(stmt: &str) -> String {
+    query::parse(stmt).unwrap()
 }
 
-rustler::init!("Elixir.PGQuery.Native", [add]);
+rustler::init!("Elixir.PGQuery.Native", [parse]);
