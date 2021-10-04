@@ -3,16 +3,6 @@ defmodule PGQuery do
   Documentation for `PgQuery`.
   """
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> PgQuery.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
+  @spec parse(binary()) :: PGQuery.Ast.t()
+  defdelegate parse(bin), to: PGQuery.Native
 end
