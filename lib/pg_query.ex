@@ -1,4 +1,4 @@
-defmodule PgQuery do
+defmodule PGQuery do
   @moduledoc """
   Documentation for `PgQuery`.
   """
