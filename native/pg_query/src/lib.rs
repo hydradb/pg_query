@@ -27,7 +27,12 @@ fn deparse(tree: Binary) -> Result<String, PGQueryError> {
     query::deparse(tree)
 }
 
+#[rustler::nif]
+fn normalize(stmt: &str) -> Result<String, PGQueryError> {
+    query::normalize(stmt)
+}
+
 rustler::init!(
     "Elixir.PgQuery.Native",
-    [parse_as_json, parse_as_proto, deparse]
+    [parse_as_json, parse_as_proto, deparse, normalize]
 );

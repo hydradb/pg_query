@@ -1,6 +1,7 @@
 use crate::PGQueryError;
 use pg_query_sys::{
-    pg_query_free_deparse_result, pg_query_free_parse_result, pg_query_free_protobuf_parse_result,
+    pg_query_deparse_protobuf, pg_query_free_deparse_result, pg_query_free_normalize_result,
+    pg_query_free_parse_result, pg_query_free_protobuf_parse_result, pg_query_normalize,
     pg_query_parse, pg_query_parse_protobuf, PgQueryProtobuf,
 };
 use rustler::{Binary, OwnedBinary};
@@ -60,7 +61,7 @@ pub fn deparse(proto: Binary) -> Result<String, PGQueryError> {
             len: proto.len() as u32,
             data: proto.as_slice().as_ptr() as *mut i8,
         };
-        let result = pg_query_sys::pg_query_deparse_protobuf(tree);
+        let result = pg_query_deparse_protobuf(tree);
 
         if !result.error.is_null() {
             let err = (&*result.error).message;
@@ -74,5 +75,28 @@ pub fn deparse(proto: Binary) -> Result<String, PGQueryError> {
         let stmt = CStr::from_ptr(result.query).to_string_lossy().into();
 
         Ok(stmt)
+    }
+}
+
+pub fn normalize(stmt: &str) -> Result<String, PGQueryError> {
+    unsafe {
+        let c_str = CString::new(stmt).unwrap();
+        let result = pg_query_normalize(c_str.as_ptr() as *const c_char);
+
+        if !result.error.is_null() {
+            let err = (&*result.error).message;
+            let msg = CStr::from_ptr(err).to_string_lossy().into();
+
+            pg_query_free_normalize_result(result);
+
+            return Err(PGQueryError::ParseError(msg));
+        }
+
+        let raw = CStr::from_ptr(result.normalized_query);
+        let normalized_query = raw.to_string_lossy().to_string();
+
+        pg_query_free_normalize_result(result);
+
+        Ok(normalized_query)
     }
 }

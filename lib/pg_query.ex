@@ -34,12 +34,24 @@ defmodule PgQuery do
       iex> PgQuery.deparse(pr)
       {:ok, "SELECT 1"}
   """
-  @spec deparse(PgQuery.ParseResult.t()) :: term()
-  def deparse(parse_result) do
-    parse_result
+  @spec deparse(PgQuery.ParseResult.t()) :: {:ok, binary()} | {:error, term()}
+  def deparse(%PgQuery.ParseResult{} = pr) do
+    pr
     |> PgQuery.ParseResult.encode()
     |> Native.deparse()
   end
+
+  @doc """
+  Normalizes the statement into a parameterized statement
+
+  ## Examples
+
+      iex> PgQuery.normalize("SELECT * FROM dbs WHERE name = 'postgresSQL'")
+      {:ok, "SELECT * FROM dbs WHERE name = $1"}
+
+  """
+  @spec normalize(binary()) :: {:ok, binary()} | {:error, term()}
+  def normalize(stmt), do: Native.normalize(stmt)
 
   @doc """
   Parse the statement and return the ParseResult as a json binary
