@@ -25,16 +25,28 @@ defmodule PgQuery do
   @doc """
   Parse the statement and return the ParseResult as a json binary
 
-  The resulting json binary is not decoded
+  The resulting json binary is not decoded by default pass `decode: true`
+
+  ## Options
+  * `:decode?` - Boolean indicating if the resulting json binary should be decoded into a `PgQuery.ParseResult`
 
   ## Examples
 
       iex> PgQuery.as_json("SELECT * FROM t1")
   """
-  @spec as_json(binary()) :: binary()
-  def as_json(stmt) do
-    with {:ok, json} = _ok <- Native.parse_as_json(stmt) do
-      json
+  @spec as_json(binary(), Keyword.t()) ::
+          {:ok, binary() | PgQuery.ParseResult.t()} | {:error, term()}
+  def as_json(stmt, opts \\ []) do
+    decode? = Keyword.get(opts, :decode?, false)
+
+    decoder =
+      if decode?,
+        do: &Protobuf.JSON.decode(&1, PgQuery.ParseResult),
+        else: &{:ok, &1}
+
+    with {:ok, json} <- Native.parse_as_json(stmt),
+         {:ok, _t} = ok <- decoder.(json) do
+      ok
     end
   end
 
