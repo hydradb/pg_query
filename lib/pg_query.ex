@@ -2,7 +2,10 @@ defmodule PgQuery do
   @moduledoc """
   Documentation for `PgQuery`.
   """
-  alias PgQuery.Native
+  alias __MODULE__.Native
+
+  @type t :: PgQuery.ParseResult.t()
+  @type fingerprint :: {non_neg_integer(), binary()}
 
   @doc """
   Parses the statement into a `PgQuery.ParseResult`
@@ -17,7 +20,7 @@ defmodule PgQuery do
       130003
 
   """
-  @spec parse(binary()) :: {:ok, PgQuery.ParseResult.t()} | {:error, term()}
+  @spec parse(binary()) :: {:ok, t()} | {:error, term()}
   def parse(stmt) do
     with {:ok, proto} <- Native.parse_as_proto(stmt),
          {:ok, _t} = ok <- try_decode(proto, PgQuery.ParseResult) do
@@ -34,7 +37,7 @@ defmodule PgQuery do
       iex> PgQuery.deparse(pr)
       {:ok, "SELECT 1"}
   """
-  @spec deparse(PgQuery.ParseResult.t()) :: {:ok, binary()} | {:error, term()}
+  @spec deparse(t()) :: {:ok, binary()} | {:error, term()}
   def deparse(%PgQuery.ParseResult{} = pr) do
     pr
     |> PgQuery.ParseResult.encode()
@@ -72,7 +75,7 @@ defmodule PgQuery do
       130003
   """
   @spec as_json(binary(), Keyword.t()) ::
-          {:ok, binary() | PgQuery.ParseResult.t()} | {:error, term()}
+          {:ok, binary() | t()} | {:error, term()}
   def as_json(stmt, opts \\ []) do
     decode? = Keyword.get(opts, :decode?, false)
 
@@ -94,9 +97,25 @@ defmodule PgQuery do
      iex> pr.version
      130003
   """
-  @spec from_json(binary()) :: {:ok, PgQuery.ParseResult.t()} | {:error, term()}
+  @spec from_json(binary()) :: {:ok, t()} | {:error, term()}
   def from_json(json) do
     Protobuf.JSON.decode(json, PgQuery.ParseResult)
+  end
+
+  @doc """
+  Fingerprints the given statement.
+
+  The goal of fingerprinting is to allow you to identify similar queries that are different only because of the   specific object that is being queried for (i.e. different user ids/etc), or because of formatting.
+
+  The fingerprint for a parsetree is compatible across different libraries using `libpg_query`.
+
+  ## Examples
+      iex> PgQuery.fingerprint("SELECT 1")
+      {:ok, {5836069208177285818, "50fde20626009aba"}}
+  """
+  @spec fingerprint(binary()) :: {:ok, fingerprint()} | {:error, term()}
+  def fingerprint(stmt) do
+    Native.fingerprint(stmt)
   end
 
   defp try_decode(proto, struct) do

@@ -5,6 +5,7 @@ defmodule PgQuery.Native do
   def parse_as_proto(_stmt), do: err()
   def deparse(_proto), do: err()
   def normalize(_stmt), do: err()
+  def fingerprint(_stmt), do: err()
 
   defp err, do: :erlang.nif_error(:nif_not_loaded)
 end

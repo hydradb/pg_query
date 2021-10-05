@@ -32,4 +32,8 @@ defmodule PGQueryTest do
       assert {:ok, ^stmt} = PgQuery.deparse(pr)
     end
   end
+
+  test "fingerprint returns the fingerprint of the statement" do
+    assert {:ok, {_, _}} = PgQuery.fingerprint("SELECT 1")
+  end
 end

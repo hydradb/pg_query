@@ -1,7 +1,7 @@
 mod query;
 mod types;
 use rustler::{Atom, Binary, Env, Error, NifResult};
-pub use types::PGQueryError;
+pub use types::{FingerPrint, PGQueryError};
 
 mod atoms {
     rustler::atoms! {
@@ -32,7 +32,12 @@ fn normalize(stmt: &str) -> Result<String, PGQueryError> {
     query::normalize(stmt)
 }
 
+#[rustler::nif]
+fn fingerprint(stmt: &str) -> Result<FingerPrint, PGQueryError> {
+    query::fingerprint(stmt)
+}
+
 rustler::init!(
     "Elixir.PgQuery.Native",
-    [parse_as_json, parse_as_proto, deparse, normalize]
+    [parse_as_json, parse_as_proto, deparse, normalize, fingerprint]
 );

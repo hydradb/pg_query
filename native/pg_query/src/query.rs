@@ -1,8 +1,9 @@
-use crate::PGQueryError;
+use crate::{FingerPrint, PGQueryError};
 use pg_query_sys::{
-    pg_query_deparse_protobuf, pg_query_free_deparse_result, pg_query_free_normalize_result,
-    pg_query_free_parse_result, pg_query_free_protobuf_parse_result, pg_query_normalize,
-    pg_query_parse, pg_query_parse_protobuf, PgQueryProtobuf,
+    pg_query_deparse_protobuf, pg_query_fingerprint, pg_query_free_deparse_result,
+    pg_query_free_fingerprint_result, pg_query_free_normalize_result, pg_query_free_parse_result,
+    pg_query_free_protobuf_parse_result, pg_query_normalize, pg_query_parse,
+    pg_query_parse_protobuf, PgQueryProtobuf,
 };
 use rustler::{Binary, OwnedBinary};
 use std::ffi::{CStr, CString};
@@ -98,5 +99,28 @@ pub fn normalize(stmt: &str) -> Result<String, PGQueryError> {
         pg_query_free_normalize_result(result);
 
         Ok(normalized_query)
+    }
+}
+
+pub fn fingerprint(stmt: &str) -> Result<FingerPrint, PGQueryError> {
+    unsafe {
+        let c_str = CString::new(stmt).unwrap();
+        let result = pg_query_fingerprint(c_str.as_ptr() as *const c_char);
+
+        if !result.error.is_null() {
+            let err = (&*result.error).message;
+            let msg = CStr::from_ptr(err).to_string_lossy().into();
+
+            pg_query_free_fingerprint_result(result);
+
+            return Err(PGQueryError::ParseError(msg));
+        }
+
+        let raw = CStr::from_ptr(result.fingerprint_str);
+        let fingerprint = FingerPrint(result.fingerprint, raw.to_string_lossy().to_string());
+
+        pg_query_free_fingerprint_result(result);
+
+        Ok(fingerprint)
     }
 }
