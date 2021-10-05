@@ -48,15 +48,27 @@ defmodule PgQuery do
   def as_json(stmt, opts \\ []) do
     decode? = Keyword.get(opts, :decode?, false)
 
-    decoder =
-      if decode?,
-        do: &Protobuf.JSON.decode(&1, PgQuery.ParseResult),
-        else: &{:ok, &1}
+    decoder = if decode?, do: &from_json/1, else: &{:ok, &1}
 
     with {:ok, json} <- Native.parse_as_json(stmt),
          {:ok, _t} = ok <- decoder.(json) do
       ok
     end
+  end
+
+  @doc """
+  Turns the given JSON string into a `PgQuery.ParseResult`
+
+  ## Examples
+
+     iex> {:ok, json} = PgQuery.as_json("SELECT 1")
+     iex> {:ok, %PgQuery.ParseResult{} = pr} = PgQuery.from_json(json)
+     iex> pr.version
+     130003
+  """
+  @spec from_json(binary()) :: {:ok, PgQuery.ParseResult.t()} | {:error, term()}
+  def from_json(json) do
+    Protobuf.JSON.decode(json, PgQuery.ParseResult)
   end
 
   defp try_decode(proto, struct) do

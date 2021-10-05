@@ -79,19 +79,13 @@ PgQuery.parse("SELECT 1")
 mix escript.install git https://github.com/elixir-protobuf/protobuf.git
 protoc --proto_path=./proto --elixir_out=./lib/pg_query ./proto/pg_query.proto
 ```
-## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `pg_query` to your list of dependencies in `mix.exs`:
+## Installation
 
 ```elixir
 def deps do
   [
-    {:pg_query, "~> 0.1.0"}
+    {:pg_query, github: "hydradb/pg_query", branch: "master", submodules: true}
   ]
 end
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/pg_query](https://hexdocs.pm/pg_query).
