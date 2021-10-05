@@ -18,10 +18,18 @@ defmodule PGQueryTest do
     assert is_binary(json)
   end
 
-  test "the json returned from as_json/2 can be used in from_json/1" do
+  test "json returned from as_json/2 can be used in from_json/1" do
     assert {:ok, json} = PgQuery.as_json("SELECT 1")
     assert {:ok, %PgQuery.ParseResult{} = pr} = PgQuery.from_json(json)
 
     refute Enum.empty?(pr.stmts)
+  end
+
+  test "deparse turns the parse tree into a statement" do
+    stmt = "SELECT * FROM t1"
+
+    for {:ok, pr} <- [PgQuery.as_json(stmt, decode?: true), PgQuery.parse(stmt)] do
+      assert {:ok, ^stmt} = PgQuery.deparse(pr)
+    end
   end
 end

@@ -22,4 +22,12 @@ fn parse_as_proto<'a>(env: Env<'a>, stmt: &'a str) -> NifResult<(Atom, Binary<'a
     }
 }
 
-rustler::init!("Elixir.PgQuery.Native", [parse_as_json, parse_as_proto]);
+#[rustler::nif]
+fn deparse(tree: Binary) -> Result<String, PGQueryError> {
+    query::deparse(tree)
+}
+
+rustler::init!(
+    "Elixir.PgQuery.Native",
+    [parse_as_json, parse_as_proto, deparse]
+);

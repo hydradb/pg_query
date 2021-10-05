@@ -1,9 +1,9 @@
 use crate::PGQueryError;
 use pg_query_sys::{
-    pg_query_free_parse_result, pg_query_free_protobuf_parse_result, pg_query_parse,
-    pg_query_parse_protobuf,
+    pg_query_free_deparse_result, pg_query_free_parse_result, pg_query_free_protobuf_parse_result,
+    pg_query_parse, pg_query_parse_protobuf, PgQueryProtobuf,
 };
-use rustler::OwnedBinary;
+use rustler::{Binary, OwnedBinary};
 use std::ffi::{CStr, CString};
 use std::os::raw::c_char;
 
@@ -51,5 +51,28 @@ pub fn parse_as_protobuf(stmt: &str) -> Result<OwnedBinary, PGQueryError> {
         pg_query_free_protobuf_parse_result(result);
 
         Ok(erl_bin)
+    }
+}
+
+pub fn deparse(proto: Binary) -> Result<String, PGQueryError> {
+    unsafe {
+        let tree = PgQueryProtobuf {
+            len: proto.len() as u32,
+            data: proto.as_slice().as_ptr() as *mut i8,
+        };
+        let result = pg_query_sys::pg_query_deparse_protobuf(tree);
+
+        if !result.error.is_null() {
+            let err = (&*result.error).message;
+            let msg = CStr::from_ptr(err).to_string_lossy().into();
+
+            pg_query_free_deparse_result(result);
+
+            return Err(PGQueryError::ParseError(msg));
+        }
+
+        let stmt = CStr::from_ptr(result.query).to_string_lossy().into();
+
+        Ok(stmt)
     }
 }

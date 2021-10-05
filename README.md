@@ -6,12 +6,12 @@ It uses [pg_query](https://github.com/pganalyze/pg_query) embedded as a rust nif
 
 ## Features
 
-* - [x] Parse postgresSQL statements into a parse tree either as a struct or json
-* - [] Modify the parse tree
-* - [] Normalize
-* - [] Deparse
-* - [] Scan
-* - [] PL/pgSQL Parsing
+- [x] Parse postgresSQL statements into a parse tree either as a struct or json
+- [X] Deparse
+- [] Modify the parse tree
+- [] Normalize
+- [] Scan
+- [] PL/pgSQL Parsing
 
 ## Usage
 

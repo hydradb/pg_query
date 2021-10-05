@@ -26,6 +26,22 @@ defmodule PgQuery do
   end
 
   @doc """
+  Deparses the parse tree into a String statement
+
+  ## Examples
+
+      iex> {:ok, pr} = PgQuery.parse("SELECT 1")
+      iex> PgQuery.deparse(pr)
+      {:ok, "SELECT 1"}
+  """
+  @spec deparse(PgQuery.ParseResult.t()) :: term()
+  def deparse(parse_result) do
+    parse_result
+    |> PgQuery.ParseResult.encode()
+    |> Native.deparse()
+  end
+
+  @doc """
   Parse the statement and return the ParseResult as a json binary
 
   The resulting json binary is not decoded by default pass `decode: true`
