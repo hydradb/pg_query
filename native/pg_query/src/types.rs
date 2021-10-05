@@ -1,23 +1,13 @@
-use rustler::NifStruct;
-
-rustler::atoms! {
-    ok,
-    error
+use rustler::{Encoder, Env, Term};
+#[derive(Debug)]
+pub enum PGQueryError {
+    ParseError(String),
 }
 
-#[derive(NifStruct)]
-#[module = "PGQuery.Ast"]
-pub struct Ast {
-    pub tree: String
-}
-
-// pub enum PGQueryError {
-//     #[error("Parse error {0}")]
-//     ParseError(String)
-// }
-
-impl Ast {
-    pub fn new(tree: String) -> Self {
-        Self { tree }
+impl<'a> Encoder for PGQueryError {
+    fn encode<'b>(&self, env: Env<'b>) -> Term<'b> {
+        match self {
+            PGQueryError::ParseError(msg) => format!("ParseError: {0}", msg).encode(env),
+        }
     }
 }

@@ -21,7 +21,10 @@ defmodule PGQuery.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:rustler, "~> 0.22.0"}
+      {:rustler, "~> 0.22.0"},
+      {:jason, "~> 1.2"},
+      {:protobuf, github: "elixir-protobuf/protobuf"},
+      {:benchee, "~> 1.0", only: :dev}
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
     ]
