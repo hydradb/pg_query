@@ -1,4 +1,8 @@
-# PGQuery
+# PgQuery
+
+---
+
+![CI](https://github.com/hydradb/pg_query/actions/workflows/ci.yml/badge.svg)
 
 A library to parse postgreSQL queries.
 
@@ -7,9 +11,9 @@ It uses [pg_query](https://github.com/pganalyze/pg_query) embedded as a rust nif
 ## Features
 
 - [x] Parse postgresSQL statements into a parse tree either as a struct or json
-- [X] Deparse
+- [X] Deparse - Turn the parse tree back into a statement 
+- [X] Normalize - Turn a statement into a parameterized statement
 - [] Modify the parse tree
-- [] Normalize
 - [] Scan
 - [] PL/pgSQL Parsing
 
