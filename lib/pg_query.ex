@@ -12,7 +12,10 @@ defmodule PgQuery do
 
   ## Examples
 
-      iex> PgQuery.parse("SELECT * FROM t1")
+      iex> {:ok,%PgQuery.ParseResult{} = r} =  PgQuery.parse("SELECT * FROM t1")
+      iex> r.version
+      130003
+
   """
   @spec parse(binary()) :: {:ok, PgQuery.ParseResult.t()} | {:error, term()}
   def parse(stmt) do
@@ -32,7 +35,13 @@ defmodule PgQuery do
 
   ## Examples
 
-      iex> PgQuery.as_json("SELECT * FROM t1")
+      iex> {:ok, json} = PgQuery.as_json("SELECT * FROM t1")
+      iex> is_binary(json)
+      true
+
+      iex> {:ok, %PgQuery.ParseResult{} = r} = PgQuery.as_json("SELECT * FROM t1", decode?: true)
+      iex> r.version
+      130003
   """
   @spec as_json(binary(), Keyword.t()) ::
           {:ok, binary() | PgQuery.ParseResult.t()} | {:error, term()}
@@ -50,7 +59,7 @@ defmodule PgQuery do
     end
   end
 
-  def try_decode(proto, struct) do
+  defp try_decode(proto, struct) do
     try do
       decoded = Protobuf.decode(proto, struct)
       {:ok, decoded}
