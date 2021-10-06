@@ -39,5 +39,11 @@ fn fingerprint(stmt: &str) -> Result<FingerPrint, PGQueryError> {
 
 rustler::init!(
     "Elixir.PgQuery.Native",
-    [parse_as_json, parse_as_proto, deparse, normalize, fingerprint]
+    [
+        parse_as_json,
+        parse_as_proto,
+        deparse,
+        normalize,
+        fingerprint
+    ]
 );

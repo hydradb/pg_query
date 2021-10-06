@@ -43,8 +43,8 @@ pub fn parse_as_protobuf(stmt: &str) -> Result<OwnedBinary, PGQueryError> {
             return Err(PGQueryError::ParseError(msg));
         }
 
-        let mut erl_bin = OwnedBinary::new(result.parse_tree.len as usize).unwrap();
-        erl_bin
+        let mut proto = OwnedBinary::new(result.parse_tree.len as usize).unwrap();
+        proto
             .as_mut_slice()
             .copy_from_slice(std::slice::from_raw_parts(
                 result.parse_tree.data as *const u8,
@@ -52,7 +52,7 @@ pub fn parse_as_protobuf(stmt: &str) -> Result<OwnedBinary, PGQueryError> {
             ));
         pg_query_free_protobuf_parse_result(result);
 
-        Ok(erl_bin)
+        Ok(proto)
     }
 }
 

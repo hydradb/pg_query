@@ -13,7 +13,7 @@ impl<'a> Encoder for PGQueryError {
     }
 }
 
-impl<'a> Encoder for FingerPrint  {
+impl<'a> Encoder for FingerPrint {
     fn encode<'b>(&self, env: Env<'b>) -> Term<'b> {
         (self.0, self.1.clone()).encode(env)
     }
