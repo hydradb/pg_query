@@ -47,6 +47,7 @@ defmodule PGQuery.MixProject do
     [
       {:rustler, "~> 0.22.0"},
       {:jason, "~> 1.2"},
+      {:accessible, "~> 0.3.0"},
       {:protobuf, github: "elixir-protobuf/protobuf"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:benchee, "~> 1.0", only: :dev}

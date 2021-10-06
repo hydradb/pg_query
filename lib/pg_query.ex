@@ -52,6 +52,9 @@ defmodule PgQuery do
       iex> PgQuery.normalize("SELECT * FROM dbs WHERE name = 'postgresSQL'")
       {:ok, "SELECT * FROM dbs WHERE name = $1"}
 
+      iex> stmt = "SELECT * FROM dbs WHERE name = 'postgresSQL'"
+      iex> stmt |> PgQuery.normalize() |> elem(1) |> PgQuery.parse()
+
   """
   @spec normalize(binary()) :: {:ok, binary()} | {:error, term()}
   def normalize(stmt), do: Native.normalize(stmt)
