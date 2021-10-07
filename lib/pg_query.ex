@@ -1,7 +1,6 @@
 defmodule PgQuery do
-  @moduledoc """
-  Documentation for `PgQuery`.
-  """
+  @moduledoc File.read!(Path.join([__DIR__, "..", "README.md"]))
+
   alias __MODULE__.Native
 
   @type t :: PgQuery.ParseResult.t()
@@ -29,6 +28,16 @@ defmodule PgQuery do
   end
 
   @doc """
+  Bang version of `parse/1`. Raises `PgQuery.Error` on errors.
+
+  See `parse/1` for more information
+  """
+  @spec parse!(binary()) :: t() | no_return()
+  def parse!(stmt) do
+    ok_or_raise(&parse/1, [stmt])
+  end
+
+  @doc """
   Deparses the parse tree into a String statement
 
   ## Examples
@@ -45,6 +54,16 @@ defmodule PgQuery do
   end
 
   @doc """
+  Bang version of `deparse/1`. Raises `PgQuery.Error` on errors.
+
+  See `deparse/1` for more information
+  """
+  @spec deparse!(t()) :: binary() | no_return()
+  def deparse!(pr) do
+    ok_or_raise(&deparse/1, [pr])
+  end
+
+  @doc """
   Normalizes the statement into a parameterized statement
 
   ## Examples
@@ -58,6 +77,16 @@ defmodule PgQuery do
   """
   @spec normalize(binary()) :: {:ok, binary()} | {:error, term()}
   def normalize(stmt), do: Native.normalize(stmt)
+
+  @doc """
+  Bang version of `normalize/1`. Raises `PgQuery.Error` on errors.
+
+  See `normalize/1` for more information
+  """
+  @spec normalize!(binary()) :: binary() | no_return()
+  def normalize!(stmt) do
+    ok_or_raise(&normalize/1, [stmt])
+  end
 
   @doc """
   Parse the statement and return the ParseResult as a json binary
@@ -88,6 +117,16 @@ defmodule PgQuery do
          {:ok, _t} = ok <- decoder.(json) do
       ok
     end
+  end
+
+  @doc """
+  Bang version of `as_json/2`. Raises `PgQuery.Error` on errors.
+
+  See `as_json/2` for more information
+  """
+  @spec as_json!(binary()) :: binary() | t() | no_return()
+  def as_json!(stmt, opts \\ []) do
+    ok_or_raise(&as_json/2, [stmt, opts])
   end
 
   @doc """
@@ -127,6 +166,13 @@ defmodule PgQuery do
       {:ok, decoded}
     rescue
       e in Protobuf.DecodeError -> {:error, e.message <> ": #{inspect(proto)}"}
+    end
+  end
+
+  defp ok_or_raise(fun, args) do
+    case apply(fun, args) do
+      {:ok, return} -> return
+      {:error, reason} -> raise PgQuery.Error, reason
     end
   end
 end
