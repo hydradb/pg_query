@@ -1,4 +1,4 @@
-defmodule PGQueryTest do
+defmodule PgQueryTest do
   use ExUnit.Case
   doctest PgQuery
 

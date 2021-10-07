@@ -1,4 +1,4 @@
-defmodule PGQuery.MixProject do
+defmodule PgQuery.MixProject do
   use Mix.Project
 
   @version "0.1.0"
@@ -36,7 +36,7 @@ defmodule PGQuery.MixProject do
 
   defp docs do
     [
-      main: "pg_query",
+      main: "PgQuery",
       source_url: @source_url,
       source_ref: "v#{@version}"
     ]

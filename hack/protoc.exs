@@ -96,4 +96,3 @@ defmodule Runner do
 end
 
 Runner.run(File.cwd!())
-Access.at!()

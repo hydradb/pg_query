@@ -4,16 +4,20 @@
 
 ![CI](https://github.com/hydradb/pg_query/actions/workflows/ci.yml/badge.svg)
 
-A library to parse postgreSQL queries.
+Rust NIF to postgreSQL parser.
 
-It uses [pg_query](https://github.com/pganalyze/pg_query) embedded as a rust nif.
+It uses [libpg_query](https://github.com/pganalyze/libpg_query) which builds parts of the postgreSQL server source.
+
+`pg_query.ex` enables parsing SQL queries into the internal postgreSQL parsetree. 
+As well as deparsing the parsetree into a statement.
+
 
 ## Features
 
 - [x] Parse postgresSQL statements into a parse tree either as a struct or json
 - [X] Deparse - Turn the parse tree back into a statement 
 - [X] Normalize - Turn a statement into a parameterized statement
-- [] Modify the parse tree
+- [X] Access / Modify the parse tree using the [`Access`](https://hexdocs.pm/elixir/Access.html) behaviour
 - [] Scan
 - [] PL/pgSQL Parsing
 
@@ -77,11 +81,39 @@ PgQuery.parse("SELECT 1")
  }}
 ```
 
-## Generate protobuf
+### Modify and deparse
 
+* Replaces all table names with `old_<table_name>`
+
+```elixir
+import PgQuery.Transforms, only: [get_and_update: 3]
+
+{:ok, pr} = PgQuery.parse("SELECT * FROM t1")
+
+update_from = fn {node_kind, from} ->
+  {node_kind, %{from | relname: "old_#{from.relname}"}}
+end
+
+update_select = fn {node_kind, select} ->
+  value = get_and_update(select, [:from_clause, Access.at(0), :node], update_from)
+  {node_kind, value}
+end
+
+pr 
+|> get_and_update([:stmts, Access.at!(0), :stmt, :node], update_select) 
+|> PgQuery.deparse()
+
+{:ok, "SELECT * FROM old_t1"}
 ```
-mix escript.install git https://github.com/elixir-protobuf/protobuf.git
-protoc --proto_path=./proto --elixir_out=./lib/pg_query ./proto/pg_query.proto
+
+### Normalize
+
+* Normalize (parameterize) the given statement
+
+```elixir
+"SELECT * FROM posts WHERE author = 'Mike'" 
+|> PgQuery.normalize!()
+|> PgQuery.parse!()
 ```
 
 ## Installation
