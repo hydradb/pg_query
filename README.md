@@ -125,3 +125,18 @@ def deps do
   ]
 end
 ```
+
+## Development
+
+* Install protoc plugin from github
+
+```
+mix escript.install github elixir-protobuf/protobuf
+```
+
+* Regenerate proto
+
+``` elixir
+mix run hack/protoc --no-compile
+```
+

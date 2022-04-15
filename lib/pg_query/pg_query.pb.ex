@@ -1,33 +1,17 @@
-defmodule(PgQuery.OverridingKind) do
+defmodule PgQuery.OverridingKind do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :OVERRIDING_KIND_UNDEFINED
-          | :OVERRIDING_NOT_SET
-          | :OVERRIDING_USER_VALUE
-          | :OVERRIDING_SYSTEM_VALUE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:OVERRIDING_KIND_UNDEFINED, 0)
   field(:OVERRIDING_NOT_SET, 1)
   field(:OVERRIDING_USER_VALUE, 2)
   field(:OVERRIDING_SYSTEM_VALUE, 3)
 end
 
-defmodule(PgQuery.QuerySource) do
+defmodule PgQuery.QuerySource do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :QUERY_SOURCE_UNDEFINED
-          | :QSRC_ORIGINAL
-          | :QSRC_PARSER
-          | :QSRC_INSTEAD_RULE
-          | :QSRC_QUAL_INSTEAD_RULE
-          | :QSRC_NON_INSTEAD_RULE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:QUERY_SOURCE_UNDEFINED, 0)
   field(:QSRC_ORIGINAL, 1)
   field(:QSRC_PARSER, 2)
@@ -36,18 +20,10 @@ defmodule(PgQuery.QuerySource) do
   field(:QSRC_NON_INSTEAD_RULE, 5)
 end
 
-defmodule(PgQuery.SortByDir) do
+defmodule PgQuery.SortByDir do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :SORT_BY_DIR_UNDEFINED
-          | :SORTBY_DEFAULT
-          | :SORTBY_ASC
-          | :SORTBY_DESC
-          | :SORTBY_USING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:SORT_BY_DIR_UNDEFINED, 0)
   field(:SORTBY_DEFAULT, 1)
   field(:SORTBY_ASC, 2)
@@ -55,47 +31,20 @@ defmodule(PgQuery.SortByDir) do
   field(:SORTBY_USING, 4)
 end
 
-defmodule(PgQuery.SortByNulls) do
+defmodule PgQuery.SortByNulls do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :SORT_BY_NULLS_UNDEFINED
-          | :SORTBY_NULLS_DEFAULT
-          | :SORTBY_NULLS_FIRST
-          | :SORTBY_NULLS_LAST
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:SORT_BY_NULLS_UNDEFINED, 0)
   field(:SORTBY_NULLS_DEFAULT, 1)
   field(:SORTBY_NULLS_FIRST, 2)
   field(:SORTBY_NULLS_LAST, 3)
 end
 
-defmodule(PgQuery.A_Expr_Kind) do
+defmodule PgQuery.A_Expr_Kind do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :A_EXPR_KIND_UNDEFINED
-          | :AEXPR_OP
-          | :AEXPR_OP_ANY
-          | :AEXPR_OP_ALL
-          | :AEXPR_DISTINCT
-          | :AEXPR_NOT_DISTINCT
-          | :AEXPR_NULLIF
-          | :AEXPR_OF
-          | :AEXPR_IN
-          | :AEXPR_LIKE
-          | :AEXPR_ILIKE
-          | :AEXPR_SIMILAR
-          | :AEXPR_BETWEEN
-          | :AEXPR_NOT_BETWEEN
-          | :AEXPR_BETWEEN_SYM
-          | :AEXPR_NOT_BETWEEN_SYM
-          | :AEXPR_PAREN
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:A_EXPR_KIND_UNDEFINED, 0)
   field(:AEXPR_OP, 1)
   field(:AEXPR_OP_ANY, 2)
@@ -115,18 +64,10 @@ defmodule(PgQuery.A_Expr_Kind) do
   field(:AEXPR_PAREN, 16)
 end
 
-defmodule(PgQuery.RoleSpecType) do
+defmodule PgQuery.RoleSpecType do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :ROLE_SPEC_TYPE_UNDEFINED
-          | :ROLESPEC_CSTRING
-          | :ROLESPEC_CURRENT_USER
-          | :ROLESPEC_SESSION_USER
-          | :ROLESPEC_PUBLIC
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:ROLE_SPEC_TYPE_UNDEFINED, 0)
   field(:ROLESPEC_CSTRING, 1)
   field(:ROLESPEC_CURRENT_USER, 2)
@@ -134,23 +75,10 @@ defmodule(PgQuery.RoleSpecType) do
   field(:ROLESPEC_PUBLIC, 4)
 end
 
-defmodule(PgQuery.TableLikeOption) do
+defmodule PgQuery.TableLikeOption do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :TABLE_LIKE_OPTION_UNDEFINED
-          | :CREATE_TABLE_LIKE_COMMENTS
-          | :CREATE_TABLE_LIKE_CONSTRAINTS
-          | :CREATE_TABLE_LIKE_DEFAULTS
-          | :CREATE_TABLE_LIKE_GENERATED
-          | :CREATE_TABLE_LIKE_IDENTITY
-          | :CREATE_TABLE_LIKE_INDEXES
-          | :CREATE_TABLE_LIKE_STATISTICS
-          | :CREATE_TABLE_LIKE_STORAGE
-          | :CREATE_TABLE_LIKE_ALL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:TABLE_LIKE_OPTION_UNDEFINED, 0)
   field(:CREATE_TABLE_LIKE_COMMENTS, 1)
   field(:CREATE_TABLE_LIKE_CONSTRAINTS, 2)
@@ -163,18 +91,10 @@ defmodule(PgQuery.TableLikeOption) do
   field(:CREATE_TABLE_LIKE_ALL, 9)
 end
 
-defmodule(PgQuery.DefElemAction) do
+defmodule PgQuery.DefElemAction do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :DEF_ELEM_ACTION_UNDEFINED
-          | :DEFELEM_UNSPEC
-          | :DEFELEM_SET
-          | :DEFELEM_ADD
-          | :DEFELEM_DROP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:DEF_ELEM_ACTION_UNDEFINED, 0)
   field(:DEFELEM_UNSPEC, 1)
   field(:DEFELEM_SET, 2)
@@ -182,40 +102,20 @@ defmodule(PgQuery.DefElemAction) do
   field(:DEFELEM_DROP, 4)
 end
 
-defmodule(PgQuery.PartitionRangeDatumKind) do
+defmodule PgQuery.PartitionRangeDatumKind do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :PARTITION_RANGE_DATUM_KIND_UNDEFINED
-          | :PARTITION_RANGE_DATUM_MINVALUE
-          | :PARTITION_RANGE_DATUM_VALUE
-          | :PARTITION_RANGE_DATUM_MAXVALUE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:PARTITION_RANGE_DATUM_KIND_UNDEFINED, 0)
   field(:PARTITION_RANGE_DATUM_MINVALUE, 1)
   field(:PARTITION_RANGE_DATUM_VALUE, 2)
   field(:PARTITION_RANGE_DATUM_MAXVALUE, 3)
 end
 
-defmodule(PgQuery.RTEKind) do
+defmodule PgQuery.RTEKind do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :RTEKIND_UNDEFINED
-          | :RTE_RELATION
-          | :RTE_SUBQUERY
-          | :RTE_JOIN
-          | :RTE_FUNCTION
-          | :RTE_TABLEFUNC
-          | :RTE_VALUES
-          | :RTE_CTE
-          | :RTE_NAMEDTUPLESTORE
-          | :RTE_RESULT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:RTEKIND_UNDEFINED, 0)
   field(:RTE_RELATION, 1)
   field(:RTE_SUBQUERY, 2)
@@ -228,18 +128,10 @@ defmodule(PgQuery.RTEKind) do
   field(:RTE_RESULT, 9)
 end
 
-defmodule(PgQuery.WCOKind) do
+defmodule PgQuery.WCOKind do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :WCOKIND_UNDEFINED
-          | :WCO_VIEW_CHECK
-          | :WCO_RLS_INSERT_CHECK
-          | :WCO_RLS_UPDATE_CHECK
-          | :WCO_RLS_CONFLICT_CHECK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:WCOKIND_UNDEFINED, 0)
   field(:WCO_VIEW_CHECK, 1)
   field(:WCO_RLS_INSERT_CHECK, 2)
@@ -247,19 +139,10 @@ defmodule(PgQuery.WCOKind) do
   field(:WCO_RLS_CONFLICT_CHECK, 4)
 end
 
-defmodule(PgQuery.GroupingSetKind) do
+defmodule PgQuery.GroupingSetKind do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :GROUPING_SET_KIND_UNDEFINED
-          | :GROUPING_SET_EMPTY
-          | :GROUPING_SET_SIMPLE
-          | :GROUPING_SET_ROLLUP
-          | :GROUPING_SET_CUBE
-          | :GROUPING_SET_SETS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:GROUPING_SET_KIND_UNDEFINED, 0)
   field(:GROUPING_SET_EMPTY, 1)
   field(:GROUPING_SET_SIMPLE, 2)
@@ -268,35 +151,20 @@ defmodule(PgQuery.GroupingSetKind) do
   field(:GROUPING_SET_SETS, 5)
 end
 
-defmodule(PgQuery.CTEMaterialize) do
+defmodule PgQuery.CTEMaterialize do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :CTEMATERIALIZE_UNDEFINED
-          | :CTEMaterializeDefault
-          | :CTEMaterializeAlways
-          | :CTEMaterializeNever
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:CTEMATERIALIZE_UNDEFINED, 0)
   field(:CTEMaterializeDefault, 1)
   field(:CTEMaterializeAlways, 2)
   field(:CTEMaterializeNever, 3)
 end
 
-defmodule(PgQuery.SetOperation) do
+defmodule PgQuery.SetOperation do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :SET_OPERATION_UNDEFINED
-          | :SETOP_NONE
-          | :SETOP_UNION
-          | :SETOP_INTERSECT
-          | :SETOP_EXCEPT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:SET_OPERATION_UNDEFINED, 0)
   field(:SETOP_NONE, 1)
   field(:SETOP_UNION, 2)
@@ -304,64 +172,10 @@ defmodule(PgQuery.SetOperation) do
   field(:SETOP_EXCEPT, 4)
 end
 
-defmodule(PgQuery.ObjectType) do
+defmodule PgQuery.ObjectType do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :OBJECT_TYPE_UNDEFINED
-          | :OBJECT_ACCESS_METHOD
-          | :OBJECT_AGGREGATE
-          | :OBJECT_AMOP
-          | :OBJECT_AMPROC
-          | :OBJECT_ATTRIBUTE
-          | :OBJECT_CAST
-          | :OBJECT_COLUMN
-          | :OBJECT_COLLATION
-          | :OBJECT_CONVERSION
-          | :OBJECT_DATABASE
-          | :OBJECT_DEFAULT
-          | :OBJECT_DEFACL
-          | :OBJECT_DOMAIN
-          | :OBJECT_DOMCONSTRAINT
-          | :OBJECT_EVENT_TRIGGER
-          | :OBJECT_EXTENSION
-          | :OBJECT_FDW
-          | :OBJECT_FOREIGN_SERVER
-          | :OBJECT_FOREIGN_TABLE
-          | :OBJECT_FUNCTION
-          | :OBJECT_INDEX
-          | :OBJECT_LANGUAGE
-          | :OBJECT_LARGEOBJECT
-          | :OBJECT_MATVIEW
-          | :OBJECT_OPCLASS
-          | :OBJECT_OPERATOR
-          | :OBJECT_OPFAMILY
-          | :OBJECT_POLICY
-          | :OBJECT_PROCEDURE
-          | :OBJECT_PUBLICATION
-          | :OBJECT_PUBLICATION_REL
-          | :OBJECT_ROLE
-          | :OBJECT_ROUTINE
-          | :OBJECT_RULE
-          | :OBJECT_SCHEMA
-          | :OBJECT_SEQUENCE
-          | :OBJECT_SUBSCRIPTION
-          | :OBJECT_STATISTIC_EXT
-          | :OBJECT_TABCONSTRAINT
-          | :OBJECT_TABLE
-          | :OBJECT_TABLESPACE
-          | :OBJECT_TRANSFORM
-          | :OBJECT_TRIGGER
-          | :OBJECT_TSCONFIGURATION
-          | :OBJECT_TSDICTIONARY
-          | :OBJECT_TSPARSER
-          | :OBJECT_TSTEMPLATE
-          | :OBJECT_TYPE
-          | :OBJECT_USER_MAPPING
-          | :OBJECT_VIEW
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:OBJECT_TYPE_UNDEFINED, 0)
   field(:OBJECT_ACCESS_METHOD, 1)
   field(:OBJECT_AGGREGATE, 2)
@@ -415,91 +229,19 @@ defmodule(PgQuery.ObjectType) do
   field(:OBJECT_VIEW, 50)
 end
 
-defmodule(PgQuery.DropBehavior) do
+defmodule PgQuery.DropBehavior do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-  @type t :: integer | :DROP_BEHAVIOR_UNDEFINED | :DROP_RESTRICT | :DROP_CASCADE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:DROP_BEHAVIOR_UNDEFINED, 0)
   field(:DROP_RESTRICT, 1)
   field(:DROP_CASCADE, 2)
 end
 
-defmodule(PgQuery.AlterTableType) do
+defmodule PgQuery.AlterTableType do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :ALTER_TABLE_TYPE_UNDEFINED
-          | :AT_AddColumn
-          | :AT_AddColumnRecurse
-          | :AT_AddColumnToView
-          | :AT_ColumnDefault
-          | :AT_CookedColumnDefault
-          | :AT_DropNotNull
-          | :AT_SetNotNull
-          | :AT_DropExpression
-          | :AT_CheckNotNull
-          | :AT_SetStatistics
-          | :AT_SetOptions
-          | :AT_ResetOptions
-          | :AT_SetStorage
-          | :AT_DropColumn
-          | :AT_DropColumnRecurse
-          | :AT_AddIndex
-          | :AT_ReAddIndex
-          | :AT_AddConstraint
-          | :AT_AddConstraintRecurse
-          | :AT_ReAddConstraint
-          | :AT_ReAddDomainConstraint
-          | :AT_AlterConstraint
-          | :AT_ValidateConstraint
-          | :AT_ValidateConstraintRecurse
-          | :AT_AddIndexConstraint
-          | :AT_DropConstraint
-          | :AT_DropConstraintRecurse
-          | :AT_ReAddComment
-          | :AT_AlterColumnType
-          | :AT_AlterColumnGenericOptions
-          | :AT_ChangeOwner
-          | :AT_ClusterOn
-          | :AT_DropCluster
-          | :AT_SetLogged
-          | :AT_SetUnLogged
-          | :AT_DropOids
-          | :AT_SetTableSpace
-          | :AT_SetRelOptions
-          | :AT_ResetRelOptions
-          | :AT_ReplaceRelOptions
-          | :AT_EnableTrig
-          | :AT_EnableAlwaysTrig
-          | :AT_EnableReplicaTrig
-          | :AT_DisableTrig
-          | :AT_EnableTrigAll
-          | :AT_DisableTrigAll
-          | :AT_EnableTrigUser
-          | :AT_DisableTrigUser
-          | :AT_EnableRule
-          | :AT_EnableAlwaysRule
-          | :AT_EnableReplicaRule
-          | :AT_DisableRule
-          | :AT_AddInherit
-          | :AT_DropInherit
-          | :AT_AddOf
-          | :AT_DropOf
-          | :AT_ReplicaIdentity
-          | :AT_EnableRowSecurity
-          | :AT_DisableRowSecurity
-          | :AT_ForceRowSecurity
-          | :AT_NoForceRowSecurity
-          | :AT_GenericOptions
-          | :AT_AttachPartition
-          | :AT_DetachPartition
-          | :AT_AddIdentity
-          | :AT_SetIdentity
-          | :AT_DropIdentity
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:ALTER_TABLE_TYPE_UNDEFINED, 0)
   field(:AT_AddColumn, 1)
   field(:AT_AddColumnRecurse, 2)
@@ -570,37 +312,20 @@ defmodule(PgQuery.AlterTableType) do
   field(:AT_DropIdentity, 67)
 end
 
-defmodule(PgQuery.GrantTargetType) do
+defmodule PgQuery.GrantTargetType do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :GRANT_TARGET_TYPE_UNDEFINED
-          | :ACL_TARGET_OBJECT
-          | :ACL_TARGET_ALL_IN_SCHEMA
-          | :ACL_TARGET_DEFAULTS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:GRANT_TARGET_TYPE_UNDEFINED, 0)
   field(:ACL_TARGET_OBJECT, 1)
   field(:ACL_TARGET_ALL_IN_SCHEMA, 2)
   field(:ACL_TARGET_DEFAULTS, 3)
 end
 
-defmodule(PgQuery.VariableSetKind) do
+defmodule PgQuery.VariableSetKind do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :VARIABLE_SET_KIND_UNDEFINED
-          | :VAR_SET_VALUE
-          | :VAR_SET_DEFAULT
-          | :VAR_SET_CURRENT
-          | :VAR_SET_MULTI
-          | :VAR_RESET
-          | :VAR_RESET_ALL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:VARIABLE_SET_KIND_UNDEFINED, 0)
   field(:VAR_SET_VALUE, 1)
   field(:VAR_SET_DEFAULT, 2)
@@ -610,28 +335,10 @@ defmodule(PgQuery.VariableSetKind) do
   field(:VAR_RESET_ALL, 6)
 end
 
-defmodule(PgQuery.ConstrType) do
+defmodule PgQuery.ConstrType do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :CONSTR_TYPE_UNDEFINED
-          | :CONSTR_NULL
-          | :CONSTR_NOTNULL
-          | :CONSTR_DEFAULT
-          | :CONSTR_IDENTITY
-          | :CONSTR_GENERATED
-          | :CONSTR_CHECK
-          | :CONSTR_PRIMARY
-          | :CONSTR_UNIQUE
-          | :CONSTR_EXCLUSION
-          | :CONSTR_FOREIGN
-          | :CONSTR_ATTR_DEFERRABLE
-          | :CONSTR_ATTR_NOT_DEFERRABLE
-          | :CONSTR_ATTR_DEFERRED
-          | :CONSTR_ATTR_IMMEDIATE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:CONSTR_TYPE_UNDEFINED, 0)
   field(:CONSTR_NULL, 1)
   field(:CONSTR_NOTNULL, 2)
@@ -649,48 +356,30 @@ defmodule(PgQuery.ConstrType) do
   field(:CONSTR_ATTR_IMMEDIATE, 14)
 end
 
-defmodule(PgQuery.ImportForeignSchemaType) do
+defmodule PgQuery.ImportForeignSchemaType do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :IMPORT_FOREIGN_SCHEMA_TYPE_UNDEFINED
-          | :FDW_IMPORT_SCHEMA_ALL
-          | :FDW_IMPORT_SCHEMA_LIMIT_TO
-          | :FDW_IMPORT_SCHEMA_EXCEPT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:IMPORT_FOREIGN_SCHEMA_TYPE_UNDEFINED, 0)
   field(:FDW_IMPORT_SCHEMA_ALL, 1)
   field(:FDW_IMPORT_SCHEMA_LIMIT_TO, 2)
   field(:FDW_IMPORT_SCHEMA_EXCEPT, 3)
 end
 
-defmodule(PgQuery.RoleStmtType) do
+defmodule PgQuery.RoleStmtType do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer | :ROLE_STMT_TYPE_UNDEFINED | :ROLESTMT_ROLE | :ROLESTMT_USER | :ROLESTMT_GROUP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:ROLE_STMT_TYPE_UNDEFINED, 0)
   field(:ROLESTMT_ROLE, 1)
   field(:ROLESTMT_USER, 2)
   field(:ROLESTMT_GROUP, 3)
 end
 
-defmodule(PgQuery.FetchDirection) do
+defmodule PgQuery.FetchDirection do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :FETCH_DIRECTION_UNDEFINED
-          | :FETCH_FORWARD
-          | :FETCH_BACKWARD
-          | :FETCH_ABSOLUTE
-          | :FETCH_RELATIVE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:FETCH_DIRECTION_UNDEFINED, 0)
   field(:FETCH_FORWARD, 1)
   field(:FETCH_BACKWARD, 2)
@@ -698,19 +387,10 @@ defmodule(PgQuery.FetchDirection) do
   field(:FETCH_RELATIVE, 4)
 end
 
-defmodule(PgQuery.FunctionParameterMode) do
+defmodule PgQuery.FunctionParameterMode do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :FUNCTION_PARAMETER_MODE_UNDEFINED
-          | :FUNC_PARAM_IN
-          | :FUNC_PARAM_OUT
-          | :FUNC_PARAM_INOUT
-          | :FUNC_PARAM_VARIADIC
-          | :FUNC_PARAM_TABLE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:FUNCTION_PARAMETER_MODE_UNDEFINED, 0)
   field(:FUNC_PARAM_IN, 1)
   field(:FUNC_PARAM_OUT, 2)
@@ -719,24 +399,10 @@ defmodule(PgQuery.FunctionParameterMode) do
   field(:FUNC_PARAM_TABLE, 5)
 end
 
-defmodule(PgQuery.TransactionStmtKind) do
+defmodule PgQuery.TransactionStmtKind do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :TRANSACTION_STMT_KIND_UNDEFINED
-          | :TRANS_STMT_BEGIN
-          | :TRANS_STMT_START
-          | :TRANS_STMT_COMMIT
-          | :TRANS_STMT_ROLLBACK
-          | :TRANS_STMT_SAVEPOINT
-          | :TRANS_STMT_RELEASE
-          | :TRANS_STMT_ROLLBACK_TO
-          | :TRANS_STMT_PREPARE
-          | :TRANS_STMT_COMMIT_PREPARED
-          | :TRANS_STMT_ROLLBACK_PREPARED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:TRANSACTION_STMT_KIND_UNDEFINED, 0)
   field(:TRANS_STMT_BEGIN, 1)
   field(:TRANS_STMT_START, 2)
@@ -750,45 +416,29 @@ defmodule(PgQuery.TransactionStmtKind) do
   field(:TRANS_STMT_ROLLBACK_PREPARED, 10)
 end
 
-defmodule(PgQuery.ViewCheckOption) do
+defmodule PgQuery.ViewCheckOption do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :VIEW_CHECK_OPTION_UNDEFINED
-          | :NO_CHECK_OPTION
-          | :LOCAL_CHECK_OPTION
-          | :CASCADED_CHECK_OPTION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:VIEW_CHECK_OPTION_UNDEFINED, 0)
   field(:NO_CHECK_OPTION, 1)
   field(:LOCAL_CHECK_OPTION, 2)
   field(:CASCADED_CHECK_OPTION, 3)
 end
 
-defmodule(PgQuery.ClusterOption) do
+defmodule PgQuery.ClusterOption do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-  @type t :: integer | :CLUSTER_OPTION_UNDEFINED | :CLUOPT_RECHECK | :CLUOPT_VERBOSE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:CLUSTER_OPTION_UNDEFINED, 0)
   field(:CLUOPT_RECHECK, 1)
   field(:CLUOPT_VERBOSE, 2)
 end
 
-defmodule(PgQuery.DiscardMode) do
+defmodule PgQuery.DiscardMode do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :DISCARD_MODE_UNDEFINED
-          | :DISCARD_ALL
-          | :DISCARD_PLANS
-          | :DISCARD_SEQUENCES
-          | :DISCARD_TEMP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:DISCARD_MODE_UNDEFINED, 0)
   field(:DISCARD_ALL, 1)
   field(:DISCARD_PLANS, 2)
@@ -796,19 +446,10 @@ defmodule(PgQuery.DiscardMode) do
   field(:DISCARD_TEMP, 4)
 end
 
-defmodule(PgQuery.ReindexObjectType) do
+defmodule PgQuery.ReindexObjectType do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :REINDEX_OBJECT_TYPE_UNDEFINED
-          | :REINDEX_OBJECT_INDEX
-          | :REINDEX_OBJECT_TABLE
-          | :REINDEX_OBJECT_SCHEMA
-          | :REINDEX_OBJECT_SYSTEM
-          | :REINDEX_OBJECT_DATABASE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:REINDEX_OBJECT_TYPE_UNDEFINED, 0)
   field(:REINDEX_OBJECT_INDEX, 1)
   field(:REINDEX_OBJECT_TABLE, 2)
@@ -817,19 +458,10 @@ defmodule(PgQuery.ReindexObjectType) do
   field(:REINDEX_OBJECT_DATABASE, 5)
 end
 
-defmodule(PgQuery.AlterTSConfigType) do
+defmodule PgQuery.AlterTSConfigType do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :ALTER_TSCONFIG_TYPE_UNDEFINED
-          | :ALTER_TSCONFIG_ADD_MAPPING
-          | :ALTER_TSCONFIG_ALTER_MAPPING_FOR_TOKEN
-          | :ALTER_TSCONFIG_REPLACE_DICT
-          | :ALTER_TSCONFIG_REPLACE_DICT_FOR_TOKEN
-          | :ALTER_TSCONFIG_DROP_MAPPING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:ALTER_TSCONFIG_TYPE_UNDEFINED, 0)
   field(:ALTER_TSCONFIG_ADD_MAPPING, 1)
   field(:ALTER_TSCONFIG_ALTER_MAPPING_FOR_TOKEN, 2)
@@ -838,19 +470,10 @@ defmodule(PgQuery.AlterTSConfigType) do
   field(:ALTER_TSCONFIG_DROP_MAPPING, 5)
 end
 
-defmodule(PgQuery.AlterSubscriptionType) do
+defmodule PgQuery.AlterSubscriptionType do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :ALTER_SUBSCRIPTION_TYPE_UNDEFINED
-          | :ALTER_SUBSCRIPTION_OPTIONS
-          | :ALTER_SUBSCRIPTION_CONNECTION
-          | :ALTER_SUBSCRIPTION_PUBLICATION
-          | :ALTER_SUBSCRIPTION_REFRESH
-          | :ALTER_SUBSCRIPTION_ENABLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:ALTER_SUBSCRIPTION_TYPE_UNDEFINED, 0)
   field(:ALTER_SUBSCRIPTION_OPTIONS, 1)
   field(:ALTER_SUBSCRIPTION_CONNECTION, 2)
@@ -859,18 +482,10 @@ defmodule(PgQuery.AlterSubscriptionType) do
   field(:ALTER_SUBSCRIPTION_ENABLED, 5)
 end
 
-defmodule(PgQuery.OnCommitAction) do
+defmodule PgQuery.OnCommitAction do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :ON_COMMIT_ACTION_UNDEFINED
-          | :ONCOMMIT_NOOP
-          | :ONCOMMIT_PRESERVE_ROWS
-          | :ONCOMMIT_DELETE_ROWS
-          | :ONCOMMIT_DROP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:ON_COMMIT_ACTION_UNDEFINED, 0)
   field(:ONCOMMIT_NOOP, 1)
   field(:ONCOMMIT_PRESERVE_ROWS, 2)
@@ -878,18 +493,10 @@ defmodule(PgQuery.OnCommitAction) do
   field(:ONCOMMIT_DROP, 4)
 end
 
-defmodule(PgQuery.ParamKind) do
+defmodule PgQuery.ParamKind do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :PARAM_KIND_UNDEFINED
-          | :PARAM_EXTERN
-          | :PARAM_EXEC
-          | :PARAM_SUBLINK
-          | :PARAM_MULTIEXPR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:PARAM_KIND_UNDEFINED, 0)
   field(:PARAM_EXTERN, 1)
   field(:PARAM_EXEC, 2)
@@ -897,67 +504,40 @@ defmodule(PgQuery.ParamKind) do
   field(:PARAM_MULTIEXPR, 4)
 end
 
-defmodule(PgQuery.CoercionContext) do
+defmodule PgQuery.CoercionContext do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :COERCION_CONTEXT_UNDEFINED
-          | :COERCION_IMPLICIT
-          | :COERCION_ASSIGNMENT
-          | :COERCION_EXPLICIT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:COERCION_CONTEXT_UNDEFINED, 0)
   field(:COERCION_IMPLICIT, 1)
   field(:COERCION_ASSIGNMENT, 2)
   field(:COERCION_EXPLICIT, 3)
 end
 
-defmodule(PgQuery.CoercionForm) do
+defmodule PgQuery.CoercionForm do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :COERCION_FORM_UNDEFINED
-          | :COERCE_EXPLICIT_CALL
-          | :COERCE_EXPLICIT_CAST
-          | :COERCE_IMPLICIT_CAST
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:COERCION_FORM_UNDEFINED, 0)
   field(:COERCE_EXPLICIT_CALL, 1)
   field(:COERCE_EXPLICIT_CAST, 2)
   field(:COERCE_IMPLICIT_CAST, 3)
 end
 
-defmodule(PgQuery.BoolExprType) do
+defmodule PgQuery.BoolExprType do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-  @type t :: integer | :BOOL_EXPR_TYPE_UNDEFINED | :AND_EXPR | :OR_EXPR | :NOT_EXPR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:BOOL_EXPR_TYPE_UNDEFINED, 0)
   field(:AND_EXPR, 1)
   field(:OR_EXPR, 2)
   field(:NOT_EXPR, 3)
 end
 
-defmodule(PgQuery.SubLinkType) do
+defmodule PgQuery.SubLinkType do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :SUB_LINK_TYPE_UNDEFINED
-          | :EXISTS_SUBLINK
-          | :ALL_SUBLINK
-          | :ANY_SUBLINK
-          | :ROWCOMPARE_SUBLINK
-          | :EXPR_SUBLINK
-          | :MULTIEXPR_SUBLINK
-          | :ARRAY_SUBLINK
-          | :CTE_SUBLINK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:SUB_LINK_TYPE_UNDEFINED, 0)
   field(:EXISTS_SUBLINK, 1)
   field(:ALL_SUBLINK, 2)
@@ -969,20 +549,10 @@ defmodule(PgQuery.SubLinkType) do
   field(:CTE_SUBLINK, 8)
 end
 
-defmodule(PgQuery.RowCompareType) do
+defmodule PgQuery.RowCompareType do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :ROW_COMPARE_TYPE_UNDEFINED
-          | :ROWCOMPARE_LT
-          | :ROWCOMPARE_LE
-          | :ROWCOMPARE_EQ
-          | :ROWCOMPARE_GE
-          | :ROWCOMPARE_GT
-          | :ROWCOMPARE_NE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:ROW_COMPARE_TYPE_UNDEFINED, 0)
   field(:ROWCOMPARE_LT, 1)
   field(:ROWCOMPARE_LE, 2)
@@ -992,39 +562,19 @@ defmodule(PgQuery.RowCompareType) do
   field(:ROWCOMPARE_NE, 6)
 end
 
-defmodule(PgQuery.MinMaxOp) do
+defmodule PgQuery.MinMaxOp do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-  @type t :: integer | :MIN_MAX_OP_UNDEFINED | :IS_GREATEST | :IS_LEAST
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:MIN_MAX_OP_UNDEFINED, 0)
   field(:IS_GREATEST, 1)
   field(:IS_LEAST, 2)
 end
 
-defmodule(PgQuery.SQLValueFunctionOp) do
+defmodule PgQuery.SQLValueFunctionOp do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :SQLVALUE_FUNCTION_OP_UNDEFINED
-          | :SVFOP_CURRENT_DATE
-          | :SVFOP_CURRENT_TIME
-          | :SVFOP_CURRENT_TIME_N
-          | :SVFOP_CURRENT_TIMESTAMP
-          | :SVFOP_CURRENT_TIMESTAMP_N
-          | :SVFOP_LOCALTIME
-          | :SVFOP_LOCALTIME_N
-          | :SVFOP_LOCALTIMESTAMP
-          | :SVFOP_LOCALTIMESTAMP_N
-          | :SVFOP_CURRENT_ROLE
-          | :SVFOP_CURRENT_USER
-          | :SVFOP_USER
-          | :SVFOP_SESSION_USER
-          | :SVFOP_CURRENT_CATALOG
-          | :SVFOP_CURRENT_SCHEMA
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:SQLVALUE_FUNCTION_OP_UNDEFINED, 0)
   field(:SVFOP_CURRENT_DATE, 1)
   field(:SVFOP_CURRENT_TIME, 2)
@@ -1043,22 +593,10 @@ defmodule(PgQuery.SQLValueFunctionOp) do
   field(:SVFOP_CURRENT_SCHEMA, 15)
 end
 
-defmodule(PgQuery.XmlExprOp) do
+defmodule PgQuery.XmlExprOp do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :XML_EXPR_OP_UNDEFINED
-          | :IS_XMLCONCAT
-          | :IS_XMLELEMENT
-          | :IS_XMLFOREST
-          | :IS_XMLPARSE
-          | :IS_XMLPI
-          | :IS_XMLROOT
-          | :IS_XMLSERIALIZE
-          | :IS_DOCUMENT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:XML_EXPR_OP_UNDEFINED, 0)
   field(:IS_XMLCONCAT, 1)
   field(:IS_XMLELEMENT, 2)
@@ -1070,40 +608,28 @@ defmodule(PgQuery.XmlExprOp) do
   field(:IS_DOCUMENT, 8)
 end
 
-defmodule(PgQuery.XmlOptionType) do
+defmodule PgQuery.XmlOptionType do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-  @type t :: integer | :XML_OPTION_TYPE_UNDEFINED | :XMLOPTION_DOCUMENT | :XMLOPTION_CONTENT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:XML_OPTION_TYPE_UNDEFINED, 0)
   field(:XMLOPTION_DOCUMENT, 1)
   field(:XMLOPTION_CONTENT, 2)
 end
 
-defmodule(PgQuery.NullTestType) do
+defmodule PgQuery.NullTestType do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-  @type t :: integer | :NULL_TEST_TYPE_UNDEFINED | :IS_NULL | :IS_NOT_NULL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:NULL_TEST_TYPE_UNDEFINED, 0)
   field(:IS_NULL, 1)
   field(:IS_NOT_NULL, 2)
 end
 
-defmodule(PgQuery.BoolTestType) do
+defmodule PgQuery.BoolTestType do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :BOOL_TEST_TYPE_UNDEFINED
-          | :IS_TRUE
-          | :IS_NOT_TRUE
-          | :IS_FALSE
-          | :IS_NOT_FALSE
-          | :IS_UNKNOWN
-          | :IS_NOT_UNKNOWN
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:BOOL_TEST_TYPE_UNDEFINED, 0)
   field(:IS_TRUE, 1)
   field(:IS_NOT_TRUE, 2)
@@ -1113,21 +639,10 @@ defmodule(PgQuery.BoolTestType) do
   field(:IS_NOT_UNKNOWN, 6)
 end
 
-defmodule(PgQuery.CmdType) do
+defmodule PgQuery.CmdType do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :CMD_TYPE_UNDEFINED
-          | :CMD_UNKNOWN
-          | :CMD_SELECT
-          | :CMD_UPDATE
-          | :CMD_INSERT
-          | :CMD_DELETE
-          | :CMD_UTILITY
-          | :CMD_NOTHING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:CMD_TYPE_UNDEFINED, 0)
   field(:CMD_UNKNOWN, 1)
   field(:CMD_SELECT, 2)
@@ -1138,22 +653,10 @@ defmodule(PgQuery.CmdType) do
   field(:CMD_NOTHING, 7)
 end
 
-defmodule(PgQuery.JoinType) do
+defmodule PgQuery.JoinType do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :JOIN_TYPE_UNDEFINED
-          | :JOIN_INNER
-          | :JOIN_LEFT
-          | :JOIN_FULL
-          | :JOIN_RIGHT
-          | :JOIN_SEMI
-          | :JOIN_ANTI
-          | :JOIN_UNIQUE_OUTER
-          | :JOIN_UNIQUE_INNER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:JOIN_TYPE_UNDEFINED, 0)
   field(:JOIN_INNER, 1)
   field(:JOIN_LEFT, 2)
@@ -1165,13 +668,10 @@ defmodule(PgQuery.JoinType) do
   field(:JOIN_UNIQUE_INNER, 8)
 end
 
-defmodule(PgQuery.AggStrategy) do
+defmodule PgQuery.AggStrategy do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer | :AGG_STRATEGY_UNDEFINED | :AGG_PLAIN | :AGG_SORTED | :AGG_HASHED | :AGG_MIXED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:AGG_STRATEGY_UNDEFINED, 0)
   field(:AGG_PLAIN, 1)
   field(:AGG_SORTED, 2)
@@ -1179,35 +679,20 @@ defmodule(PgQuery.AggStrategy) do
   field(:AGG_MIXED, 4)
 end
 
-defmodule(PgQuery.AggSplit) do
+defmodule PgQuery.AggSplit do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :AGG_SPLIT_UNDEFINED
-          | :AGGSPLIT_SIMPLE
-          | :AGGSPLIT_INITIAL_SERIAL
-          | :AGGSPLIT_FINAL_DESERIAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:AGG_SPLIT_UNDEFINED, 0)
   field(:AGGSPLIT_SIMPLE, 1)
   field(:AGGSPLIT_INITIAL_SERIAL, 2)
   field(:AGGSPLIT_FINAL_DESERIAL, 3)
 end
 
-defmodule(PgQuery.SetOpCmd) do
+defmodule PgQuery.SetOpCmd do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :SET_OP_CMD_UNDEFINED
-          | :SETOPCMD_INTERSECT
-          | :SETOPCMD_INTERSECT_ALL
-          | :SETOPCMD_EXCEPT
-          | :SETOPCMD_EXCEPT_ALL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:SET_OP_CMD_UNDEFINED, 0)
   field(:SETOPCMD_INTERSECT, 1)
   field(:SETOPCMD_INTERSECT_ALL, 2)
@@ -1215,63 +700,39 @@ defmodule(PgQuery.SetOpCmd) do
   field(:SETOPCMD_EXCEPT_ALL, 4)
 end
 
-defmodule(PgQuery.SetOpStrategy) do
+defmodule PgQuery.SetOpStrategy do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-  @type t :: integer | :SET_OP_STRATEGY_UNDEFINED | :SETOP_SORTED | :SETOP_HASHED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:SET_OP_STRATEGY_UNDEFINED, 0)
   field(:SETOP_SORTED, 1)
   field(:SETOP_HASHED, 2)
 end
 
-defmodule(PgQuery.OnConflictAction) do
+defmodule PgQuery.OnConflictAction do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :ON_CONFLICT_ACTION_UNDEFINED
-          | :ONCONFLICT_NONE
-          | :ONCONFLICT_NOTHING
-          | :ONCONFLICT_UPDATE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:ON_CONFLICT_ACTION_UNDEFINED, 0)
   field(:ONCONFLICT_NONE, 1)
   field(:ONCONFLICT_NOTHING, 2)
   field(:ONCONFLICT_UPDATE, 3)
 end
 
-defmodule(PgQuery.LimitOption) do
+defmodule PgQuery.LimitOption do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :LIMIT_OPTION_UNDEFINED
-          | :LIMIT_OPTION_DEFAULT
-          | :LIMIT_OPTION_COUNT
-          | :LIMIT_OPTION_WITH_TIES
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:LIMIT_OPTION_UNDEFINED, 0)
   field(:LIMIT_OPTION_DEFAULT, 1)
   field(:LIMIT_OPTION_COUNT, 2)
   field(:LIMIT_OPTION_WITH_TIES, 3)
 end
 
-defmodule(PgQuery.LockClauseStrength) do
+defmodule PgQuery.LockClauseStrength do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :LOCK_CLAUSE_STRENGTH_UNDEFINED
-          | :LCS_NONE
-          | :LCS_FORKEYSHARE
-          | :LCS_FORSHARE
-          | :LCS_FORNOKEYUPDATE
-          | :LCS_FORUPDATE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:LOCK_CLAUSE_STRENGTH_UNDEFINED, 0)
   field(:LCS_NONE, 1)
   field(:LCS_FORKEYSHARE, 2)
@@ -1280,31 +741,20 @@ defmodule(PgQuery.LockClauseStrength) do
   field(:LCS_FORUPDATE, 5)
 end
 
-defmodule(PgQuery.LockWaitPolicy) do
+defmodule PgQuery.LockWaitPolicy do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer | :LOCK_WAIT_POLICY_UNDEFINED | :LockWaitBlock | :LockWaitSkip | :LockWaitError
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:LOCK_WAIT_POLICY_UNDEFINED, 0)
   field(:LockWaitBlock, 1)
   field(:LockWaitSkip, 2)
   field(:LockWaitError, 3)
 end
 
-defmodule(PgQuery.LockTupleMode) do
+defmodule PgQuery.LockTupleMode do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :LOCK_TUPLE_MODE_UNDEFINED
-          | :LockTupleKeyShare
-          | :LockTupleShare
-          | :LockTupleNoKeyExclusive
-          | :LockTupleExclusive
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:LOCK_TUPLE_MODE_UNDEFINED, 0)
   field(:LockTupleKeyShare, 1)
   field(:LockTupleShare, 2)
@@ -1312,18 +762,10 @@ defmodule(PgQuery.LockTupleMode) do
   field(:LockTupleExclusive, 4)
 end
 
-defmodule(PgQuery.KeywordKind) do
+defmodule PgQuery.KeywordKind do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :NO_KEYWORD
-          | :UNRESERVED_KEYWORD
-          | :COL_NAME_KEYWORD
-          | :TYPE_FUNC_NAME_KEYWORD
-          | :RESERVED_KEYWORD
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:NO_KEYWORD, 0)
   field(:UNRESERVED_KEYWORD, 1)
   field(:COL_NAME_KEYWORD, 2)
@@ -1331,507 +773,10 @@ defmodule(PgQuery.KeywordKind) do
   field(:RESERVED_KEYWORD, 4)
 end
 
-defmodule(PgQuery.Token) do
+defmodule PgQuery.Token do
   @moduledoc false
-  use(Protobuf, enum: true, syntax: :proto3)
-  use(Accessible)
-
-  @type t ::
-          integer
-          | :NUL
-          | :ASCII_37
-          | :ASCII_40
-          | :ASCII_41
-          | :ASCII_42
-          | :ASCII_43
-          | :ASCII_44
-          | :ASCII_45
-          | :ASCII_46
-          | :ASCII_47
-          | :ASCII_58
-          | :ASCII_59
-          | :ASCII_60
-          | :ASCII_61
-          | :ASCII_62
-          | :ASCII_63
-          | :ASCII_91
-          | :ASCII_92
-          | :ASCII_93
-          | :ASCII_94
-          | :IDENT
-          | :UIDENT
-          | :FCONST
-          | :SCONST
-          | :USCONST
-          | :BCONST
-          | :XCONST
-          | :Op
-          | :ICONST
-          | :PARAM
-          | :TYPECAST
-          | :DOT_DOT
-          | :COLON_EQUALS
-          | :EQUALS_GREATER
-          | :LESS_EQUALS
-          | :GREATER_EQUALS
-          | :NOT_EQUALS
-          | :SQL_COMMENT
-          | :C_COMMENT
-          | :ABORT_P
-          | :ABSOLUTE_P
-          | :ACCESS
-          | :ACTION
-          | :ADD_P
-          | :ADMIN
-          | :AFTER
-          | :AGGREGATE
-          | :ALL
-          | :ALSO
-          | :ALTER
-          | :ALWAYS
-          | :ANALYSE
-          | :ANALYZE
-          | :AND
-          | :ANY
-          | :ARRAY
-          | :AS
-          | :ASC
-          | :ASSERTION
-          | :ASSIGNMENT
-          | :ASYMMETRIC
-          | :AT
-          | :ATTACH
-          | :ATTRIBUTE
-          | :AUTHORIZATION
-          | :BACKWARD
-          | :BEFORE
-          | :BEGIN_P
-          | :BETWEEN
-          | :BIGINT
-          | :BINARY
-          | :BIT
-          | :BOOLEAN_P
-          | :BOTH
-          | :BY
-          | :CACHE
-          | :CALL
-          | :CALLED
-          | :CASCADE
-          | :CASCADED
-          | :CASE
-          | :CAST
-          | :CATALOG_P
-          | :CHAIN
-          | :CHAR_P
-          | :CHARACTER
-          | :CHARACTERISTICS
-          | :CHECK
-          | :CHECKPOINT
-          | :CLASS
-          | :CLOSE
-          | :CLUSTER
-          | :COALESCE
-          | :COLLATE
-          | :COLLATION
-          | :COLUMN
-          | :COLUMNS
-          | :COMMENT
-          | :COMMENTS
-          | :COMMIT
-          | :COMMITTED
-          | :CONCURRENTLY
-          | :CONFIGURATION
-          | :CONFLICT
-          | :CONNECTION
-          | :CONSTRAINT
-          | :CONSTRAINTS
-          | :CONTENT_P
-          | :CONTINUE_P
-          | :CONVERSION_P
-          | :COPY
-          | :COST
-          | :CREATE
-          | :CROSS
-          | :CSV
-          | :CUBE
-          | :CURRENT_P
-          | :CURRENT_CATALOG
-          | :CURRENT_DATE
-          | :CURRENT_ROLE
-          | :CURRENT_SCHEMA
-          | :CURRENT_TIME
-          | :CURRENT_TIMESTAMP
-          | :CURRENT_USER
-          | :CURSOR
-          | :CYCLE
-          | :DATA_P
-          | :DATABASE
-          | :DAY_P
-          | :DEALLOCATE
-          | :DEC
-          | :DECIMAL_P
-          | :DECLARE
-          | :DEFAULT
-          | :DEFAULTS
-          | :DEFERRABLE
-          | :DEFERRED
-          | :DEFINER
-          | :DELETE_P
-          | :DELIMITER
-          | :DELIMITERS
-          | :DEPENDS
-          | :DESC
-          | :DETACH
-          | :DICTIONARY
-          | :DISABLE_P
-          | :DISCARD
-          | :DISTINCT
-          | :DO
-          | :DOCUMENT_P
-          | :DOMAIN_P
-          | :DOUBLE_P
-          | :DROP
-          | :EACH
-          | :ELSE
-          | :ENABLE_P
-          | :ENCODING
-          | :ENCRYPTED
-          | :END_P
-          | :ENUM_P
-          | :ESCAPE
-          | :EVENT
-          | :EXCEPT
-          | :EXCLUDE
-          | :EXCLUDING
-          | :EXCLUSIVE
-          | :EXECUTE
-          | :EXISTS
-          | :EXPLAIN
-          | :EXPRESSION
-          | :EXTENSION
-          | :EXTERNAL
-          | :EXTRACT
-          | :FALSE_P
-          | :FAMILY
-          | :FETCH
-          | :FILTER
-          | :FIRST_P
-          | :FLOAT_P
-          | :FOLLOWING
-          | :FOR
-          | :FORCE
-          | :FOREIGN
-          | :FORWARD
-          | :FREEZE
-          | :FROM
-          | :FULL
-          | :FUNCTION
-          | :FUNCTIONS
-          | :GENERATED
-          | :GLOBAL
-          | :GRANT
-          | :GRANTED
-          | :GREATEST
-          | :GROUP_P
-          | :GROUPING
-          | :GROUPS
-          | :HANDLER
-          | :HAVING
-          | :HEADER_P
-          | :HOLD
-          | :HOUR_P
-          | :IDENTITY_P
-          | :IF_P
-          | :ILIKE
-          | :IMMEDIATE
-          | :IMMUTABLE
-          | :IMPLICIT_P
-          | :IMPORT_P
-          | :IN_P
-          | :INCLUDE
-          | :INCLUDING
-          | :INCREMENT
-          | :INDEX
-          | :INDEXES
-          | :INHERIT
-          | :INHERITS
-          | :INITIALLY
-          | :INLINE_P
-          | :INNER_P
-          | :INOUT
-          | :INPUT_P
-          | :INSENSITIVE
-          | :INSERT
-          | :INSTEAD
-          | :INT_P
-          | :INTEGER
-          | :INTERSECT
-          | :INTERVAL
-          | :INTO
-          | :INVOKER
-          | :IS
-          | :ISNULL
-          | :ISOLATION
-          | :JOIN
-          | :KEY
-          | :LABEL
-          | :LANGUAGE
-          | :LARGE_P
-          | :LAST_P
-          | :LATERAL_P
-          | :LEADING
-          | :LEAKPROOF
-          | :LEAST
-          | :LEFT
-          | :LEVEL
-          | :LIKE
-          | :LIMIT
-          | :LISTEN
-          | :LOAD
-          | :LOCAL
-          | :LOCALTIME
-          | :LOCALTIMESTAMP
-          | :LOCATION
-          | :LOCK_P
-          | :LOCKED
-          | :LOGGED
-          | :MAPPING
-          | :MATCH
-          | :MATERIALIZED
-          | :MAXVALUE
-          | :METHOD
-          | :MINUTE_P
-          | :MINVALUE
-          | :MODE
-          | :MONTH_P
-          | :MOVE
-          | :NAME_P
-          | :NAMES
-          | :NATIONAL
-          | :NATURAL
-          | :NCHAR
-          | :NEW
-          | :NEXT
-          | :NFC
-          | :NFD
-          | :NFKC
-          | :NFKD
-          | :NO
-          | :NONE
-          | :NORMALIZE
-          | :NORMALIZED
-          | :NOT
-          | :NOTHING
-          | :NOTIFY
-          | :NOTNULL
-          | :NOWAIT
-          | :NULL_P
-          | :NULLIF
-          | :NULLS_P
-          | :NUMERIC
-          | :OBJECT_P
-          | :OF
-          | :OFF
-          | :OFFSET
-          | :OIDS
-          | :OLD
-          | :ON
-          | :ONLY
-          | :OPERATOR
-          | :OPTION
-          | :OPTIONS
-          | :OR
-          | :ORDER
-          | :ORDINALITY
-          | :OTHERS
-          | :OUT_P
-          | :OUTER_P
-          | :OVER
-          | :OVERLAPS
-          | :OVERLAY
-          | :OVERRIDING
-          | :OWNED
-          | :OWNER
-          | :PARALLEL
-          | :PARSER
-          | :PARTIAL
-          | :PARTITION
-          | :PASSING
-          | :PASSWORD
-          | :PLACING
-          | :PLANS
-          | :POLICY
-          | :POSITION
-          | :PRECEDING
-          | :PRECISION
-          | :PRESERVE
-          | :PREPARE
-          | :PREPARED
-          | :PRIMARY
-          | :PRIOR
-          | :PRIVILEGES
-          | :PROCEDURAL
-          | :PROCEDURE
-          | :PROCEDURES
-          | :PROGRAM
-          | :PUBLICATION
-          | :QUOTE
-          | :RANGE
-          | :READ
-          | :REAL
-          | :REASSIGN
-          | :RECHECK
-          | :RECURSIVE
-          | :REF
-          | :REFERENCES
-          | :REFERENCING
-          | :REFRESH
-          | :REINDEX
-          | :RELATIVE_P
-          | :RELEASE
-          | :RENAME
-          | :REPEATABLE
-          | :REPLACE
-          | :REPLICA
-          | :RESET
-          | :RESTART
-          | :RESTRICT
-          | :RETURNING
-          | :RETURNS
-          | :REVOKE
-          | :RIGHT
-          | :ROLE
-          | :ROLLBACK
-          | :ROLLUP
-          | :ROUTINE
-          | :ROUTINES
-          | :ROW
-          | :ROWS
-          | :RULE
-          | :SAVEPOINT
-          | :SCHEMA
-          | :SCHEMAS
-          | :SCROLL
-          | :SEARCH
-          | :SECOND_P
-          | :SECURITY
-          | :SELECT
-          | :SEQUENCE
-          | :SEQUENCES
-          | :SERIALIZABLE
-          | :SERVER
-          | :SESSION
-          | :SESSION_USER
-          | :SET
-          | :SETS
-          | :SETOF
-          | :SHARE
-          | :SHOW
-          | :SIMILAR
-          | :SIMPLE
-          | :SKIP
-          | :SMALLINT
-          | :SNAPSHOT
-          | :SOME
-          | :SQL_P
-          | :STABLE
-          | :STANDALONE_P
-          | :START
-          | :STATEMENT
-          | :STATISTICS
-          | :STDIN
-          | :STDOUT
-          | :STORAGE
-          | :STORED
-          | :STRICT_P
-          | :STRIP_P
-          | :SUBSCRIPTION
-          | :SUBSTRING
-          | :SUPPORT
-          | :SYMMETRIC
-          | :SYSID
-          | :SYSTEM_P
-          | :TABLE
-          | :TABLES
-          | :TABLESAMPLE
-          | :TABLESPACE
-          | :TEMP
-          | :TEMPLATE
-          | :TEMPORARY
-          | :TEXT_P
-          | :THEN
-          | :TIES
-          | :TIME
-          | :TIMESTAMP
-          | :TO
-          | :TRAILING
-          | :TRANSACTION
-          | :TRANSFORM
-          | :TREAT
-          | :TRIGGER
-          | :TRIM
-          | :TRUE_P
-          | :TRUNCATE
-          | :TRUSTED
-          | :TYPE_P
-          | :TYPES_P
-          | :UESCAPE
-          | :UNBOUNDED
-          | :UNCOMMITTED
-          | :UNENCRYPTED
-          | :UNION
-          | :UNIQUE
-          | :UNKNOWN
-          | :UNLISTEN
-          | :UNLOGGED
-          | :UNTIL
-          | :UPDATE
-          | :USER
-          | :USING
-          | :VACUUM
-          | :VALID
-          | :VALIDATE
-          | :VALIDATOR
-          | :VALUE_P
-          | :VALUES
-          | :VARCHAR
-          | :VARIADIC
-          | :VARYING
-          | :VERBOSE
-          | :VERSION_P
-          | :VIEW
-          | :VIEWS
-          | :VOLATILE
-          | :WHEN
-          | :WHERE
-          | :WHITESPACE_P
-          | :WINDOW
-          | :WITH
-          | :WITHIN
-          | :WITHOUT
-          | :WORK
-          | :WRAPPER
-          | :WRITE
-          | :XML_P
-          | :XMLATTRIBUTES
-          | :XMLCONCAT
-          | :XMLELEMENT
-          | :XMLEXISTS
-          | :XMLFOREST
-          | :XMLNAMESPACES
-          | :XMLPARSE
-          | :XMLPI
-          | :XMLROOT
-          | :XMLSERIALIZE
-          | :XMLTABLE
-          | :YEAR_P
-          | :YES_P
-          | :ZONE
-          | :NOT_LA
-          | :NULLS_LA
-          | :WITH_LA
-          | :POSTFIXOP
-          | :UMINUS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:NUL, 0)
   field(:ASCII_37, 37)
   field(:ASCII_40, 40)
@@ -2328,32 +1273,26 @@ defmodule(PgQuery.Token) do
   field(:UMINUS, 731)
 end
 
-defmodule(PgQuery.ParseResult) do
+defmodule PgQuery.ParseResult do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{version: integer, stmts: [PgQuery.RawStmt.t()]}
-  defstruct([:version, :stmts])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:version, 1, type: :int32)
   field(:stmts, 2, repeated: true, type: PgQuery.RawStmt)
 end
 
-defmodule(PgQuery.ScanResult) do
+defmodule PgQuery.ScanResult do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{version: integer, tokens: [PgQuery.ScanToken.t()]}
-  defstruct([:version, :tokens])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:version, 1, type: :int32)
   field(:tokens, 2, repeated: true, type: PgQuery.ScanToken)
 end
 
-defmodule(PgQuery.Node) do
+defmodule PgQuery.Node do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{node: {atom, any}}
-  defstruct([:node])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   oneof(:node, 0)
   field(:alias, 1, type: PgQuery.Alias, json_name: "Alias", oneof: 0)
   field(:range_var, 2, type: PgQuery.RangeVar, json_name: "RangeVar", oneof: 0)
@@ -3075,102 +2014,73 @@ defmodule(PgQuery.Node) do
   field(:oid_list, 228, type: PgQuery.OidList, json_name: "OidList", oneof: 0)
 end
 
-defmodule(PgQuery.Integer) do
+defmodule PgQuery.Integer do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{ival: integer}
-  defstruct([:ival])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:ival, 1, type: :int32)
 end
 
-defmodule(PgQuery.Float) do
+defmodule PgQuery.Float do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{str: String.t()}
-  defstruct([:str])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:str, 1, type: :string)
 end
 
-defmodule(PgQuery.String) do
+defmodule PgQuery.String do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{str: String.t()}
-  defstruct([:str])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:str, 1, type: :string)
 end
 
-defmodule(PgQuery.BitString) do
+defmodule PgQuery.BitString do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{str: String.t()}
-  defstruct([:str])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:str, 1, type: :string)
 end
 
-defmodule(PgQuery.Null) do
+defmodule PgQuery.Null do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{}
-  defstruct([])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
 end
 
-defmodule(PgQuery.List) do
+defmodule PgQuery.List do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{items: [PgQuery.Node.t()]}
-  defstruct([:items])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:items, 1, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.OidList) do
+defmodule PgQuery.OidList do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{items: [PgQuery.Node.t()]}
-  defstruct([:items])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:items, 1, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.IntList) do
+defmodule PgQuery.IntList do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{items: [PgQuery.Node.t()]}
-  defstruct([:items])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:items, 1, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.Alias) do
+defmodule PgQuery.Alias do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{aliasname: String.t(), colnames: [PgQuery.Node.t()]}
-  defstruct([:aliasname, :colnames])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:aliasname, 1, type: :string)
   field(:colnames, 2, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.RangeVar) do
+defmodule PgQuery.RangeVar do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          catalogname: String.t(),
-          schemaname: String.t(),
-          relname: String.t(),
-          inh: boolean,
-          relpersistence: String.t(),
-          alias: PgQuery.Alias.t() | nil,
-          location: integer
-        }
-  defstruct([:catalogname, :schemaname, :relname, :inh, :relpersistence, :alias, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:catalogname, 1, type: :string)
   field(:schemaname, 2, type: :string)
   field(:relname, 3, type: :string)
@@ -3180,42 +2090,10 @@ defmodule(PgQuery.RangeVar) do
   field(:location, 7, type: :int32)
 end
 
-defmodule(PgQuery.TableFunc) do
+defmodule PgQuery.TableFunc do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          ns_uris: [PgQuery.Node.t()],
-          ns_names: [PgQuery.Node.t()],
-          docexpr: PgQuery.Node.t() | nil,
-          rowexpr: PgQuery.Node.t() | nil,
-          colnames: [PgQuery.Node.t()],
-          coltypes: [PgQuery.Node.t()],
-          coltypmods: [PgQuery.Node.t()],
-          colcollations: [PgQuery.Node.t()],
-          colexprs: [PgQuery.Node.t()],
-          coldefexprs: [PgQuery.Node.t()],
-          notnulls: non_neg_integer,
-          ordinalitycol: integer,
-          location: integer
-        }
-  defstruct([
-    :ns_uris,
-    :ns_names,
-    :docexpr,
-    :rowexpr,
-    :colnames,
-    :coltypes,
-    :coltypmods,
-    :colcollations,
-    :colexprs,
-    :coldefexprs,
-    :notnulls,
-    :ordinalitycol,
-    :location
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:ns_uris, 1, repeated: true, type: PgQuery.Node)
   field(:ns_names, 2, repeated: true, type: PgQuery.Node)
   field(:docexpr, 3, type: PgQuery.Node)
@@ -3231,44 +2109,16 @@ defmodule(PgQuery.TableFunc) do
   field(:location, 13, type: :int32)
 end
 
-defmodule(PgQuery.Expr) do
+defmodule PgQuery.Expr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{}
-  defstruct([])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
 end
 
-defmodule(PgQuery.Var) do
+defmodule PgQuery.Var do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          varno: non_neg_integer,
-          varattno: integer,
-          vartype: non_neg_integer,
-          vartypmod: integer,
-          varcollid: non_neg_integer,
-          varlevelsup: non_neg_integer,
-          varnosyn: non_neg_integer,
-          varattnosyn: integer,
-          location: integer
-        }
-  defstruct([
-    :xpr,
-    :varno,
-    :varattno,
-    :vartype,
-    :vartypmod,
-    :varcollid,
-    :varlevelsup,
-    :varnosyn,
-    :varattnosyn,
-    :location
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:varno, 2, type: :uint32)
   field(:varattno, 3, type: :int32)
@@ -3281,21 +2131,10 @@ defmodule(PgQuery.Var) do
   field(:location, 10, type: :int32)
 end
 
-defmodule(PgQuery.Param) do
+defmodule PgQuery.Param do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          paramkind: PgQuery.ParamKind.t(),
-          paramid: integer,
-          paramtype: non_neg_integer,
-          paramtypmod: integer,
-          paramcollid: non_neg_integer,
-          location: integer
-        }
-  defstruct([:xpr, :paramkind, :paramid, :paramtype, :paramtypmod, :paramcollid, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:paramkind, 2, type: PgQuery.ParamKind, enum: true)
   field(:paramid, 3, type: :int32)
@@ -3305,52 +2144,10 @@ defmodule(PgQuery.Param) do
   field(:location, 7, type: :int32)
 end
 
-defmodule(PgQuery.Aggref) do
+defmodule PgQuery.Aggref do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          aggfnoid: non_neg_integer,
-          aggtype: non_neg_integer,
-          aggcollid: non_neg_integer,
-          inputcollid: non_neg_integer,
-          aggtranstype: non_neg_integer,
-          aggargtypes: [PgQuery.Node.t()],
-          aggdirectargs: [PgQuery.Node.t()],
-          args: [PgQuery.Node.t()],
-          aggorder: [PgQuery.Node.t()],
-          aggdistinct: [PgQuery.Node.t()],
-          aggfilter: PgQuery.Node.t() | nil,
-          aggstar: boolean,
-          aggvariadic: boolean,
-          aggkind: String.t(),
-          agglevelsup: non_neg_integer,
-          aggsplit: PgQuery.AggSplit.t(),
-          location: integer
-        }
-  defstruct([
-    :xpr,
-    :aggfnoid,
-    :aggtype,
-    :aggcollid,
-    :inputcollid,
-    :aggtranstype,
-    :aggargtypes,
-    :aggdirectargs,
-    :args,
-    :aggorder,
-    :aggdistinct,
-    :aggfilter,
-    :aggstar,
-    :aggvariadic,
-    :aggkind,
-    :agglevelsup,
-    :aggsplit,
-    :location
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:aggfnoid, 2, type: :uint32)
   field(:aggtype, 3, type: :uint32)
@@ -3371,20 +2168,10 @@ defmodule(PgQuery.Aggref) do
   field(:location, 18, type: :int32)
 end
 
-defmodule(PgQuery.GroupingFunc) do
+defmodule PgQuery.GroupingFunc do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          args: [PgQuery.Node.t()],
-          refs: [PgQuery.Node.t()],
-          cols: [PgQuery.Node.t()],
-          agglevelsup: non_neg_integer,
-          location: integer
-        }
-  defstruct([:xpr, :args, :refs, :cols, :agglevelsup, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:args, 2, repeated: true, type: PgQuery.Node)
   field(:refs, 3, repeated: true, type: PgQuery.Node)
@@ -3393,38 +2180,10 @@ defmodule(PgQuery.GroupingFunc) do
   field(:location, 6, type: :int32)
 end
 
-defmodule(PgQuery.WindowFunc) do
+defmodule PgQuery.WindowFunc do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          winfnoid: non_neg_integer,
-          wintype: non_neg_integer,
-          wincollid: non_neg_integer,
-          inputcollid: non_neg_integer,
-          args: [PgQuery.Node.t()],
-          aggfilter: PgQuery.Node.t() | nil,
-          winref: non_neg_integer,
-          winstar: boolean,
-          winagg: boolean,
-          location: integer
-        }
-  defstruct([
-    :xpr,
-    :winfnoid,
-    :wintype,
-    :wincollid,
-    :inputcollid,
-    :args,
-    :aggfilter,
-    :winref,
-    :winstar,
-    :winagg,
-    :location
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:winfnoid, 2, type: :uint32)
   field(:wintype, 3, type: :uint32)
@@ -3438,34 +2197,10 @@ defmodule(PgQuery.WindowFunc) do
   field(:location, 11, type: :int32)
 end
 
-defmodule(PgQuery.SubscriptingRef) do
+defmodule PgQuery.SubscriptingRef do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          refcontainertype: non_neg_integer,
-          refelemtype: non_neg_integer,
-          reftypmod: integer,
-          refcollid: non_neg_integer,
-          refupperindexpr: [PgQuery.Node.t()],
-          reflowerindexpr: [PgQuery.Node.t()],
-          refexpr: PgQuery.Node.t() | nil,
-          refassgnexpr: PgQuery.Node.t() | nil
-        }
-  defstruct([
-    :xpr,
-    :refcontainertype,
-    :refelemtype,
-    :reftypmod,
-    :refcollid,
-    :refupperindexpr,
-    :reflowerindexpr,
-    :refexpr,
-    :refassgnexpr
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:refcontainertype, 2, type: :uint32)
   field(:refelemtype, 3, type: :uint32)
@@ -3477,36 +2212,10 @@ defmodule(PgQuery.SubscriptingRef) do
   field(:refassgnexpr, 9, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.FuncExpr) do
+defmodule PgQuery.FuncExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          funcid: non_neg_integer,
-          funcresulttype: non_neg_integer,
-          funcretset: boolean,
-          funcvariadic: boolean,
-          funcformat: PgQuery.CoercionForm.t(),
-          funccollid: non_neg_integer,
-          inputcollid: non_neg_integer,
-          args: [PgQuery.Node.t()],
-          location: integer
-        }
-  defstruct([
-    :xpr,
-    :funcid,
-    :funcresulttype,
-    :funcretset,
-    :funcvariadic,
-    :funcformat,
-    :funccollid,
-    :inputcollid,
-    :args,
-    :location
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:funcid, 2, type: :uint32)
   field(:funcresulttype, 3, type: :uint32)
@@ -3519,19 +2228,10 @@ defmodule(PgQuery.FuncExpr) do
   field(:location, 10, type: :int32)
 end
 
-defmodule(PgQuery.NamedArgExpr) do
+defmodule PgQuery.NamedArgExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          arg: PgQuery.Node.t() | nil,
-          name: String.t(),
-          argnumber: integer,
-          location: integer
-        }
-  defstruct([:xpr, :arg, :name, :argnumber, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:arg, 2, type: PgQuery.Node)
   field(:name, 3, type: :string)
@@ -3539,34 +2239,10 @@ defmodule(PgQuery.NamedArgExpr) do
   field(:location, 5, type: :int32)
 end
 
-defmodule(PgQuery.OpExpr) do
+defmodule PgQuery.OpExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          opno: non_neg_integer,
-          opfuncid: non_neg_integer,
-          opresulttype: non_neg_integer,
-          opretset: boolean,
-          opcollid: non_neg_integer,
-          inputcollid: non_neg_integer,
-          args: [PgQuery.Node.t()],
-          location: integer
-        }
-  defstruct([
-    :xpr,
-    :opno,
-    :opfuncid,
-    :opresulttype,
-    :opretset,
-    :opcollid,
-    :inputcollid,
-    :args,
-    :location
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:opno, 2, type: :uint32)
   field(:opfuncid, 3, type: :uint32)
@@ -3578,34 +2254,10 @@ defmodule(PgQuery.OpExpr) do
   field(:location, 9, type: :int32)
 end
 
-defmodule(PgQuery.DistinctExpr) do
+defmodule PgQuery.DistinctExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          opno: non_neg_integer,
-          opfuncid: non_neg_integer,
-          opresulttype: non_neg_integer,
-          opretset: boolean,
-          opcollid: non_neg_integer,
-          inputcollid: non_neg_integer,
-          args: [PgQuery.Node.t()],
-          location: integer
-        }
-  defstruct([
-    :xpr,
-    :opno,
-    :opfuncid,
-    :opresulttype,
-    :opretset,
-    :opcollid,
-    :inputcollid,
-    :args,
-    :location
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:opno, 2, type: :uint32)
   field(:opfuncid, 3, type: :uint32)
@@ -3617,34 +2269,10 @@ defmodule(PgQuery.DistinctExpr) do
   field(:location, 9, type: :int32)
 end
 
-defmodule(PgQuery.NullIfExpr) do
+defmodule PgQuery.NullIfExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          opno: non_neg_integer,
-          opfuncid: non_neg_integer,
-          opresulttype: non_neg_integer,
-          opretset: boolean,
-          opcollid: non_neg_integer,
-          inputcollid: non_neg_integer,
-          args: [PgQuery.Node.t()],
-          location: integer
-        }
-  defstruct([
-    :xpr,
-    :opno,
-    :opfuncid,
-    :opresulttype,
-    :opretset,
-    :opcollid,
-    :inputcollid,
-    :args,
-    :location
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:opno, 2, type: :uint32)
   field(:opfuncid, 3, type: :uint32)
@@ -3656,21 +2284,10 @@ defmodule(PgQuery.NullIfExpr) do
   field(:location, 9, type: :int32)
 end
 
-defmodule(PgQuery.ScalarArrayOpExpr) do
+defmodule PgQuery.ScalarArrayOpExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          opno: non_neg_integer,
-          opfuncid: non_neg_integer,
-          use_or: boolean,
-          inputcollid: non_neg_integer,
-          args: [PgQuery.Node.t()],
-          location: integer
-        }
-  defstruct([:xpr, :opno, :opfuncid, :use_or, :inputcollid, :args, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:opno, 2, type: :uint32)
   field(:opfuncid, 3, type: :uint32)
@@ -3680,41 +2297,22 @@ defmodule(PgQuery.ScalarArrayOpExpr) do
   field(:location, 7, type: :int32)
 end
 
-defmodule(PgQuery.BoolExpr) do
+defmodule PgQuery.BoolExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          boolop: PgQuery.BoolExprType.t(),
-          args: [PgQuery.Node.t()],
-          location: integer
-        }
-  defstruct([:xpr, :boolop, :args, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:boolop, 2, type: PgQuery.BoolExprType, enum: true)
   field(:args, 3, repeated: true, type: PgQuery.Node)
   field(:location, 4, type: :int32)
 end
 
-defmodule(PgQuery.SubLink) do
+defmodule PgQuery.SubLink do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          sub_link_type: PgQuery.SubLinkType.t(),
-          sub_link_id: integer,
-          testexpr: PgQuery.Node.t() | nil,
-          oper_name: [PgQuery.Node.t()],
-          subselect: PgQuery.Node.t() | nil,
-          location: integer
-        }
-  defstruct([:xpr, :sub_link_type, :sub_link_id, :testexpr, :oper_name, :subselect, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
-  field(:sub_link_type, 2, type: PgQuery.SubLinkType, enum: true, json_name: "subLinkType")
+  field(:sub_link_type, 2, type: PgQuery.SubLinkType, json_name: "subLinkType", enum: true)
   field(:sub_link_id, 3, type: :int32, json_name: "subLinkId")
   field(:testexpr, 4, type: PgQuery.Node)
   field(:oper_name, 5, repeated: true, type: PgQuery.Node, json_name: "operName")
@@ -3722,52 +2320,12 @@ defmodule(PgQuery.SubLink) do
   field(:location, 7, type: :int32)
 end
 
-defmodule(PgQuery.SubPlan) do
+defmodule PgQuery.SubPlan do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          sub_link_type: PgQuery.SubLinkType.t(),
-          testexpr: PgQuery.Node.t() | nil,
-          param_ids: [PgQuery.Node.t()],
-          plan_id: integer,
-          plan_name: String.t(),
-          first_col_type: non_neg_integer,
-          first_col_typmod: integer,
-          first_col_collation: non_neg_integer,
-          use_hash_table: boolean,
-          unknown_eq_false: boolean,
-          parallel_safe: boolean,
-          set_param: [PgQuery.Node.t()],
-          par_param: [PgQuery.Node.t()],
-          args: [PgQuery.Node.t()],
-          startup_cost: float | :infinity | :negative_infinity | :nan,
-          per_call_cost: float | :infinity | :negative_infinity | :nan
-        }
-  defstruct([
-    :xpr,
-    :sub_link_type,
-    :testexpr,
-    :param_ids,
-    :plan_id,
-    :plan_name,
-    :first_col_type,
-    :first_col_typmod,
-    :first_col_collation,
-    :use_hash_table,
-    :unknown_eq_false,
-    :parallel_safe,
-    :set_param,
-    :par_param,
-    :args,
-    :startup_cost,
-    :per_call_cost
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
-  field(:sub_link_type, 2, type: PgQuery.SubLinkType, enum: true, json_name: "subLinkType")
+  field(:sub_link_type, 2, type: PgQuery.SubLinkType, json_name: "subLinkType", enum: true)
   field(:testexpr, 3, type: PgQuery.Node)
   field(:param_ids, 4, repeated: true, type: PgQuery.Node, json_name: "paramIds")
   field(:plan_id, 5, type: :int32)
@@ -3785,30 +2343,18 @@ defmodule(PgQuery.SubPlan) do
   field(:per_call_cost, 17, type: :double)
 end
 
-defmodule(PgQuery.AlternativeSubPlan) do
+defmodule PgQuery.AlternativeSubPlan do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{xpr: PgQuery.Node.t() | nil, subplans: [PgQuery.Node.t()]}
-  defstruct([:xpr, :subplans])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:subplans, 2, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.FieldSelect) do
+defmodule PgQuery.FieldSelect do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          arg: PgQuery.Node.t() | nil,
-          fieldnum: integer,
-          resulttype: non_neg_integer,
-          resulttypmod: integer,
-          resultcollid: non_neg_integer
-        }
-  defstruct([:xpr, :arg, :fieldnum, :resulttype, :resulttypmod, :resultcollid])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:arg, 2, type: PgQuery.Node)
   field(:fieldnum, 3, type: :int32)
@@ -3817,19 +2363,10 @@ defmodule(PgQuery.FieldSelect) do
   field(:resultcollid, 6, type: :uint32)
 end
 
-defmodule(PgQuery.FieldStore) do
+defmodule PgQuery.FieldStore do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          arg: PgQuery.Node.t() | nil,
-          newvals: [PgQuery.Node.t()],
-          fieldnums: [PgQuery.Node.t()],
-          resulttype: non_neg_integer
-        }
-  defstruct([:xpr, :arg, :newvals, :fieldnums, :resulttype])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:arg, 2, type: PgQuery.Node)
   field(:newvals, 3, repeated: true, type: PgQuery.Node)
@@ -3837,21 +2374,10 @@ defmodule(PgQuery.FieldStore) do
   field(:resulttype, 5, type: :uint32)
 end
 
-defmodule(PgQuery.RelabelType) do
+defmodule PgQuery.RelabelType do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          arg: PgQuery.Node.t() | nil,
-          resulttype: non_neg_integer,
-          resulttypmod: integer,
-          resultcollid: non_neg_integer,
-          relabelformat: PgQuery.CoercionForm.t(),
-          location: integer
-        }
-  defstruct([:xpr, :arg, :resulttype, :resulttypmod, :resultcollid, :relabelformat, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:arg, 2, type: PgQuery.Node)
   field(:resulttype, 3, type: :uint32)
@@ -3861,20 +2387,10 @@ defmodule(PgQuery.RelabelType) do
   field(:location, 7, type: :int32)
 end
 
-defmodule(PgQuery.CoerceViaIO) do
+defmodule PgQuery.CoerceViaIO do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          arg: PgQuery.Node.t() | nil,
-          resulttype: non_neg_integer,
-          resultcollid: non_neg_integer,
-          coerceformat: PgQuery.CoercionForm.t(),
-          location: integer
-        }
-  defstruct([:xpr, :arg, :resulttype, :resultcollid, :coerceformat, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:arg, 2, type: PgQuery.Node)
   field(:resulttype, 3, type: :uint32)
@@ -3883,32 +2399,10 @@ defmodule(PgQuery.CoerceViaIO) do
   field(:location, 6, type: :int32)
 end
 
-defmodule(PgQuery.ArrayCoerceExpr) do
+defmodule PgQuery.ArrayCoerceExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          arg: PgQuery.Node.t() | nil,
-          elemexpr: PgQuery.Node.t() | nil,
-          resulttype: non_neg_integer,
-          resulttypmod: integer,
-          resultcollid: non_neg_integer,
-          coerceformat: PgQuery.CoercionForm.t(),
-          location: integer
-        }
-  defstruct([
-    :xpr,
-    :arg,
-    :elemexpr,
-    :resulttype,
-    :resulttypmod,
-    :resultcollid,
-    :coerceformat,
-    :location
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:arg, 2, type: PgQuery.Node)
   field(:elemexpr, 3, type: PgQuery.Node)
@@ -3919,19 +2413,10 @@ defmodule(PgQuery.ArrayCoerceExpr) do
   field(:location, 8, type: :int32)
 end
 
-defmodule(PgQuery.ConvertRowtypeExpr) do
+defmodule PgQuery.ConvertRowtypeExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          arg: PgQuery.Node.t() | nil,
-          resulttype: non_neg_integer,
-          convertformat: PgQuery.CoercionForm.t(),
-          location: integer
-        }
-  defstruct([:xpr, :arg, :resulttype, :convertformat, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:arg, 2, type: PgQuery.Node)
   field(:resulttype, 3, type: :uint32)
@@ -3939,39 +2424,20 @@ defmodule(PgQuery.ConvertRowtypeExpr) do
   field(:location, 5, type: :int32)
 end
 
-defmodule(PgQuery.CollateExpr) do
+defmodule PgQuery.CollateExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          arg: PgQuery.Node.t() | nil,
-          coll_oid: non_neg_integer,
-          location: integer
-        }
-  defstruct([:xpr, :arg, :coll_oid, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:arg, 2, type: PgQuery.Node)
   field(:coll_oid, 3, type: :uint32, json_name: "collOid")
   field(:location, 4, type: :int32)
 end
 
-defmodule(PgQuery.CaseExpr) do
+defmodule PgQuery.CaseExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          casetype: non_neg_integer,
-          casecollid: non_neg_integer,
-          arg: PgQuery.Node.t() | nil,
-          args: [PgQuery.Node.t()],
-          defresult: PgQuery.Node.t() | nil,
-          location: integer
-        }
-  defstruct([:xpr, :casetype, :casecollid, :arg, :args, :defresult, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:casetype, 2, type: :uint32)
   field(:casecollid, 3, type: :uint32)
@@ -3981,66 +2447,30 @@ defmodule(PgQuery.CaseExpr) do
   field(:location, 7, type: :int32)
 end
 
-defmodule(PgQuery.CaseWhen) do
+defmodule PgQuery.CaseWhen do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          expr: PgQuery.Node.t() | nil,
-          result: PgQuery.Node.t() | nil,
-          location: integer
-        }
-  defstruct([:xpr, :expr, :result, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:expr, 2, type: PgQuery.Node)
   field(:result, 3, type: PgQuery.Node)
   field(:location, 4, type: :int32)
 end
 
-defmodule(PgQuery.CaseTestExpr) do
+defmodule PgQuery.CaseTestExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          type_id: non_neg_integer,
-          type_mod: integer,
-          collation: non_neg_integer
-        }
-  defstruct([:xpr, :type_id, :type_mod, :collation])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:type_id, 2, type: :uint32, json_name: "typeId")
   field(:type_mod, 3, type: :int32, json_name: "typeMod")
   field(:collation, 4, type: :uint32)
 end
 
-defmodule(PgQuery.ArrayExpr) do
+defmodule PgQuery.ArrayExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          array_typeid: non_neg_integer,
-          array_collid: non_neg_integer,
-          element_typeid: non_neg_integer,
-          elements: [PgQuery.Node.t()],
-          multidims: boolean,
-          location: integer
-        }
-  defstruct([
-    :xpr,
-    :array_typeid,
-    :array_collid,
-    :element_typeid,
-    :elements,
-    :multidims,
-    :location
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:array_typeid, 2, type: :uint32)
   field(:array_collid, 3, type: :uint32)
@@ -4050,20 +2480,10 @@ defmodule(PgQuery.ArrayExpr) do
   field(:location, 7, type: :int32)
 end
 
-defmodule(PgQuery.RowExpr) do
+defmodule PgQuery.RowExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          args: [PgQuery.Node.t()],
-          row_typeid: non_neg_integer,
-          row_format: PgQuery.CoercionForm.t(),
-          colnames: [PgQuery.Node.t()],
-          location: integer
-        }
-  defstruct([:xpr, :args, :row_typeid, :row_format, :colnames, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:args, 2, repeated: true, type: PgQuery.Node)
   field(:row_typeid, 3, type: :uint32)
@@ -4072,21 +2492,10 @@ defmodule(PgQuery.RowExpr) do
   field(:location, 6, type: :int32)
 end
 
-defmodule(PgQuery.RowCompareExpr) do
+defmodule PgQuery.RowCompareExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          rctype: PgQuery.RowCompareType.t(),
-          opnos: [PgQuery.Node.t()],
-          opfamilies: [PgQuery.Node.t()],
-          inputcollids: [PgQuery.Node.t()],
-          largs: [PgQuery.Node.t()],
-          rargs: [PgQuery.Node.t()]
-        }
-  defstruct([:xpr, :rctype, :opnos, :opfamilies, :inputcollids, :largs, :rargs])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:rctype, 2, type: PgQuery.RowCompareType, enum: true)
   field(:opnos, 3, repeated: true, type: PgQuery.Node)
@@ -4096,19 +2505,10 @@ defmodule(PgQuery.RowCompareExpr) do
   field(:rargs, 7, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.CoalesceExpr) do
+defmodule PgQuery.CoalesceExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          coalescetype: non_neg_integer,
-          coalescecollid: non_neg_integer,
-          args: [PgQuery.Node.t()],
-          location: integer
-        }
-  defstruct([:xpr, :coalescetype, :coalescecollid, :args, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:coalescetype, 2, type: :uint32)
   field(:coalescecollid, 3, type: :uint32)
@@ -4116,21 +2516,10 @@ defmodule(PgQuery.CoalesceExpr) do
   field(:location, 5, type: :int32)
 end
 
-defmodule(PgQuery.MinMaxExpr) do
+defmodule PgQuery.MinMaxExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          minmaxtype: non_neg_integer,
-          minmaxcollid: non_neg_integer,
-          inputcollid: non_neg_integer,
-          op: PgQuery.MinMaxOp.t(),
-          args: [PgQuery.Node.t()],
-          location: integer
-        }
-  defstruct([:xpr, :minmaxtype, :minmaxcollid, :inputcollid, :op, :args, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:minmaxtype, 2, type: :uint32)
   field(:minmaxcollid, 3, type: :uint32)
@@ -4140,19 +2529,10 @@ defmodule(PgQuery.MinMaxExpr) do
   field(:location, 7, type: :int32)
 end
 
-defmodule(PgQuery.SQLValueFunction) do
+defmodule PgQuery.SQLValueFunction do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          op: PgQuery.SQLValueFunctionOp.t(),
-          type: non_neg_integer,
-          typmod: integer,
-          location: integer
-        }
-  defstruct([:xpr, :op, :type, :typmod, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:op, 2, type: PgQuery.SQLValueFunctionOp, enum: true)
   field(:type, 3, type: :uint32)
@@ -4160,36 +2540,10 @@ defmodule(PgQuery.SQLValueFunction) do
   field(:location, 5, type: :int32)
 end
 
-defmodule(PgQuery.XmlExpr) do
+defmodule PgQuery.XmlExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          op: PgQuery.XmlExprOp.t(),
-          name: String.t(),
-          named_args: [PgQuery.Node.t()],
-          arg_names: [PgQuery.Node.t()],
-          args: [PgQuery.Node.t()],
-          xmloption: PgQuery.XmlOptionType.t(),
-          type: non_neg_integer,
-          typmod: integer,
-          location: integer
-        }
-  defstruct([
-    :xpr,
-    :op,
-    :name,
-    :named_args,
-    :arg_names,
-    :args,
-    :xmloption,
-    :type,
-    :typmod,
-    :location
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:op, 2, type: PgQuery.XmlExprOp, enum: true)
   field(:name, 3, type: :string)
@@ -4202,19 +2556,10 @@ defmodule(PgQuery.XmlExpr) do
   field(:location, 10, type: :int32)
 end
 
-defmodule(PgQuery.NullTest) do
+defmodule PgQuery.NullTest do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          arg: PgQuery.Node.t() | nil,
-          nulltesttype: PgQuery.NullTestType.t(),
-          argisrow: boolean,
-          location: integer
-        }
-  defstruct([:xpr, :arg, :nulltesttype, :argisrow, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:arg, 2, type: PgQuery.Node)
   field(:nulltesttype, 3, type: PgQuery.NullTestType, enum: true)
@@ -4222,39 +2567,20 @@ defmodule(PgQuery.NullTest) do
   field(:location, 5, type: :int32)
 end
 
-defmodule(PgQuery.BooleanTest) do
+defmodule PgQuery.BooleanTest do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          arg: PgQuery.Node.t() | nil,
-          booltesttype: PgQuery.BoolTestType.t(),
-          location: integer
-        }
-  defstruct([:xpr, :arg, :booltesttype, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:arg, 2, type: PgQuery.Node)
   field(:booltesttype, 3, type: PgQuery.BoolTestType, enum: true)
   field(:location, 4, type: :int32)
 end
 
-defmodule(PgQuery.CoerceToDomain) do
+defmodule PgQuery.CoerceToDomain do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          arg: PgQuery.Node.t() | nil,
-          resulttype: non_neg_integer,
-          resulttypmod: integer,
-          resultcollid: non_neg_integer,
-          coercionformat: PgQuery.CoercionForm.t(),
-          location: integer
-        }
-  defstruct([:xpr, :arg, :resulttype, :resulttypmod, :resultcollid, :coercionformat, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:arg, 2, type: PgQuery.Node)
   field(:resulttype, 3, type: :uint32)
@@ -4264,19 +2590,10 @@ defmodule(PgQuery.CoerceToDomain) do
   field(:location, 7, type: :int32)
 end
 
-defmodule(PgQuery.CoerceToDomainValue) do
+defmodule PgQuery.CoerceToDomainValue do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          type_id: non_neg_integer,
-          type_mod: integer,
-          collation: non_neg_integer,
-          location: integer
-        }
-  defstruct([:xpr, :type_id, :type_mod, :collation, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:type_id, 2, type: :uint32, json_name: "typeId")
   field(:type_mod, 3, type: :int32, json_name: "typeMod")
@@ -4284,19 +2601,10 @@ defmodule(PgQuery.CoerceToDomainValue) do
   field(:location, 5, type: :int32)
 end
 
-defmodule(PgQuery.SetToDefault) do
+defmodule PgQuery.SetToDefault do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          type_id: non_neg_integer,
-          type_mod: integer,
-          collation: non_neg_integer,
-          location: integer
-        }
-  defstruct([:xpr, :type_id, :type_mod, :collation, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:type_id, 2, type: :uint32, json_name: "typeId")
   field(:type_mod, 3, type: :int32, json_name: "typeMod")
@@ -4304,74 +2612,39 @@ defmodule(PgQuery.SetToDefault) do
   field(:location, 5, type: :int32)
 end
 
-defmodule(PgQuery.CurrentOfExpr) do
+defmodule PgQuery.CurrentOfExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          cvarno: non_neg_integer,
-          cursor_name: String.t(),
-          cursor_param: integer
-        }
-  defstruct([:xpr, :cvarno, :cursor_name, :cursor_param])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:cvarno, 2, type: :uint32)
   field(:cursor_name, 3, type: :string)
   field(:cursor_param, 4, type: :int32)
 end
 
-defmodule(PgQuery.NextValueExpr) do
+defmodule PgQuery.NextValueExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          seqid: non_neg_integer,
-          type_id: non_neg_integer
-        }
-  defstruct([:xpr, :seqid, :type_id])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:seqid, 2, type: :uint32)
   field(:type_id, 3, type: :uint32, json_name: "typeId")
 end
 
-defmodule(PgQuery.InferenceElem) do
+defmodule PgQuery.InferenceElem do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          expr: PgQuery.Node.t() | nil,
-          infercollid: non_neg_integer,
-          inferopclass: non_neg_integer
-        }
-  defstruct([:xpr, :expr, :infercollid, :inferopclass])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:expr, 2, type: PgQuery.Node)
   field(:infercollid, 3, type: :uint32)
   field(:inferopclass, 4, type: :uint32)
 end
 
-defmodule(PgQuery.TargetEntry) do
+defmodule PgQuery.TargetEntry do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xpr: PgQuery.Node.t() | nil,
-          expr: PgQuery.Node.t() | nil,
-          resno: integer,
-          resname: String.t(),
-          ressortgroupref: non_neg_integer,
-          resorigtbl: non_neg_integer,
-          resorigcol: integer,
-          resjunk: boolean
-        }
-  defstruct([:xpr, :expr, :resno, :resname, :ressortgroupref, :resorigtbl, :resorigcol, :resjunk])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xpr, 1, type: PgQuery.Node)
   field(:expr, 2, type: PgQuery.Node)
   field(:resno, 3, type: :int32)
@@ -4382,31 +2655,17 @@ defmodule(PgQuery.TargetEntry) do
   field(:resjunk, 8, type: :bool)
 end
 
-defmodule(PgQuery.RangeTblRef) do
+defmodule PgQuery.RangeTblRef do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{rtindex: integer}
-  defstruct([:rtindex])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:rtindex, 1, type: :int32)
 end
 
-defmodule(PgQuery.JoinExpr) do
+defmodule PgQuery.JoinExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          jointype: PgQuery.JoinType.t(),
-          is_natural: boolean,
-          larg: PgQuery.Node.t() | nil,
-          rarg: PgQuery.Node.t() | nil,
-          using_clause: [PgQuery.Node.t()],
-          quals: PgQuery.Node.t() | nil,
-          alias: PgQuery.Alias.t() | nil,
-          rtindex: integer
-        }
-  defstruct([:jointype, :is_natural, :larg, :rarg, :using_clause, :quals, :alias, :rtindex])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:jointype, 1, type: PgQuery.JoinType, enum: true)
   field(:is_natural, 2, type: :bool, json_name: "isNatural")
   field(:larg, 3, type: PgQuery.Node)
@@ -4417,42 +2676,18 @@ defmodule(PgQuery.JoinExpr) do
   field(:rtindex, 8, type: :int32)
 end
 
-defmodule(PgQuery.FromExpr) do
+defmodule PgQuery.FromExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{fromlist: [PgQuery.Node.t()], quals: PgQuery.Node.t() | nil}
-  defstruct([:fromlist, :quals])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:fromlist, 1, repeated: true, type: PgQuery.Node)
   field(:quals, 2, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.OnConflictExpr) do
+defmodule PgQuery.OnConflictExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          action: PgQuery.OnConflictAction.t(),
-          arbiter_elems: [PgQuery.Node.t()],
-          arbiter_where: PgQuery.Node.t() | nil,
-          constraint: non_neg_integer,
-          on_conflict_set: [PgQuery.Node.t()],
-          on_conflict_where: PgQuery.Node.t() | nil,
-          excl_rel_index: integer,
-          excl_rel_tlist: [PgQuery.Node.t()]
-        }
-  defstruct([
-    :action,
-    :arbiter_elems,
-    :arbiter_where,
-    :constraint,
-    :on_conflict_set,
-    :on_conflict_where,
-    :excl_rel_index,
-    :excl_rel_tlist
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:action, 1, type: PgQuery.OnConflictAction, enum: true)
   field(:arbiter_elems, 2, repeated: true, type: PgQuery.Node, json_name: "arbiterElems")
   field(:arbiter_where, 3, type: PgQuery.Node, json_name: "arbiterWhere")
@@ -4463,137 +2698,35 @@ defmodule(PgQuery.OnConflictExpr) do
   field(:excl_rel_tlist, 8, repeated: true, type: PgQuery.Node, json_name: "exclRelTlist")
 end
 
-defmodule(PgQuery.IntoClause) do
+defmodule PgQuery.IntoClause do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          rel: PgQuery.RangeVar.t() | nil,
-          col_names: [PgQuery.Node.t()],
-          access_method: String.t(),
-          options: [PgQuery.Node.t()],
-          on_commit: PgQuery.OnCommitAction.t(),
-          table_space_name: String.t(),
-          view_query: PgQuery.Node.t() | nil,
-          skip_data: boolean
-        }
-  defstruct([
-    :rel,
-    :col_names,
-    :access_method,
-    :options,
-    :on_commit,
-    :table_space_name,
-    :view_query,
-    :skip_data
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:rel, 1, type: PgQuery.RangeVar)
   field(:col_names, 2, repeated: true, type: PgQuery.Node, json_name: "colNames")
   field(:access_method, 3, type: :string, json_name: "accessMethod")
   field(:options, 4, repeated: true, type: PgQuery.Node)
-  field(:on_commit, 5, type: PgQuery.OnCommitAction, enum: true, json_name: "onCommit")
+  field(:on_commit, 5, type: PgQuery.OnCommitAction, json_name: "onCommit", enum: true)
   field(:table_space_name, 6, type: :string, json_name: "tableSpaceName")
   field(:view_query, 7, type: PgQuery.Node, json_name: "viewQuery")
   field(:skip_data, 8, type: :bool, json_name: "skipData")
 end
 
-defmodule(PgQuery.RawStmt) do
+defmodule PgQuery.RawStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{stmt: PgQuery.Node.t() | nil, stmt_location: integer, stmt_len: integer}
-  defstruct([:stmt, :stmt_location, :stmt_len])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:stmt, 1, type: PgQuery.Node)
   field(:stmt_location, 2, type: :int32)
   field(:stmt_len, 3, type: :int32)
 end
 
-defmodule(PgQuery.Query) do
+defmodule PgQuery.Query do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          command_type: PgQuery.CmdType.t(),
-          query_source: PgQuery.QuerySource.t(),
-          can_set_tag: boolean,
-          utility_stmt: PgQuery.Node.t() | nil,
-          result_relation: integer,
-          has_aggs: boolean,
-          has_window_funcs: boolean,
-          has_target_srfs: boolean,
-          has_sub_links: boolean,
-          has_distinct_on: boolean,
-          has_recursive: boolean,
-          has_modifying_cte: boolean,
-          has_for_update: boolean,
-          has_row_security: boolean,
-          cte_list: [PgQuery.Node.t()],
-          rtable: [PgQuery.Node.t()],
-          jointree: PgQuery.FromExpr.t() | nil,
-          target_list: [PgQuery.Node.t()],
-          override: PgQuery.OverridingKind.t(),
-          on_conflict: PgQuery.OnConflictExpr.t() | nil,
-          returning_list: [PgQuery.Node.t()],
-          group_clause: [PgQuery.Node.t()],
-          grouping_sets: [PgQuery.Node.t()],
-          having_qual: PgQuery.Node.t() | nil,
-          window_clause: [PgQuery.Node.t()],
-          distinct_clause: [PgQuery.Node.t()],
-          sort_clause: [PgQuery.Node.t()],
-          limit_offset: PgQuery.Node.t() | nil,
-          limit_count: PgQuery.Node.t() | nil,
-          limit_option: PgQuery.LimitOption.t(),
-          row_marks: [PgQuery.Node.t()],
-          set_operations: PgQuery.Node.t() | nil,
-          constraint_deps: [PgQuery.Node.t()],
-          with_check_options: [PgQuery.Node.t()],
-          stmt_location: integer,
-          stmt_len: integer
-        }
-  defstruct([
-    :command_type,
-    :query_source,
-    :can_set_tag,
-    :utility_stmt,
-    :result_relation,
-    :has_aggs,
-    :has_window_funcs,
-    :has_target_srfs,
-    :has_sub_links,
-    :has_distinct_on,
-    :has_recursive,
-    :has_modifying_cte,
-    :has_for_update,
-    :has_row_security,
-    :cte_list,
-    :rtable,
-    :jointree,
-    :target_list,
-    :override,
-    :on_conflict,
-    :returning_list,
-    :group_clause,
-    :grouping_sets,
-    :having_qual,
-    :window_clause,
-    :distinct_clause,
-    :sort_clause,
-    :limit_offset,
-    :limit_count,
-    :limit_option,
-    :row_marks,
-    :set_operations,
-    :constraint_deps,
-    :with_check_options,
-    :stmt_location,
-    :stmt_len
-  ])
-
-  field(:command_type, 1, type: PgQuery.CmdType, enum: true, json_name: "commandType")
-  field(:query_source, 2, type: PgQuery.QuerySource, enum: true, json_name: "querySource")
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
+  field(:command_type, 1, type: PgQuery.CmdType, json_name: "commandType", enum: true)
+  field(:query_source, 2, type: PgQuery.QuerySource, json_name: "querySource", enum: true)
   field(:can_set_tag, 3, type: :bool, json_name: "canSetTag")
   field(:utility_stmt, 4, type: PgQuery.Node, json_name: "utilityStmt")
   field(:result_relation, 5, type: :int32, json_name: "resultRelation")
@@ -4621,7 +2754,7 @@ defmodule(PgQuery.Query) do
   field(:sort_clause, 27, repeated: true, type: PgQuery.Node, json_name: "sortClause")
   field(:limit_offset, 28, type: PgQuery.Node, json_name: "limitOffset")
   field(:limit_count, 29, type: PgQuery.Node, json_name: "limitCount")
-  field(:limit_option, 30, type: PgQuery.LimitOption, enum: true, json_name: "limitOption")
+  field(:limit_option, 30, type: PgQuery.LimitOption, json_name: "limitOption", enum: true)
   field(:row_marks, 31, repeated: true, type: PgQuery.Node, json_name: "rowMarks")
   field(:set_operations, 32, type: PgQuery.Node, json_name: "setOperations")
   field(:constraint_deps, 33, repeated: true, type: PgQuery.Node, json_name: "constraintDeps")
@@ -4632,30 +2765,10 @@ defmodule(PgQuery.Query) do
   field(:stmt_len, 36, type: :int32)
 end
 
-defmodule(PgQuery.InsertStmt) do
+defmodule PgQuery.InsertStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          relation: PgQuery.RangeVar.t() | nil,
-          cols: [PgQuery.Node.t()],
-          select_stmt: PgQuery.Node.t() | nil,
-          on_conflict_clause: PgQuery.OnConflictClause.t() | nil,
-          returning_list: [PgQuery.Node.t()],
-          with_clause: PgQuery.WithClause.t() | nil,
-          override: PgQuery.OverridingKind.t()
-        }
-  defstruct([
-    :relation,
-    :cols,
-    :select_stmt,
-    :on_conflict_clause,
-    :returning_list,
-    :with_clause,
-    :override
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:relation, 1, type: PgQuery.RangeVar)
   field(:cols, 2, repeated: true, type: PgQuery.Node)
   field(:select_stmt, 3, type: PgQuery.Node, json_name: "selectStmt")
@@ -4665,19 +2778,10 @@ defmodule(PgQuery.InsertStmt) do
   field(:override, 7, type: PgQuery.OverridingKind, enum: true)
 end
 
-defmodule(PgQuery.DeleteStmt) do
+defmodule PgQuery.DeleteStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          relation: PgQuery.RangeVar.t() | nil,
-          using_clause: [PgQuery.Node.t()],
-          where_clause: PgQuery.Node.t() | nil,
-          returning_list: [PgQuery.Node.t()],
-          with_clause: PgQuery.WithClause.t() | nil
-        }
-  defstruct([:relation, :using_clause, :where_clause, :returning_list, :with_clause])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:relation, 1, type: PgQuery.RangeVar)
   field(:using_clause, 2, repeated: true, type: PgQuery.Node, json_name: "usingClause")
   field(:where_clause, 3, type: PgQuery.Node, json_name: "whereClause")
@@ -4685,20 +2789,10 @@ defmodule(PgQuery.DeleteStmt) do
   field(:with_clause, 5, type: PgQuery.WithClause, json_name: "withClause")
 end
 
-defmodule(PgQuery.UpdateStmt) do
+defmodule PgQuery.UpdateStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          relation: PgQuery.RangeVar.t() | nil,
-          target_list: [PgQuery.Node.t()],
-          where_clause: PgQuery.Node.t() | nil,
-          from_clause: [PgQuery.Node.t()],
-          returning_list: [PgQuery.Node.t()],
-          with_clause: PgQuery.WithClause.t() | nil
-        }
-  defstruct([:relation, :target_list, :where_clause, :from_clause, :returning_list, :with_clause])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:relation, 1, type: PgQuery.RangeVar)
   field(:target_list, 2, repeated: true, type: PgQuery.Node, json_name: "targetList")
   field(:where_clause, 3, type: PgQuery.Node, json_name: "whereClause")
@@ -4707,54 +2801,10 @@ defmodule(PgQuery.UpdateStmt) do
   field(:with_clause, 6, type: PgQuery.WithClause, json_name: "withClause")
 end
 
-defmodule(PgQuery.SelectStmt) do
+defmodule PgQuery.SelectStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          distinct_clause: [PgQuery.Node.t()],
-          into_clause: PgQuery.IntoClause.t() | nil,
-          target_list: [PgQuery.Node.t()],
-          from_clause: [PgQuery.Node.t()],
-          where_clause: PgQuery.Node.t() | nil,
-          group_clause: [PgQuery.Node.t()],
-          having_clause: PgQuery.Node.t() | nil,
-          window_clause: [PgQuery.Node.t()],
-          values_lists: [PgQuery.Node.t()],
-          sort_clause: [PgQuery.Node.t()],
-          limit_offset: PgQuery.Node.t() | nil,
-          limit_count: PgQuery.Node.t() | nil,
-          limit_option: PgQuery.LimitOption.t(),
-          locking_clause: [PgQuery.Node.t()],
-          with_clause: PgQuery.WithClause.t() | nil,
-          op: PgQuery.SetOperation.t(),
-          all: boolean,
-          larg: PgQuery.SelectStmt.t() | nil,
-          rarg: PgQuery.SelectStmt.t() | nil
-        }
-  defstruct([
-    :distinct_clause,
-    :into_clause,
-    :target_list,
-    :from_clause,
-    :where_clause,
-    :group_clause,
-    :having_clause,
-    :window_clause,
-    :values_lists,
-    :sort_clause,
-    :limit_offset,
-    :limit_count,
-    :limit_option,
-    :locking_clause,
-    :with_clause,
-    :op,
-    :all,
-    :larg,
-    :rarg
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:distinct_clause, 1, repeated: true, type: PgQuery.Node, json_name: "distinctClause")
   field(:into_clause, 2, type: PgQuery.IntoClause, json_name: "intoClause")
   field(:target_list, 3, repeated: true, type: PgQuery.Node, json_name: "targetList")
@@ -4767,7 +2817,7 @@ defmodule(PgQuery.SelectStmt) do
   field(:sort_clause, 10, repeated: true, type: PgQuery.Node, json_name: "sortClause")
   field(:limit_offset, 11, type: PgQuery.Node, json_name: "limitOffset")
   field(:limit_count, 12, type: PgQuery.Node, json_name: "limitCount")
-  field(:limit_option, 13, type: PgQuery.LimitOption, enum: true, json_name: "limitOption")
+  field(:limit_option, 13, type: PgQuery.LimitOption, json_name: "limitOption", enum: true)
   field(:locking_clause, 14, repeated: true, type: PgQuery.Node, json_name: "lockingClause")
   field(:with_clause, 15, type: PgQuery.WithClause, json_name: "withClause")
   field(:op, 16, type: PgQuery.SetOperation, enum: true)
@@ -4776,39 +2826,20 @@ defmodule(PgQuery.SelectStmt) do
   field(:rarg, 19, type: PgQuery.SelectStmt)
 end
 
-defmodule(PgQuery.AlterTableStmt) do
+defmodule PgQuery.AlterTableStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          relation: PgQuery.RangeVar.t() | nil,
-          cmds: [PgQuery.Node.t()],
-          relkind: PgQuery.ObjectType.t(),
-          missing_ok: boolean
-        }
-  defstruct([:relation, :cmds, :relkind, :missing_ok])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:relation, 1, type: PgQuery.RangeVar)
   field(:cmds, 2, repeated: true, type: PgQuery.Node)
   field(:relkind, 3, type: PgQuery.ObjectType, enum: true)
   field(:missing_ok, 4, type: :bool)
 end
 
-defmodule(PgQuery.AlterTableCmd) do
+defmodule PgQuery.AlterTableCmd do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          subtype: PgQuery.AlterTableType.t(),
-          name: String.t(),
-          num: integer,
-          newowner: PgQuery.RoleSpec.t() | nil,
-          def: PgQuery.Node.t() | nil,
-          behavior: PgQuery.DropBehavior.t(),
-          missing_ok: boolean
-        }
-  defstruct([:subtype, :name, :num, :newowner, :def, :behavior, :missing_ok])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:subtype, 1, type: PgQuery.AlterTableType, enum: true)
   field(:name, 2, type: :string)
   field(:num, 3, type: :int32)
@@ -4818,20 +2849,10 @@ defmodule(PgQuery.AlterTableCmd) do
   field(:missing_ok, 7, type: :bool)
 end
 
-defmodule(PgQuery.AlterDomainStmt) do
+defmodule PgQuery.AlterDomainStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          subtype: String.t(),
-          type_name: [PgQuery.Node.t()],
-          name: String.t(),
-          def: PgQuery.Node.t() | nil,
-          behavior: PgQuery.DropBehavior.t(),
-          missing_ok: boolean
-        }
-  defstruct([:subtype, :type_name, :name, :def, :behavior, :missing_ok])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:subtype, 1, type: :string)
   field(:type_name, 2, repeated: true, type: PgQuery.Node, json_name: "typeName")
   field(:name, 3, type: :string)
@@ -4840,22 +2861,10 @@ defmodule(PgQuery.AlterDomainStmt) do
   field(:missing_ok, 6, type: :bool)
 end
 
-defmodule(PgQuery.SetOperationStmt) do
+defmodule PgQuery.SetOperationStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          op: PgQuery.SetOperation.t(),
-          all: boolean,
-          larg: PgQuery.Node.t() | nil,
-          rarg: PgQuery.Node.t() | nil,
-          col_types: [PgQuery.Node.t()],
-          col_typmods: [PgQuery.Node.t()],
-          col_collations: [PgQuery.Node.t()],
-          group_clauses: [PgQuery.Node.t()]
-        }
-  defstruct([:op, :all, :larg, :rarg, :col_types, :col_typmods, :col_collations, :group_clauses])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:op, 1, type: PgQuery.SetOperation, enum: true)
   field(:all, 2, type: :bool)
   field(:larg, 3, type: PgQuery.Node)
@@ -4866,32 +2875,10 @@ defmodule(PgQuery.SetOperationStmt) do
   field(:group_clauses, 8, repeated: true, type: PgQuery.Node, json_name: "groupClauses")
 end
 
-defmodule(PgQuery.GrantStmt) do
+defmodule PgQuery.GrantStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          is_grant: boolean,
-          targtype: PgQuery.GrantTargetType.t(),
-          objtype: PgQuery.ObjectType.t(),
-          objects: [PgQuery.Node.t()],
-          privileges: [PgQuery.Node.t()],
-          grantees: [PgQuery.Node.t()],
-          grant_option: boolean,
-          behavior: PgQuery.DropBehavior.t()
-        }
-  defstruct([
-    :is_grant,
-    :targtype,
-    :objtype,
-    :objects,
-    :privileges,
-    :grantees,
-    :grant_option,
-    :behavior
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:is_grant, 1, type: :bool)
   field(:targtype, 2, type: PgQuery.GrantTargetType, enum: true)
   field(:objtype, 3, type: PgQuery.ObjectType, enum: true)
@@ -4902,20 +2889,10 @@ defmodule(PgQuery.GrantStmt) do
   field(:behavior, 8, type: PgQuery.DropBehavior, enum: true)
 end
 
-defmodule(PgQuery.GrantRoleStmt) do
+defmodule PgQuery.GrantRoleStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          granted_roles: [PgQuery.Node.t()],
-          grantee_roles: [PgQuery.Node.t()],
-          is_grant: boolean,
-          admin_opt: boolean,
-          grantor: PgQuery.RoleSpec.t() | nil,
-          behavior: PgQuery.DropBehavior.t()
-        }
-  defstruct([:granted_roles, :grantee_roles, :is_grant, :admin_opt, :grantor, :behavior])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:granted_roles, 1, repeated: true, type: PgQuery.Node)
   field(:grantee_roles, 2, repeated: true, type: PgQuery.Node)
   field(:is_grant, 3, type: :bool)
@@ -4924,67 +2901,34 @@ defmodule(PgQuery.GrantRoleStmt) do
   field(:behavior, 6, type: PgQuery.DropBehavior, enum: true)
 end
 
-defmodule(PgQuery.AlterDefaultPrivilegesStmt) do
+defmodule PgQuery.AlterDefaultPrivilegesStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{options: [PgQuery.Node.t()], action: PgQuery.GrantStmt.t() | nil}
-  defstruct([:options, :action])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:options, 1, repeated: true, type: PgQuery.Node)
   field(:action, 2, type: PgQuery.GrantStmt)
 end
 
-defmodule(PgQuery.ClosePortalStmt) do
+defmodule PgQuery.ClosePortalStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{portalname: String.t()}
-  defstruct([:portalname])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:portalname, 1, type: :string)
 end
 
-defmodule(PgQuery.ClusterStmt) do
+defmodule PgQuery.ClusterStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          relation: PgQuery.RangeVar.t() | nil,
-          indexname: String.t(),
-          options: integer
-        }
-  defstruct([:relation, :indexname, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:relation, 1, type: PgQuery.RangeVar)
   field(:indexname, 2, type: :string)
   field(:options, 3, type: :int32)
 end
 
-defmodule(PgQuery.CopyStmt) do
+defmodule PgQuery.CopyStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          relation: PgQuery.RangeVar.t() | nil,
-          query: PgQuery.Node.t() | nil,
-          attlist: [PgQuery.Node.t()],
-          is_from: boolean,
-          is_program: boolean,
-          filename: String.t(),
-          options: [PgQuery.Node.t()],
-          where_clause: PgQuery.Node.t() | nil
-        }
-  defstruct([
-    :relation,
-    :query,
-    :attlist,
-    :is_from,
-    :is_program,
-    :filename,
-    :options,
-    :where_clause
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:relation, 1, type: PgQuery.RangeVar)
   field(:query, 2, type: PgQuery.Node)
   field(:attlist, 3, repeated: true, type: PgQuery.Node)
@@ -4995,40 +2939,10 @@ defmodule(PgQuery.CopyStmt) do
   field(:where_clause, 8, type: PgQuery.Node, json_name: "whereClause")
 end
 
-defmodule(PgQuery.CreateStmt) do
+defmodule PgQuery.CreateStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          relation: PgQuery.RangeVar.t() | nil,
-          table_elts: [PgQuery.Node.t()],
-          inh_relations: [PgQuery.Node.t()],
-          partbound: PgQuery.PartitionBoundSpec.t() | nil,
-          partspec: PgQuery.PartitionSpec.t() | nil,
-          of_typename: PgQuery.TypeName.t() | nil,
-          constraints: [PgQuery.Node.t()],
-          options: [PgQuery.Node.t()],
-          oncommit: PgQuery.OnCommitAction.t(),
-          tablespacename: String.t(),
-          access_method: String.t(),
-          if_not_exists: boolean
-        }
-  defstruct([
-    :relation,
-    :table_elts,
-    :inh_relations,
-    :partbound,
-    :partspec,
-    :of_typename,
-    :constraints,
-    :options,
-    :oncommit,
-    :tablespacename,
-    :access_method,
-    :if_not_exists
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:relation, 1, type: PgQuery.RangeVar)
   field(:table_elts, 2, repeated: true, type: PgQuery.Node, json_name: "tableElts")
   field(:inh_relations, 3, repeated: true, type: PgQuery.Node, json_name: "inhRelations")
@@ -5043,21 +2957,10 @@ defmodule(PgQuery.CreateStmt) do
   field(:if_not_exists, 12, type: :bool)
 end
 
-defmodule(PgQuery.DefineStmt) do
+defmodule PgQuery.DefineStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          kind: PgQuery.ObjectType.t(),
-          oldstyle: boolean,
-          defnames: [PgQuery.Node.t()],
-          args: [PgQuery.Node.t()],
-          definition: [PgQuery.Node.t()],
-          if_not_exists: boolean,
-          replace: boolean
-        }
-  defstruct([:kind, :oldstyle, :defnames, :args, :definition, :if_not_exists, :replace])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:kind, 1, type: PgQuery.ObjectType, enum: true)
   field(:oldstyle, 2, type: :bool)
   field(:defnames, 3, repeated: true, type: PgQuery.Node)
@@ -5067,132 +2970,49 @@ defmodule(PgQuery.DefineStmt) do
   field(:replace, 7, type: :bool)
 end
 
-defmodule(PgQuery.DropStmt) do
+defmodule PgQuery.DropStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          objects: [PgQuery.Node.t()],
-          remove_type: PgQuery.ObjectType.t(),
-          behavior: PgQuery.DropBehavior.t(),
-          missing_ok: boolean,
-          concurrent: boolean
-        }
-  defstruct([:objects, :remove_type, :behavior, :missing_ok, :concurrent])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:objects, 1, repeated: true, type: PgQuery.Node)
-  field(:remove_type, 2, type: PgQuery.ObjectType, enum: true, json_name: "removeType")
+  field(:remove_type, 2, type: PgQuery.ObjectType, json_name: "removeType", enum: true)
   field(:behavior, 3, type: PgQuery.DropBehavior, enum: true)
   field(:missing_ok, 4, type: :bool)
   field(:concurrent, 5, type: :bool)
 end
 
-defmodule(PgQuery.TruncateStmt) do
+defmodule PgQuery.TruncateStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          relations: [PgQuery.Node.t()],
-          restart_seqs: boolean,
-          behavior: PgQuery.DropBehavior.t()
-        }
-  defstruct([:relations, :restart_seqs, :behavior])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:relations, 1, repeated: true, type: PgQuery.Node)
   field(:restart_seqs, 2, type: :bool)
   field(:behavior, 3, type: PgQuery.DropBehavior, enum: true)
 end
 
-defmodule(PgQuery.CommentStmt) do
+defmodule PgQuery.CommentStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          objtype: PgQuery.ObjectType.t(),
-          object: PgQuery.Node.t() | nil,
-          comment: String.t()
-        }
-  defstruct([:objtype, :object, :comment])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:objtype, 1, type: PgQuery.ObjectType, enum: true)
   field(:object, 2, type: PgQuery.Node)
   field(:comment, 3, type: :string)
 end
 
-defmodule(PgQuery.FetchStmt) do
+defmodule PgQuery.FetchStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          direction: PgQuery.FetchDirection.t(),
-          how_many: integer,
-          portalname: String.t(),
-          ismove: boolean
-        }
-  defstruct([:direction, :how_many, :portalname, :ismove])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:direction, 1, type: PgQuery.FetchDirection, enum: true)
   field(:how_many, 2, type: :int64, json_name: "howMany")
   field(:portalname, 3, type: :string)
   field(:ismove, 4, type: :bool)
 end
 
-defmodule(PgQuery.IndexStmt) do
+defmodule PgQuery.IndexStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          idxname: String.t(),
-          relation: PgQuery.RangeVar.t() | nil,
-          access_method: String.t(),
-          table_space: String.t(),
-          index_params: [PgQuery.Node.t()],
-          index_including_params: [PgQuery.Node.t()],
-          options: [PgQuery.Node.t()],
-          where_clause: PgQuery.Node.t() | nil,
-          exclude_op_names: [PgQuery.Node.t()],
-          idxcomment: String.t(),
-          index_oid: non_neg_integer,
-          old_node: non_neg_integer,
-          old_create_subid: non_neg_integer,
-          old_first_relfilenode_subid: non_neg_integer,
-          unique: boolean,
-          primary: boolean,
-          isconstraint: boolean,
-          deferrable: boolean,
-          initdeferred: boolean,
-          transformed: boolean,
-          concurrent: boolean,
-          if_not_exists: boolean,
-          reset_default_tblspc: boolean
-        }
-  defstruct([
-    :idxname,
-    :relation,
-    :access_method,
-    :table_space,
-    :index_params,
-    :index_including_params,
-    :options,
-    :where_clause,
-    :exclude_op_names,
-    :idxcomment,
-    :index_oid,
-    :old_node,
-    :old_create_subid,
-    :old_first_relfilenode_subid,
-    :unique,
-    :primary,
-    :isconstraint,
-    :deferrable,
-    :initdeferred,
-    :transformed,
-    :concurrent,
-    :if_not_exists,
-    :reset_default_tblspc
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:idxname, 1, type: :string)
   field(:relation, 2, type: PgQuery.RangeVar)
   field(:access_method, 3, type: :string, json_name: "accessMethod")
@@ -5224,20 +3044,10 @@ defmodule(PgQuery.IndexStmt) do
   field(:reset_default_tblspc, 23, type: :bool)
 end
 
-defmodule(PgQuery.CreateFunctionStmt) do
+defmodule PgQuery.CreateFunctionStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          is_procedure: boolean,
-          replace: boolean,
-          funcname: [PgQuery.Node.t()],
-          parameters: [PgQuery.Node.t()],
-          return_type: PgQuery.TypeName.t() | nil,
-          options: [PgQuery.Node.t()]
-        }
-  defstruct([:is_procedure, :replace, :funcname, :parameters, :return_type, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:is_procedure, 1, type: :bool)
   field(:replace, 2, type: :bool)
   field(:funcname, 3, repeated: true, type: PgQuery.Node)
@@ -5246,59 +3056,28 @@ defmodule(PgQuery.CreateFunctionStmt) do
   field(:options, 6, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.AlterFunctionStmt) do
+defmodule PgQuery.AlterFunctionStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          objtype: PgQuery.ObjectType.t(),
-          func: PgQuery.ObjectWithArgs.t() | nil,
-          actions: [PgQuery.Node.t()]
-        }
-  defstruct([:objtype, :func, :actions])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:objtype, 1, type: PgQuery.ObjectType, enum: true)
   field(:func, 2, type: PgQuery.ObjectWithArgs)
   field(:actions, 3, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.DoStmt) do
+defmodule PgQuery.DoStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{args: [PgQuery.Node.t()]}
-  defstruct([:args])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:args, 1, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.RenameStmt) do
+defmodule PgQuery.RenameStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          rename_type: PgQuery.ObjectType.t(),
-          relation_type: PgQuery.ObjectType.t(),
-          relation: PgQuery.RangeVar.t() | nil,
-          object: PgQuery.Node.t() | nil,
-          subname: String.t(),
-          newname: String.t(),
-          behavior: PgQuery.DropBehavior.t(),
-          missing_ok: boolean
-        }
-  defstruct([
-    :rename_type,
-    :relation_type,
-    :relation,
-    :object,
-    :subname,
-    :newname,
-    :behavior,
-    :missing_ok
-  ])
-
-  field(:rename_type, 1, type: PgQuery.ObjectType, enum: true, json_name: "renameType")
-  field(:relation_type, 2, type: PgQuery.ObjectType, enum: true, json_name: "relationType")
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
+  field(:rename_type, 1, type: PgQuery.ObjectType, json_name: "renameType", enum: true)
+  field(:relation_type, 2, type: PgQuery.ObjectType, json_name: "relationType", enum: true)
   field(:relation, 3, type: PgQuery.RangeVar)
   field(:object, 4, type: PgQuery.Node)
   field(:subname, 5, type: :string)
@@ -5307,21 +3086,10 @@ defmodule(PgQuery.RenameStmt) do
   field(:missing_ok, 8, type: :bool)
 end
 
-defmodule(PgQuery.RuleStmt) do
+defmodule PgQuery.RuleStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          relation: PgQuery.RangeVar.t() | nil,
-          rulename: String.t(),
-          where_clause: PgQuery.Node.t() | nil,
-          event: PgQuery.CmdType.t(),
-          instead: boolean,
-          actions: [PgQuery.Node.t()],
-          replace: boolean
-        }
-  defstruct([:relation, :rulename, :where_clause, :event, :instead, :actions, :replace])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:relation, 1, type: PgQuery.RangeVar)
   field(:rulename, 2, type: :string)
   field(:where_clause, 3, type: PgQuery.Node, json_name: "whereClause")
@@ -5331,47 +3099,32 @@ defmodule(PgQuery.RuleStmt) do
   field(:replace, 7, type: :bool)
 end
 
-defmodule(PgQuery.NotifyStmt) do
+defmodule PgQuery.NotifyStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{conditionname: String.t(), payload: String.t()}
-  defstruct([:conditionname, :payload])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:conditionname, 1, type: :string)
   field(:payload, 2, type: :string)
 end
 
-defmodule(PgQuery.ListenStmt) do
+defmodule PgQuery.ListenStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{conditionname: String.t()}
-  defstruct([:conditionname])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:conditionname, 1, type: :string)
 end
 
-defmodule(PgQuery.UnlistenStmt) do
+defmodule PgQuery.UnlistenStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{conditionname: String.t()}
-  defstruct([:conditionname])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:conditionname, 1, type: :string)
 end
 
-defmodule(PgQuery.TransactionStmt) do
+defmodule PgQuery.TransactionStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          kind: PgQuery.TransactionStmtKind.t(),
-          options: [PgQuery.Node.t()],
-          savepoint_name: String.t(),
-          gid: String.t(),
-          chain: boolean
-        }
-  defstruct([:kind, :options, :savepoint_name, :gid, :chain])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:kind, 1, type: PgQuery.TransactionStmtKind, enum: true)
   field(:options, 2, repeated: true, type: PgQuery.Node)
   field(:savepoint_name, 3, type: :string)
@@ -5379,20 +3132,10 @@ defmodule(PgQuery.TransactionStmt) do
   field(:chain, 5, type: :bool)
 end
 
-defmodule(PgQuery.ViewStmt) do
+defmodule PgQuery.ViewStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          view: PgQuery.RangeVar.t() | nil,
-          aliases: [PgQuery.Node.t()],
-          query: PgQuery.Node.t() | nil,
-          replace: boolean,
-          options: [PgQuery.Node.t()],
-          with_check_option: PgQuery.ViewCheckOption.t()
-        }
-  defstruct([:view, :aliases, :query, :replace, :options, :with_check_option])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:view, 1, type: PgQuery.RangeVar)
   field(:aliases, 2, repeated: true, type: PgQuery.Node)
   field(:query, 3, type: PgQuery.Node)
@@ -5401,98 +3144,66 @@ defmodule(PgQuery.ViewStmt) do
 
   field(:with_check_option, 6,
     type: PgQuery.ViewCheckOption,
-    enum: true,
-    json_name: "withCheckOption"
+    json_name: "withCheckOption",
+    enum: true
   )
 end
 
-defmodule(PgQuery.LoadStmt) do
+defmodule PgQuery.LoadStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{filename: String.t()}
-  defstruct([:filename])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:filename, 1, type: :string)
 end
 
-defmodule(PgQuery.CreateDomainStmt) do
+defmodule PgQuery.CreateDomainStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          domainname: [PgQuery.Node.t()],
-          type_name: PgQuery.TypeName.t() | nil,
-          coll_clause: PgQuery.CollateClause.t() | nil,
-          constraints: [PgQuery.Node.t()]
-        }
-  defstruct([:domainname, :type_name, :coll_clause, :constraints])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:domainname, 1, repeated: true, type: PgQuery.Node)
   field(:type_name, 2, type: PgQuery.TypeName, json_name: "typeName")
   field(:coll_clause, 3, type: PgQuery.CollateClause, json_name: "collClause")
   field(:constraints, 4, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.CreatedbStmt) do
+defmodule PgQuery.CreatedbStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{dbname: String.t(), options: [PgQuery.Node.t()]}
-  defstruct([:dbname, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:dbname, 1, type: :string)
   field(:options, 2, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.DropdbStmt) do
+defmodule PgQuery.DropdbStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{dbname: String.t(), missing_ok: boolean, options: [PgQuery.Node.t()]}
-  defstruct([:dbname, :missing_ok, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:dbname, 1, type: :string)
   field(:missing_ok, 2, type: :bool)
   field(:options, 3, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.VacuumStmt) do
+defmodule PgQuery.VacuumStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          options: [PgQuery.Node.t()],
-          rels: [PgQuery.Node.t()],
-          is_vacuumcmd: boolean
-        }
-  defstruct([:options, :rels, :is_vacuumcmd])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:options, 1, repeated: true, type: PgQuery.Node)
   field(:rels, 2, repeated: true, type: PgQuery.Node)
   field(:is_vacuumcmd, 3, type: :bool)
 end
 
-defmodule(PgQuery.ExplainStmt) do
+defmodule PgQuery.ExplainStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{query: PgQuery.Node.t() | nil, options: [PgQuery.Node.t()]}
-  defstruct([:query, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:query, 1, type: PgQuery.Node)
   field(:options, 2, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.CreateTableAsStmt) do
+defmodule PgQuery.CreateTableAsStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          query: PgQuery.Node.t() | nil,
-          into: PgQuery.IntoClause.t() | nil,
-          relkind: PgQuery.ObjectType.t(),
-          is_select_into: boolean,
-          if_not_exists: boolean
-        }
-  defstruct([:query, :into, :relkind, :is_select_into, :if_not_exists])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:query, 1, type: PgQuery.Node)
   field(:into, 2, type: PgQuery.IntoClause)
   field(:relkind, 3, type: PgQuery.ObjectType, enum: true)
@@ -5500,19 +3211,10 @@ defmodule(PgQuery.CreateTableAsStmt) do
   field(:if_not_exists, 5, type: :bool)
 end
 
-defmodule(PgQuery.CreateSeqStmt) do
+defmodule PgQuery.CreateSeqStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          sequence: PgQuery.RangeVar.t() | nil,
-          options: [PgQuery.Node.t()],
-          owner_id: non_neg_integer,
-          for_identity: boolean,
-          if_not_exists: boolean
-        }
-  defstruct([:sequence, :options, :owner_id, :for_identity, :if_not_exists])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:sequence, 1, type: PgQuery.RangeVar)
   field(:options, 2, repeated: true, type: PgQuery.Node)
   field(:owner_id, 3, type: :uint32, json_name: "ownerId")
@@ -5520,98 +3222,44 @@ defmodule(PgQuery.CreateSeqStmt) do
   field(:if_not_exists, 5, type: :bool)
 end
 
-defmodule(PgQuery.AlterSeqStmt) do
+defmodule PgQuery.AlterSeqStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          sequence: PgQuery.RangeVar.t() | nil,
-          options: [PgQuery.Node.t()],
-          for_identity: boolean,
-          missing_ok: boolean
-        }
-  defstruct([:sequence, :options, :for_identity, :missing_ok])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:sequence, 1, type: PgQuery.RangeVar)
   field(:options, 2, repeated: true, type: PgQuery.Node)
   field(:for_identity, 3, type: :bool)
   field(:missing_ok, 4, type: :bool)
 end
 
-defmodule(PgQuery.VariableSetStmt) do
+defmodule PgQuery.VariableSetStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          kind: PgQuery.VariableSetKind.t(),
-          name: String.t(),
-          args: [PgQuery.Node.t()],
-          is_local: boolean
-        }
-  defstruct([:kind, :name, :args, :is_local])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:kind, 1, type: PgQuery.VariableSetKind, enum: true)
   field(:name, 2, type: :string)
   field(:args, 3, repeated: true, type: PgQuery.Node)
   field(:is_local, 4, type: :bool)
 end
 
-defmodule(PgQuery.VariableShowStmt) do
+defmodule PgQuery.VariableShowStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{name: String.t()}
-  defstruct([:name])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:name, 1, type: :string)
 end
 
-defmodule(PgQuery.DiscardStmt) do
+defmodule PgQuery.DiscardStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{target: PgQuery.DiscardMode.t()}
-  defstruct([:target])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:target, 1, type: PgQuery.DiscardMode, enum: true)
 end
 
-defmodule(PgQuery.CreateTrigStmt) do
+defmodule PgQuery.CreateTrigStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          trigname: String.t(),
-          relation: PgQuery.RangeVar.t() | nil,
-          funcname: [PgQuery.Node.t()],
-          args: [PgQuery.Node.t()],
-          row: boolean,
-          timing: integer,
-          events: integer,
-          columns: [PgQuery.Node.t()],
-          when_clause: PgQuery.Node.t() | nil,
-          isconstraint: boolean,
-          transition_rels: [PgQuery.Node.t()],
-          deferrable: boolean,
-          initdeferred: boolean,
-          constrrel: PgQuery.RangeVar.t() | nil
-        }
-  defstruct([
-    :trigname,
-    :relation,
-    :funcname,
-    :args,
-    :row,
-    :timing,
-    :events,
-    :columns,
-    :when_clause,
-    :isconstraint,
-    :transition_rels,
-    :deferrable,
-    :initdeferred,
-    :constrrel
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:trigname, 1, type: :string)
   field(:relation, 2, type: PgQuery.RangeVar)
   field(:funcname, 3, repeated: true, type: PgQuery.Node)
@@ -5628,20 +3276,10 @@ defmodule(PgQuery.CreateTrigStmt) do
   field(:constrrel, 14, type: PgQuery.RangeVar)
 end
 
-defmodule(PgQuery.CreatePLangStmt) do
+defmodule PgQuery.CreatePLangStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          replace: boolean,
-          plname: String.t(),
-          plhandler: [PgQuery.Node.t()],
-          plinline: [PgQuery.Node.t()],
-          plvalidator: [PgQuery.Node.t()],
-          pltrusted: boolean
-        }
-  defstruct([:replace, :plname, :plhandler, :plinline, :plvalidator, :pltrusted])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:replace, 1, type: :bool)
   field(:plname, 2, type: :string)
   field(:plhandler, 3, repeated: true, type: PgQuery.Node)
@@ -5650,82 +3288,53 @@ defmodule(PgQuery.CreatePLangStmt) do
   field(:pltrusted, 6, type: :bool)
 end
 
-defmodule(PgQuery.CreateRoleStmt) do
+defmodule PgQuery.CreateRoleStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          stmt_type: PgQuery.RoleStmtType.t(),
-          role: String.t(),
-          options: [PgQuery.Node.t()]
-        }
-  defstruct([:stmt_type, :role, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:stmt_type, 1, type: PgQuery.RoleStmtType, enum: true)
   field(:role, 2, type: :string)
   field(:options, 3, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.AlterRoleStmt) do
+defmodule PgQuery.AlterRoleStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          role: PgQuery.RoleSpec.t() | nil,
-          options: [PgQuery.Node.t()],
-          action: integer
-        }
-  defstruct([:role, :options, :action])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:role, 1, type: PgQuery.RoleSpec)
   field(:options, 2, repeated: true, type: PgQuery.Node)
   field(:action, 3, type: :int32)
 end
 
-defmodule(PgQuery.DropRoleStmt) do
+defmodule PgQuery.DropRoleStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{roles: [PgQuery.Node.t()], missing_ok: boolean}
-  defstruct([:roles, :missing_ok])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:roles, 1, repeated: true, type: PgQuery.Node)
   field(:missing_ok, 2, type: :bool)
 end
 
-defmodule(PgQuery.LockStmt) do
+defmodule PgQuery.LockStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{relations: [PgQuery.Node.t()], mode: integer, nowait: boolean}
-  defstruct([:relations, :mode, :nowait])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:relations, 1, repeated: true, type: PgQuery.Node)
   field(:mode, 2, type: :int32)
   field(:nowait, 3, type: :bool)
 end
 
-defmodule(PgQuery.ConstraintsSetStmt) do
+defmodule PgQuery.ConstraintsSetStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{constraints: [PgQuery.Node.t()], deferred: boolean}
-  defstruct([:constraints, :deferred])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:constraints, 1, repeated: true, type: PgQuery.Node)
   field(:deferred, 2, type: :bool)
 end
 
-defmodule(PgQuery.ReindexStmt) do
+defmodule PgQuery.ReindexStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          kind: PgQuery.ReindexObjectType.t(),
-          relation: PgQuery.RangeVar.t() | nil,
-          name: String.t(),
-          options: integer,
-          concurrent: boolean
-        }
-  defstruct([:kind, :relation, :name, :options, :concurrent])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:kind, 1, type: PgQuery.ReindexObjectType, enum: true)
   field(:relation, 2, type: PgQuery.RangeVar)
   field(:name, 3, type: :string)
@@ -5733,81 +3342,51 @@ defmodule(PgQuery.ReindexStmt) do
   field(:concurrent, 5, type: :bool)
 end
 
-defmodule(PgQuery.CheckPointStmt) do
+defmodule PgQuery.CheckPointStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{}
-  defstruct([])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
 end
 
-defmodule(PgQuery.CreateSchemaStmt) do
+defmodule PgQuery.CreateSchemaStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          schemaname: String.t(),
-          authrole: PgQuery.RoleSpec.t() | nil,
-          schema_elts: [PgQuery.Node.t()],
-          if_not_exists: boolean
-        }
-  defstruct([:schemaname, :authrole, :schema_elts, :if_not_exists])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:schemaname, 1, type: :string)
   field(:authrole, 2, type: PgQuery.RoleSpec)
   field(:schema_elts, 3, repeated: true, type: PgQuery.Node, json_name: "schemaElts")
   field(:if_not_exists, 4, type: :bool)
 end
 
-defmodule(PgQuery.AlterDatabaseStmt) do
+defmodule PgQuery.AlterDatabaseStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{dbname: String.t(), options: [PgQuery.Node.t()]}
-  defstruct([:dbname, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:dbname, 1, type: :string)
   field(:options, 2, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.AlterDatabaseSetStmt) do
+defmodule PgQuery.AlterDatabaseSetStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{dbname: String.t(), setstmt: PgQuery.VariableSetStmt.t() | nil}
-  defstruct([:dbname, :setstmt])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:dbname, 1, type: :string)
   field(:setstmt, 2, type: PgQuery.VariableSetStmt)
 end
 
-defmodule(PgQuery.AlterRoleSetStmt) do
+defmodule PgQuery.AlterRoleSetStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          role: PgQuery.RoleSpec.t() | nil,
-          database: String.t(),
-          setstmt: PgQuery.VariableSetStmt.t() | nil
-        }
-  defstruct([:role, :database, :setstmt])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:role, 1, type: PgQuery.RoleSpec)
   field(:database, 2, type: :string)
   field(:setstmt, 3, type: PgQuery.VariableSetStmt)
 end
 
-defmodule(PgQuery.CreateConversionStmt) do
+defmodule PgQuery.CreateConversionStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          conversion_name: [PgQuery.Node.t()],
-          for_encoding_name: String.t(),
-          to_encoding_name: String.t(),
-          func_name: [PgQuery.Node.t()],
-          def: boolean
-        }
-  defstruct([:conversion_name, :for_encoding_name, :to_encoding_name, :func_name, :def])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:conversion_name, 1, repeated: true, type: PgQuery.Node)
   field(:for_encoding_name, 2, type: :string)
   field(:to_encoding_name, 3, type: :string)
@@ -5815,19 +3394,10 @@ defmodule(PgQuery.CreateConversionStmt) do
   field(:def, 5, type: :bool)
 end
 
-defmodule(PgQuery.CreateCastStmt) do
+defmodule PgQuery.CreateCastStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          sourcetype: PgQuery.TypeName.t() | nil,
-          targettype: PgQuery.TypeName.t() | nil,
-          func: PgQuery.ObjectWithArgs.t() | nil,
-          context: PgQuery.CoercionContext.t(),
-          inout: boolean
-        }
-  defstruct([:sourcetype, :targettype, :func, :context, :inout])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:sourcetype, 1, type: PgQuery.TypeName)
   field(:targettype, 2, type: PgQuery.TypeName)
   field(:func, 3, type: PgQuery.ObjectWithArgs)
@@ -5835,20 +3405,10 @@ defmodule(PgQuery.CreateCastStmt) do
   field(:inout, 5, type: :bool)
 end
 
-defmodule(PgQuery.CreateOpClassStmt) do
+defmodule PgQuery.CreateOpClassStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          opclassname: [PgQuery.Node.t()],
-          opfamilyname: [PgQuery.Node.t()],
-          amname: String.t(),
-          datatype: PgQuery.TypeName.t() | nil,
-          items: [PgQuery.Node.t()],
-          is_default: boolean
-        }
-  defstruct([:opclassname, :opfamilyname, :amname, :datatype, :items, :is_default])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:opclassname, 1, repeated: true, type: PgQuery.Node)
   field(:opfamilyname, 2, repeated: true, type: PgQuery.Node)
   field(:amname, 3, type: :string)
@@ -5857,258 +3417,167 @@ defmodule(PgQuery.CreateOpClassStmt) do
   field(:is_default, 6, type: :bool, json_name: "isDefault")
 end
 
-defmodule(PgQuery.CreateOpFamilyStmt) do
+defmodule PgQuery.CreateOpFamilyStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{opfamilyname: [PgQuery.Node.t()], amname: String.t()}
-  defstruct([:opfamilyname, :amname])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:opfamilyname, 1, repeated: true, type: PgQuery.Node)
   field(:amname, 2, type: :string)
 end
 
-defmodule(PgQuery.AlterOpFamilyStmt) do
+defmodule PgQuery.AlterOpFamilyStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          opfamilyname: [PgQuery.Node.t()],
-          amname: String.t(),
-          is_drop: boolean,
-          items: [PgQuery.Node.t()]
-        }
-  defstruct([:opfamilyname, :amname, :is_drop, :items])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:opfamilyname, 1, repeated: true, type: PgQuery.Node)
   field(:amname, 2, type: :string)
   field(:is_drop, 3, type: :bool, json_name: "isDrop")
   field(:items, 4, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.PrepareStmt) do
+defmodule PgQuery.PrepareStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          argtypes: [PgQuery.Node.t()],
-          query: PgQuery.Node.t() | nil
-        }
-  defstruct([:name, :argtypes, :query])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:name, 1, type: :string)
   field(:argtypes, 2, repeated: true, type: PgQuery.Node)
   field(:query, 3, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.ExecuteStmt) do
+defmodule PgQuery.ExecuteStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{name: String.t(), params: [PgQuery.Node.t()]}
-  defstruct([:name, :params])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:name, 1, type: :string)
   field(:params, 2, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.DeallocateStmt) do
+defmodule PgQuery.DeallocateStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{name: String.t()}
-  defstruct([:name])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:name, 1, type: :string)
 end
 
-defmodule(PgQuery.DeclareCursorStmt) do
+defmodule PgQuery.DeclareCursorStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{portalname: String.t(), options: integer, query: PgQuery.Node.t() | nil}
-  defstruct([:portalname, :options, :query])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:portalname, 1, type: :string)
   field(:options, 2, type: :int32)
   field(:query, 3, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.CreateTableSpaceStmt) do
+defmodule PgQuery.CreateTableSpaceStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          tablespacename: String.t(),
-          owner: PgQuery.RoleSpec.t() | nil,
-          location: String.t(),
-          options: [PgQuery.Node.t()]
-        }
-  defstruct([:tablespacename, :owner, :location, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:tablespacename, 1, type: :string)
   field(:owner, 2, type: PgQuery.RoleSpec)
   field(:location, 3, type: :string)
   field(:options, 4, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.DropTableSpaceStmt) do
+defmodule PgQuery.DropTableSpaceStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{tablespacename: String.t(), missing_ok: boolean}
-  defstruct([:tablespacename, :missing_ok])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:tablespacename, 1, type: :string)
   field(:missing_ok, 2, type: :bool)
 end
 
-defmodule(PgQuery.AlterObjectDependsStmt) do
+defmodule PgQuery.AlterObjectDependsStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          object_type: PgQuery.ObjectType.t(),
-          relation: PgQuery.RangeVar.t() | nil,
-          object: PgQuery.Node.t() | nil,
-          extname: PgQuery.Node.t() | nil,
-          remove: boolean
-        }
-  defstruct([:object_type, :relation, :object, :extname, :remove])
-  field(:object_type, 1, type: PgQuery.ObjectType, enum: true, json_name: "objectType")
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
+  field(:object_type, 1, type: PgQuery.ObjectType, json_name: "objectType", enum: true)
   field(:relation, 2, type: PgQuery.RangeVar)
   field(:object, 3, type: PgQuery.Node)
   field(:extname, 4, type: PgQuery.Node)
   field(:remove, 5, type: :bool)
 end
 
-defmodule(PgQuery.AlterObjectSchemaStmt) do
+defmodule PgQuery.AlterObjectSchemaStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          object_type: PgQuery.ObjectType.t(),
-          relation: PgQuery.RangeVar.t() | nil,
-          object: PgQuery.Node.t() | nil,
-          newschema: String.t(),
-          missing_ok: boolean
-        }
-  defstruct([:object_type, :relation, :object, :newschema, :missing_ok])
-  field(:object_type, 1, type: PgQuery.ObjectType, enum: true, json_name: "objectType")
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
+  field(:object_type, 1, type: PgQuery.ObjectType, json_name: "objectType", enum: true)
   field(:relation, 2, type: PgQuery.RangeVar)
   field(:object, 3, type: PgQuery.Node)
   field(:newschema, 4, type: :string)
   field(:missing_ok, 5, type: :bool)
 end
 
-defmodule(PgQuery.AlterOwnerStmt) do
+defmodule PgQuery.AlterOwnerStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          object_type: PgQuery.ObjectType.t(),
-          relation: PgQuery.RangeVar.t() | nil,
-          object: PgQuery.Node.t() | nil,
-          newowner: PgQuery.RoleSpec.t() | nil
-        }
-  defstruct([:object_type, :relation, :object, :newowner])
-  field(:object_type, 1, type: PgQuery.ObjectType, enum: true, json_name: "objectType")
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
+  field(:object_type, 1, type: PgQuery.ObjectType, json_name: "objectType", enum: true)
   field(:relation, 2, type: PgQuery.RangeVar)
   field(:object, 3, type: PgQuery.Node)
   field(:newowner, 4, type: PgQuery.RoleSpec)
 end
 
-defmodule(PgQuery.AlterOperatorStmt) do
+defmodule PgQuery.AlterOperatorStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{opername: PgQuery.ObjectWithArgs.t() | nil, options: [PgQuery.Node.t()]}
-  defstruct([:opername, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:opername, 1, type: PgQuery.ObjectWithArgs)
   field(:options, 2, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.AlterTypeStmt) do
+defmodule PgQuery.AlterTypeStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{type_name: [PgQuery.Node.t()], options: [PgQuery.Node.t()]}
-  defstruct([:type_name, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:type_name, 1, repeated: true, type: PgQuery.Node, json_name: "typeName")
   field(:options, 2, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.DropOwnedStmt) do
+defmodule PgQuery.DropOwnedStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{roles: [PgQuery.Node.t()], behavior: PgQuery.DropBehavior.t()}
-  defstruct([:roles, :behavior])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:roles, 1, repeated: true, type: PgQuery.Node)
   field(:behavior, 2, type: PgQuery.DropBehavior, enum: true)
 end
 
-defmodule(PgQuery.ReassignOwnedStmt) do
+defmodule PgQuery.ReassignOwnedStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{roles: [PgQuery.Node.t()], newrole: PgQuery.RoleSpec.t() | nil}
-  defstruct([:roles, :newrole])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:roles, 1, repeated: true, type: PgQuery.Node)
   field(:newrole, 2, type: PgQuery.RoleSpec)
 end
 
-defmodule(PgQuery.CompositeTypeStmt) do
+defmodule PgQuery.CompositeTypeStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{typevar: PgQuery.RangeVar.t() | nil, coldeflist: [PgQuery.Node.t()]}
-  defstruct([:typevar, :coldeflist])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:typevar, 1, type: PgQuery.RangeVar)
   field(:coldeflist, 2, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.CreateEnumStmt) do
+defmodule PgQuery.CreateEnumStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{type_name: [PgQuery.Node.t()], vals: [PgQuery.Node.t()]}
-  defstruct([:type_name, :vals])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:type_name, 1, repeated: true, type: PgQuery.Node, json_name: "typeName")
   field(:vals, 2, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.CreateRangeStmt) do
+defmodule PgQuery.CreateRangeStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{type_name: [PgQuery.Node.t()], params: [PgQuery.Node.t()]}
-  defstruct([:type_name, :params])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:type_name, 1, repeated: true, type: PgQuery.Node, json_name: "typeName")
   field(:params, 2, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.AlterEnumStmt) do
+defmodule PgQuery.AlterEnumStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          type_name: [PgQuery.Node.t()],
-          old_val: String.t(),
-          new_val: String.t(),
-          new_val_neighbor: String.t(),
-          new_val_is_after: boolean,
-          skip_if_new_val_exists: boolean
-        }
-  defstruct([
-    :type_name,
-    :old_val,
-    :new_val,
-    :new_val_neighbor,
-    :new_val_is_after,
-    :skip_if_new_val_exists
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:type_name, 1, repeated: true, type: PgQuery.Node, json_name: "typeName")
   field(:old_val, 2, type: :string, json_name: "oldVal")
   field(:new_val, 3, type: :string, json_name: "newVal")
@@ -6117,31 +3586,18 @@ defmodule(PgQuery.AlterEnumStmt) do
   field(:skip_if_new_val_exists, 6, type: :bool, json_name: "skipIfNewValExists")
 end
 
-defmodule(PgQuery.AlterTSDictionaryStmt) do
+defmodule PgQuery.AlterTSDictionaryStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{dictname: [PgQuery.Node.t()], options: [PgQuery.Node.t()]}
-  defstruct([:dictname, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:dictname, 1, repeated: true, type: PgQuery.Node)
   field(:options, 2, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.AlterTSConfigurationStmt) do
+defmodule PgQuery.AlterTSConfigurationStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          kind: PgQuery.AlterTSConfigType.t(),
-          cfgname: [PgQuery.Node.t()],
-          tokentype: [PgQuery.Node.t()],
-          dicts: [PgQuery.Node.t()],
-          override: boolean,
-          replace: boolean,
-          missing_ok: boolean
-        }
-  defstruct([:kind, :cfgname, :tokentype, :dicts, :override, :replace, :missing_ok])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:kind, 1, type: PgQuery.AlterTSConfigType, enum: true)
   field(:cfgname, 2, repeated: true, type: PgQuery.Node)
   field(:tokentype, 3, repeated: true, type: PgQuery.Node)
@@ -6151,52 +3607,28 @@ defmodule(PgQuery.AlterTSConfigurationStmt) do
   field(:missing_ok, 7, type: :bool)
 end
 
-defmodule(PgQuery.CreateFdwStmt) do
+defmodule PgQuery.CreateFdwStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          fdwname: String.t(),
-          func_options: [PgQuery.Node.t()],
-          options: [PgQuery.Node.t()]
-        }
-  defstruct([:fdwname, :func_options, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:fdwname, 1, type: :string)
   field(:func_options, 2, repeated: true, type: PgQuery.Node)
   field(:options, 3, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.AlterFdwStmt) do
+defmodule PgQuery.AlterFdwStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          fdwname: String.t(),
-          func_options: [PgQuery.Node.t()],
-          options: [PgQuery.Node.t()]
-        }
-  defstruct([:fdwname, :func_options, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:fdwname, 1, type: :string)
   field(:func_options, 2, repeated: true, type: PgQuery.Node)
   field(:options, 3, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.CreateForeignServerStmt) do
+defmodule PgQuery.CreateForeignServerStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          servername: String.t(),
-          servertype: String.t(),
-          version: String.t(),
-          fdwname: String.t(),
-          if_not_exists: boolean,
-          options: [PgQuery.Node.t()]
-        }
-  defstruct([:servername, :servertype, :version, :fdwname, :if_not_exists, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:servername, 1, type: :string)
   field(:servertype, 2, type: :string)
   field(:version, 3, type: :string)
@@ -6205,103 +3637,57 @@ defmodule(PgQuery.CreateForeignServerStmt) do
   field(:options, 6, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.AlterForeignServerStmt) do
+defmodule PgQuery.AlterForeignServerStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          servername: String.t(),
-          version: String.t(),
-          options: [PgQuery.Node.t()],
-          has_version: boolean
-        }
-  defstruct([:servername, :version, :options, :has_version])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:servername, 1, type: :string)
   field(:version, 2, type: :string)
   field(:options, 3, repeated: true, type: PgQuery.Node)
   field(:has_version, 4, type: :bool)
 end
 
-defmodule(PgQuery.CreateUserMappingStmt) do
+defmodule PgQuery.CreateUserMappingStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          user: PgQuery.RoleSpec.t() | nil,
-          servername: String.t(),
-          if_not_exists: boolean,
-          options: [PgQuery.Node.t()]
-        }
-  defstruct([:user, :servername, :if_not_exists, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:user, 1, type: PgQuery.RoleSpec)
   field(:servername, 2, type: :string)
   field(:if_not_exists, 3, type: :bool)
   field(:options, 4, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.AlterUserMappingStmt) do
+defmodule PgQuery.AlterUserMappingStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          user: PgQuery.RoleSpec.t() | nil,
-          servername: String.t(),
-          options: [PgQuery.Node.t()]
-        }
-  defstruct([:user, :servername, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:user, 1, type: PgQuery.RoleSpec)
   field(:servername, 2, type: :string)
   field(:options, 3, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.DropUserMappingStmt) do
+defmodule PgQuery.DropUserMappingStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          user: PgQuery.RoleSpec.t() | nil,
-          servername: String.t(),
-          missing_ok: boolean
-        }
-  defstruct([:user, :servername, :missing_ok])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:user, 1, type: PgQuery.RoleSpec)
   field(:servername, 2, type: :string)
   field(:missing_ok, 3, type: :bool)
 end
 
-defmodule(PgQuery.AlterTableSpaceOptionsStmt) do
+defmodule PgQuery.AlterTableSpaceOptionsStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          tablespacename: String.t(),
-          options: [PgQuery.Node.t()],
-          is_reset: boolean
-        }
-  defstruct([:tablespacename, :options, :is_reset])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:tablespacename, 1, type: :string)
   field(:options, 2, repeated: true, type: PgQuery.Node)
   field(:is_reset, 3, type: :bool, json_name: "isReset")
 end
 
-defmodule(PgQuery.AlterTableMoveAllStmt) do
+defmodule PgQuery.AlterTableMoveAllStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          orig_tablespacename: String.t(),
-          objtype: PgQuery.ObjectType.t(),
-          roles: [PgQuery.Node.t()],
-          new_tablespacename: String.t(),
-          nowait: boolean
-        }
-  defstruct([:orig_tablespacename, :objtype, :roles, :new_tablespacename, :nowait])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:orig_tablespacename, 1, type: :string)
   field(:objtype, 2, type: PgQuery.ObjectType, enum: true)
   field(:roles, 3, repeated: true, type: PgQuery.Node)
@@ -6309,54 +3695,29 @@ defmodule(PgQuery.AlterTableMoveAllStmt) do
   field(:nowait, 5, type: :bool)
 end
 
-defmodule(PgQuery.SecLabelStmt) do
+defmodule PgQuery.SecLabelStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          objtype: PgQuery.ObjectType.t(),
-          object: PgQuery.Node.t() | nil,
-          provider: String.t(),
-          label: String.t()
-        }
-  defstruct([:objtype, :object, :provider, :label])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:objtype, 1, type: PgQuery.ObjectType, enum: true)
   field(:object, 2, type: PgQuery.Node)
   field(:provider, 3, type: :string)
   field(:label, 4, type: :string)
 end
 
-defmodule(PgQuery.CreateForeignTableStmt) do
+defmodule PgQuery.CreateForeignTableStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          base_stmt: PgQuery.CreateStmt.t() | nil,
-          servername: String.t(),
-          options: [PgQuery.Node.t()]
-        }
-  defstruct([:base_stmt, :servername, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:base_stmt, 1, type: PgQuery.CreateStmt, json_name: "base")
   field(:servername, 2, type: :string)
   field(:options, 3, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.ImportForeignSchemaStmt) do
+defmodule PgQuery.ImportForeignSchemaStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          server_name: String.t(),
-          remote_schema: String.t(),
-          local_schema: String.t(),
-          list_type: PgQuery.ImportForeignSchemaType.t(),
-          table_list: [PgQuery.Node.t()],
-          options: [PgQuery.Node.t()]
-        }
-  defstruct([:server_name, :remote_schema, :local_schema, :list_type, :table_list, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:server_name, 1, type: :string)
   field(:remote_schema, 2, type: :string)
   field(:local_schema, 3, type: :string)
@@ -6365,123 +3726,79 @@ defmodule(PgQuery.ImportForeignSchemaStmt) do
   field(:options, 6, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.CreateExtensionStmt) do
+defmodule PgQuery.CreateExtensionStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{extname: String.t(), if_not_exists: boolean, options: [PgQuery.Node.t()]}
-  defstruct([:extname, :if_not_exists, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:extname, 1, type: :string)
   field(:if_not_exists, 2, type: :bool)
   field(:options, 3, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.AlterExtensionStmt) do
+defmodule PgQuery.AlterExtensionStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{extname: String.t(), options: [PgQuery.Node.t()]}
-  defstruct([:extname, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:extname, 1, type: :string)
   field(:options, 2, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.AlterExtensionContentsStmt) do
+defmodule PgQuery.AlterExtensionContentsStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          extname: String.t(),
-          action: integer,
-          objtype: PgQuery.ObjectType.t(),
-          object: PgQuery.Node.t() | nil
-        }
-  defstruct([:extname, :action, :objtype, :object])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:extname, 1, type: :string)
   field(:action, 2, type: :int32)
   field(:objtype, 3, type: PgQuery.ObjectType, enum: true)
   field(:object, 4, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.CreateEventTrigStmt) do
+defmodule PgQuery.CreateEventTrigStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          trigname: String.t(),
-          eventname: String.t(),
-          whenclause: [PgQuery.Node.t()],
-          funcname: [PgQuery.Node.t()]
-        }
-  defstruct([:trigname, :eventname, :whenclause, :funcname])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:trigname, 1, type: :string)
   field(:eventname, 2, type: :string)
   field(:whenclause, 3, repeated: true, type: PgQuery.Node)
   field(:funcname, 4, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.AlterEventTrigStmt) do
+defmodule PgQuery.AlterEventTrigStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{trigname: String.t(), tgenabled: String.t()}
-  defstruct([:trigname, :tgenabled])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:trigname, 1, type: :string)
   field(:tgenabled, 2, type: :string)
 end
 
-defmodule(PgQuery.RefreshMatViewStmt) do
+defmodule PgQuery.RefreshMatViewStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          concurrent: boolean,
-          skip_data: boolean,
-          relation: PgQuery.RangeVar.t() | nil
-        }
-  defstruct([:concurrent, :skip_data, :relation])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:concurrent, 1, type: :bool)
   field(:skip_data, 2, type: :bool, json_name: "skipData")
   field(:relation, 3, type: PgQuery.RangeVar)
 end
 
-defmodule(PgQuery.ReplicaIdentityStmt) do
+defmodule PgQuery.ReplicaIdentityStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{identity_type: String.t(), name: String.t()}
-  defstruct([:identity_type, :name])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:identity_type, 1, type: :string)
   field(:name, 2, type: :string)
 end
 
-defmodule(PgQuery.AlterSystemStmt) do
+defmodule PgQuery.AlterSystemStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{setstmt: PgQuery.VariableSetStmt.t() | nil}
-  defstruct([:setstmt])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:setstmt, 1, type: PgQuery.VariableSetStmt)
 end
 
-defmodule(PgQuery.CreatePolicyStmt) do
+defmodule PgQuery.CreatePolicyStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          policy_name: String.t(),
-          table: PgQuery.RangeVar.t() | nil,
-          cmd_name: String.t(),
-          permissive: boolean,
-          roles: [PgQuery.Node.t()],
-          qual: PgQuery.Node.t() | nil,
-          with_check: PgQuery.Node.t() | nil
-        }
-  defstruct([:policy_name, :table, :cmd_name, :permissive, :roles, :qual, :with_check])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:policy_name, 1, type: :string)
   field(:table, 2, type: PgQuery.RangeVar)
   field(:cmd_name, 3, type: :string)
@@ -6491,19 +3808,10 @@ defmodule(PgQuery.CreatePolicyStmt) do
   field(:with_check, 7, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.AlterPolicyStmt) do
+defmodule PgQuery.AlterPolicyStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          policy_name: String.t(),
-          table: PgQuery.RangeVar.t() | nil,
-          roles: [PgQuery.Node.t()],
-          qual: PgQuery.Node.t() | nil,
-          with_check: PgQuery.Node.t() | nil
-        }
-  defstruct([:policy_name, :table, :roles, :qual, :with_check])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:policy_name, 1, type: :string)
   field(:table, 2, type: PgQuery.RangeVar)
   field(:roles, 3, repeated: true, type: PgQuery.Node)
@@ -6511,19 +3819,10 @@ defmodule(PgQuery.AlterPolicyStmt) do
   field(:with_check, 5, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.CreateTransformStmt) do
+defmodule PgQuery.CreateTransformStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          replace: boolean,
-          type_name: PgQuery.TypeName.t() | nil,
-          lang: String.t(),
-          fromsql: PgQuery.ObjectWithArgs.t() | nil,
-          tosql: PgQuery.ObjectWithArgs.t() | nil
-        }
-  defstruct([:replace, :type_name, :lang, :fromsql, :tosql])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:replace, 1, type: :bool)
   field(:type_name, 2, type: PgQuery.TypeName)
   field(:lang, 3, type: :string)
@@ -6531,86 +3830,50 @@ defmodule(PgQuery.CreateTransformStmt) do
   field(:tosql, 5, type: PgQuery.ObjectWithArgs)
 end
 
-defmodule(PgQuery.CreateAmStmt) do
+defmodule PgQuery.CreateAmStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{amname: String.t(), handler_name: [PgQuery.Node.t()], amtype: String.t()}
-  defstruct([:amname, :handler_name, :amtype])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:amname, 1, type: :string)
   field(:handler_name, 2, repeated: true, type: PgQuery.Node)
   field(:amtype, 3, type: :string)
 end
 
-defmodule(PgQuery.CreatePublicationStmt) do
+defmodule PgQuery.CreatePublicationStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          pubname: String.t(),
-          options: [PgQuery.Node.t()],
-          tables: [PgQuery.Node.t()],
-          for_all_tables: boolean
-        }
-  defstruct([:pubname, :options, :tables, :for_all_tables])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:pubname, 1, type: :string)
   field(:options, 2, repeated: true, type: PgQuery.Node)
   field(:tables, 3, repeated: true, type: PgQuery.Node)
   field(:for_all_tables, 4, type: :bool)
 end
 
-defmodule(PgQuery.AlterPublicationStmt) do
+defmodule PgQuery.AlterPublicationStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          pubname: String.t(),
-          options: [PgQuery.Node.t()],
-          tables: [PgQuery.Node.t()],
-          for_all_tables: boolean,
-          table_action: PgQuery.DefElemAction.t()
-        }
-  defstruct([:pubname, :options, :tables, :for_all_tables, :table_action])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:pubname, 1, type: :string)
   field(:options, 2, repeated: true, type: PgQuery.Node)
   field(:tables, 3, repeated: true, type: PgQuery.Node)
   field(:for_all_tables, 4, type: :bool)
-  field(:table_action, 5, type: PgQuery.DefElemAction, enum: true, json_name: "tableAction")
+  field(:table_action, 5, type: PgQuery.DefElemAction, json_name: "tableAction", enum: true)
 end
 
-defmodule(PgQuery.CreateSubscriptionStmt) do
+defmodule PgQuery.CreateSubscriptionStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          subname: String.t(),
-          conninfo: String.t(),
-          publication: [PgQuery.Node.t()],
-          options: [PgQuery.Node.t()]
-        }
-  defstruct([:subname, :conninfo, :publication, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:subname, 1, type: :string)
   field(:conninfo, 2, type: :string)
   field(:publication, 3, repeated: true, type: PgQuery.Node)
   field(:options, 4, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.AlterSubscriptionStmt) do
+defmodule PgQuery.AlterSubscriptionStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          kind: PgQuery.AlterSubscriptionType.t(),
-          subname: String.t(),
-          conninfo: String.t(),
-          publication: [PgQuery.Node.t()],
-          options: [PgQuery.Node.t()]
-        }
-  defstruct([:kind, :subname, :conninfo, :publication, :options])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:kind, 1, type: PgQuery.AlterSubscriptionType, enum: true)
   field(:subname, 2, type: :string)
   field(:conninfo, 3, type: :string)
@@ -6618,36 +3881,19 @@ defmodule(PgQuery.AlterSubscriptionStmt) do
   field(:options, 5, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.DropSubscriptionStmt) do
+defmodule PgQuery.DropSubscriptionStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          subname: String.t(),
-          missing_ok: boolean,
-          behavior: PgQuery.DropBehavior.t()
-        }
-  defstruct([:subname, :missing_ok, :behavior])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:subname, 1, type: :string)
   field(:missing_ok, 2, type: :bool)
   field(:behavior, 3, type: PgQuery.DropBehavior, enum: true)
 end
 
-defmodule(PgQuery.CreateStatsStmt) do
+defmodule PgQuery.CreateStatsStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          defnames: [PgQuery.Node.t()],
-          stat_types: [PgQuery.Node.t()],
-          exprs: [PgQuery.Node.t()],
-          relations: [PgQuery.Node.t()],
-          stxcomment: String.t(),
-          if_not_exists: boolean
-        }
-  defstruct([:defnames, :stat_types, :exprs, :relations, :stxcomment, :if_not_exists])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:defnames, 1, repeated: true, type: PgQuery.Node)
   field(:stat_types, 2, repeated: true, type: PgQuery.Node)
   field(:exprs, 3, repeated: true, type: PgQuery.Node)
@@ -6656,58 +3902,34 @@ defmodule(PgQuery.CreateStatsStmt) do
   field(:if_not_exists, 6, type: :bool)
 end
 
-defmodule(PgQuery.AlterCollationStmt) do
+defmodule PgQuery.AlterCollationStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{collname: [PgQuery.Node.t()]}
-  defstruct([:collname])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:collname, 1, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.CallStmt) do
+defmodule PgQuery.CallStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          funccall: PgQuery.FuncCall.t() | nil,
-          funcexpr: PgQuery.FuncExpr.t() | nil
-        }
-  defstruct([:funccall, :funcexpr])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:funccall, 1, type: PgQuery.FuncCall)
   field(:funcexpr, 2, type: PgQuery.FuncExpr)
 end
 
-defmodule(PgQuery.AlterStatsStmt) do
+defmodule PgQuery.AlterStatsStmt do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          defnames: [PgQuery.Node.t()],
-          stxstattarget: integer,
-          missing_ok: boolean
-        }
-  defstruct([:defnames, :stxstattarget, :missing_ok])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:defnames, 1, repeated: true, type: PgQuery.Node)
   field(:stxstattarget, 2, type: :int32)
   field(:missing_ok, 3, type: :bool)
 end
 
-defmodule(PgQuery.A_Expr) do
+defmodule PgQuery.A_Expr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          kind: PgQuery.A_Expr_Kind.t(),
-          name: [PgQuery.Node.t()],
-          lexpr: PgQuery.Node.t() | nil,
-          rexpr: PgQuery.Node.t() | nil,
-          location: integer
-        }
-  defstruct([:kind, :name, :lexpr, :rexpr, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:kind, 1, type: PgQuery.A_Expr_Kind, enum: true)
   field(:name, 2, repeated: true, type: PgQuery.Node)
   field(:lexpr, 3, type: PgQuery.Node)
@@ -6715,66 +3937,34 @@ defmodule(PgQuery.A_Expr) do
   field(:location, 5, type: :int32)
 end
 
-defmodule(PgQuery.ColumnRef) do
+defmodule PgQuery.ColumnRef do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{fields: [PgQuery.Node.t()], location: integer}
-  defstruct([:fields, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:fields, 1, repeated: true, type: PgQuery.Node)
   field(:location, 2, type: :int32)
 end
 
-defmodule(PgQuery.ParamRef) do
+defmodule PgQuery.ParamRef do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{number: integer, location: integer}
-  defstruct([:number, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:number, 1, type: :int32)
   field(:location, 2, type: :int32)
 end
 
-defmodule(PgQuery.A_Const) do
+defmodule PgQuery.A_Const do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{val: PgQuery.Node.t() | nil, location: integer}
-  defstruct([:val, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:val, 1, type: PgQuery.Node)
   field(:location, 2, type: :int32)
 end
 
-defmodule(PgQuery.FuncCall) do
+defmodule PgQuery.FuncCall do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          funcname: [PgQuery.Node.t()],
-          args: [PgQuery.Node.t()],
-          agg_order: [PgQuery.Node.t()],
-          agg_filter: PgQuery.Node.t() | nil,
-          agg_within_group: boolean,
-          agg_star: boolean,
-          agg_distinct: boolean,
-          func_variadic: boolean,
-          over: PgQuery.WindowDef.t() | nil,
-          location: integer
-        }
-  defstruct([
-    :funcname,
-    :args,
-    :agg_order,
-    :agg_filter,
-    :agg_within_group,
-    :agg_star,
-    :agg_distinct,
-    :func_variadic,
-    :over,
-    :location
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:funcname, 1, repeated: true, type: PgQuery.Node)
   field(:args, 2, repeated: true, type: PgQuery.Node)
   field(:agg_order, 3, repeated: true, type: PgQuery.Node)
@@ -6787,124 +3977,78 @@ defmodule(PgQuery.FuncCall) do
   field(:location, 10, type: :int32)
 end
 
-defmodule(PgQuery.A_Star) do
+defmodule PgQuery.A_Star do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{}
-  defstruct([])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
 end
 
-defmodule(PgQuery.A_Indices) do
+defmodule PgQuery.A_Indices do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          is_slice: boolean,
-          lidx: PgQuery.Node.t() | nil,
-          uidx: PgQuery.Node.t() | nil
-        }
-  defstruct([:is_slice, :lidx, :uidx])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:is_slice, 1, type: :bool)
   field(:lidx, 2, type: PgQuery.Node)
   field(:uidx, 3, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.A_Indirection) do
+defmodule PgQuery.A_Indirection do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{arg: PgQuery.Node.t() | nil, indirection: [PgQuery.Node.t()]}
-  defstruct([:arg, :indirection])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:arg, 1, type: PgQuery.Node)
   field(:indirection, 2, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.A_ArrayExpr) do
+defmodule PgQuery.A_ArrayExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{elements: [PgQuery.Node.t()], location: integer}
-  defstruct([:elements, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:elements, 1, repeated: true, type: PgQuery.Node)
   field(:location, 2, type: :int32)
 end
 
-defmodule(PgQuery.ResTarget) do
+defmodule PgQuery.ResTarget do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          indirection: [PgQuery.Node.t()],
-          val: PgQuery.Node.t() | nil,
-          location: integer
-        }
-  defstruct([:name, :indirection, :val, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:name, 1, type: :string)
   field(:indirection, 2, repeated: true, type: PgQuery.Node)
   field(:val, 3, type: PgQuery.Node)
   field(:location, 4, type: :int32)
 end
 
-defmodule(PgQuery.MultiAssignRef) do
+defmodule PgQuery.MultiAssignRef do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{source: PgQuery.Node.t() | nil, colno: integer, ncolumns: integer}
-  defstruct([:source, :colno, :ncolumns])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:source, 1, type: PgQuery.Node)
   field(:colno, 2, type: :int32)
   field(:ncolumns, 3, type: :int32)
 end
 
-defmodule(PgQuery.TypeCast) do
+defmodule PgQuery.TypeCast do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          arg: PgQuery.Node.t() | nil,
-          type_name: PgQuery.TypeName.t() | nil,
-          location: integer
-        }
-  defstruct([:arg, :type_name, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:arg, 1, type: PgQuery.Node)
   field(:type_name, 2, type: PgQuery.TypeName, json_name: "typeName")
   field(:location, 3, type: :int32)
 end
 
-defmodule(PgQuery.CollateClause) do
+defmodule PgQuery.CollateClause do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          arg: PgQuery.Node.t() | nil,
-          collname: [PgQuery.Node.t()],
-          location: integer
-        }
-  defstruct([:arg, :collname, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:arg, 1, type: PgQuery.Node)
   field(:collname, 2, repeated: true, type: PgQuery.Node)
   field(:location, 3, type: :int32)
 end
 
-defmodule(PgQuery.SortBy) do
+defmodule PgQuery.SortBy do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          node: PgQuery.Node.t() | nil,
-          sortby_dir: PgQuery.SortByDir.t(),
-          sortby_nulls: PgQuery.SortByNulls.t(),
-          use_op: [PgQuery.Node.t()],
-          location: integer
-        }
-  defstruct([:node, :sortby_dir, :sortby_nulls, :use_op, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:node, 1, type: PgQuery.Node)
   field(:sortby_dir, 2, type: PgQuery.SortByDir, enum: true)
   field(:sortby_nulls, 3, type: PgQuery.SortByNulls, enum: true)
@@ -6912,32 +4056,10 @@ defmodule(PgQuery.SortBy) do
   field(:location, 5, type: :int32)
 end
 
-defmodule(PgQuery.WindowDef) do
+defmodule PgQuery.WindowDef do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          refname: String.t(),
-          partition_clause: [PgQuery.Node.t()],
-          order_clause: [PgQuery.Node.t()],
-          frame_options: integer,
-          start_offset: PgQuery.Node.t() | nil,
-          end_offset: PgQuery.Node.t() | nil,
-          location: integer
-        }
-  defstruct([
-    :name,
-    :refname,
-    :partition_clause,
-    :order_clause,
-    :frame_options,
-    :start_offset,
-    :end_offset,
-    :location
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:name, 1, type: :string)
   field(:refname, 2, type: :string)
   field(:partition_clause, 3, repeated: true, type: PgQuery.Node, json_name: "partitionClause")
@@ -6948,36 +4070,19 @@ defmodule(PgQuery.WindowDef) do
   field(:location, 8, type: :int32)
 end
 
-defmodule(PgQuery.RangeSubselect) do
+defmodule PgQuery.RangeSubselect do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          lateral: boolean,
-          subquery: PgQuery.Node.t() | nil,
-          alias: PgQuery.Alias.t() | nil
-        }
-  defstruct([:lateral, :subquery, :alias])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:lateral, 1, type: :bool)
   field(:subquery, 2, type: PgQuery.Node)
   field(:alias, 3, type: PgQuery.Alias)
 end
 
-defmodule(PgQuery.RangeFunction) do
+defmodule PgQuery.RangeFunction do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          lateral: boolean,
-          ordinality: boolean,
-          is_rowsfrom: boolean,
-          functions: [PgQuery.Node.t()],
-          alias: PgQuery.Alias.t() | nil,
-          coldeflist: [PgQuery.Node.t()]
-        }
-  defstruct([:lateral, :ordinality, :is_rowsfrom, :functions, :alias, :coldeflist])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:lateral, 1, type: :bool)
   field(:ordinality, 2, type: :bool)
   field(:is_rowsfrom, 3, type: :bool)
@@ -6986,19 +4091,10 @@ defmodule(PgQuery.RangeFunction) do
   field(:coldeflist, 6, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.RangeTableSample) do
+defmodule PgQuery.RangeTableSample do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          relation: PgQuery.Node.t() | nil,
-          method: [PgQuery.Node.t()],
-          args: [PgQuery.Node.t()],
-          repeatable: PgQuery.Node.t() | nil,
-          location: integer
-        }
-  defstruct([:relation, :method, :args, :repeatable, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:relation, 1, type: PgQuery.Node)
   field(:method, 2, repeated: true, type: PgQuery.Node)
   field(:args, 3, repeated: true, type: PgQuery.Node)
@@ -7006,21 +4102,10 @@ defmodule(PgQuery.RangeTableSample) do
   field(:location, 5, type: :int32)
 end
 
-defmodule(PgQuery.RangeTableFunc) do
+defmodule PgQuery.RangeTableFunc do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          lateral: boolean,
-          docexpr: PgQuery.Node.t() | nil,
-          rowexpr: PgQuery.Node.t() | nil,
-          namespaces: [PgQuery.Node.t()],
-          columns: [PgQuery.Node.t()],
-          alias: PgQuery.Alias.t() | nil,
-          location: integer
-        }
-  defstruct([:lateral, :docexpr, :rowexpr, :namespaces, :columns, :alias, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:lateral, 1, type: :bool)
   field(:docexpr, 2, type: PgQuery.Node)
   field(:rowexpr, 3, type: PgQuery.Node)
@@ -7030,30 +4115,10 @@ defmodule(PgQuery.RangeTableFunc) do
   field(:location, 7, type: :int32)
 end
 
-defmodule(PgQuery.RangeTableFuncCol) do
+defmodule PgQuery.RangeTableFuncCol do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          colname: String.t(),
-          type_name: PgQuery.TypeName.t() | nil,
-          for_ordinality: boolean,
-          is_not_null: boolean,
-          colexpr: PgQuery.Node.t() | nil,
-          coldefexpr: PgQuery.Node.t() | nil,
-          location: integer
-        }
-  defstruct([
-    :colname,
-    :type_name,
-    :for_ordinality,
-    :is_not_null,
-    :colexpr,
-    :coldefexpr,
-    :location
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:colname, 1, type: :string)
   field(:type_name, 2, type: PgQuery.TypeName, json_name: "typeName")
   field(:for_ordinality, 3, type: :bool)
@@ -7063,22 +4128,10 @@ defmodule(PgQuery.RangeTableFuncCol) do
   field(:location, 7, type: :int32)
 end
 
-defmodule(PgQuery.TypeName) do
+defmodule PgQuery.TypeName do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          names: [PgQuery.Node.t()],
-          type_oid: non_neg_integer,
-          setof: boolean,
-          pct_type: boolean,
-          typmods: [PgQuery.Node.t()],
-          typemod: integer,
-          array_bounds: [PgQuery.Node.t()],
-          location: integer
-        }
-  defstruct([:names, :type_oid, :setof, :pct_type, :typmods, :typemod, :array_bounds, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:names, 1, repeated: true, type: PgQuery.Node)
   field(:type_oid, 2, type: :uint32, json_name: "typeOid")
   field(:setof, 3, type: :bool)
@@ -7089,50 +4142,10 @@ defmodule(PgQuery.TypeName) do
   field(:location, 8, type: :int32)
 end
 
-defmodule(PgQuery.ColumnDef) do
+defmodule PgQuery.ColumnDef do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          colname: String.t(),
-          type_name: PgQuery.TypeName.t() | nil,
-          inhcount: integer,
-          is_local: boolean,
-          is_not_null: boolean,
-          is_from_type: boolean,
-          storage: String.t(),
-          raw_default: PgQuery.Node.t() | nil,
-          cooked_default: PgQuery.Node.t() | nil,
-          identity: String.t(),
-          identity_sequence: PgQuery.RangeVar.t() | nil,
-          generated: String.t(),
-          coll_clause: PgQuery.CollateClause.t() | nil,
-          coll_oid: non_neg_integer,
-          constraints: [PgQuery.Node.t()],
-          fdwoptions: [PgQuery.Node.t()],
-          location: integer
-        }
-  defstruct([
-    :colname,
-    :type_name,
-    :inhcount,
-    :is_local,
-    :is_not_null,
-    :is_from_type,
-    :storage,
-    :raw_default,
-    :cooked_default,
-    :identity,
-    :identity_sequence,
-    :generated,
-    :coll_clause,
-    :coll_oid,
-    :constraints,
-    :fdwoptions,
-    :location
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:colname, 1, type: :string)
   field(:type_name, 2, type: PgQuery.TypeName, json_name: "typeName")
   field(:inhcount, 3, type: :int32)
@@ -7152,32 +4165,10 @@ defmodule(PgQuery.ColumnDef) do
   field(:location, 17, type: :int32)
 end
 
-defmodule(PgQuery.IndexElem) do
+defmodule PgQuery.IndexElem do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          expr: PgQuery.Node.t() | nil,
-          indexcolname: String.t(),
-          collation: [PgQuery.Node.t()],
-          opclass: [PgQuery.Node.t()],
-          opclassopts: [PgQuery.Node.t()],
-          ordering: PgQuery.SortByDir.t(),
-          nulls_ordering: PgQuery.SortByNulls.t()
-        }
-  defstruct([
-    :name,
-    :expr,
-    :indexcolname,
-    :collation,
-    :opclass,
-    :opclassopts,
-    :ordering,
-    :nulls_ordering
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:name, 1, type: :string)
   field(:expr, 2, type: PgQuery.Node)
   field(:indexcolname, 3, type: :string)
@@ -7188,72 +4179,10 @@ defmodule(PgQuery.IndexElem) do
   field(:nulls_ordering, 8, type: PgQuery.SortByNulls, enum: true)
 end
 
-defmodule(PgQuery.Constraint) do
+defmodule PgQuery.Constraint do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          contype: PgQuery.ConstrType.t(),
-          conname: String.t(),
-          deferrable: boolean,
-          initdeferred: boolean,
-          location: integer,
-          is_no_inherit: boolean,
-          raw_expr: PgQuery.Node.t() | nil,
-          cooked_expr: String.t(),
-          generated_when: String.t(),
-          keys: [PgQuery.Node.t()],
-          including: [PgQuery.Node.t()],
-          exclusions: [PgQuery.Node.t()],
-          options: [PgQuery.Node.t()],
-          indexname: String.t(),
-          indexspace: String.t(),
-          reset_default_tblspc: boolean,
-          access_method: String.t(),
-          where_clause: PgQuery.Node.t() | nil,
-          pktable: PgQuery.RangeVar.t() | nil,
-          fk_attrs: [PgQuery.Node.t()],
-          pk_attrs: [PgQuery.Node.t()],
-          fk_matchtype: String.t(),
-          fk_upd_action: String.t(),
-          fk_del_action: String.t(),
-          old_conpfeqop: [PgQuery.Node.t()],
-          old_pktable_oid: non_neg_integer,
-          skip_validation: boolean,
-          initially_valid: boolean
-        }
-  defstruct([
-    :contype,
-    :conname,
-    :deferrable,
-    :initdeferred,
-    :location,
-    :is_no_inherit,
-    :raw_expr,
-    :cooked_expr,
-    :generated_when,
-    :keys,
-    :including,
-    :exclusions,
-    :options,
-    :indexname,
-    :indexspace,
-    :reset_default_tblspc,
-    :access_method,
-    :where_clause,
-    :pktable,
-    :fk_attrs,
-    :pk_attrs,
-    :fk_matchtype,
-    :fk_upd_action,
-    :fk_del_action,
-    :old_conpfeqop,
-    :old_pktable_oid,
-    :skip_validation,
-    :initially_valid
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:contype, 1, type: PgQuery.ConstrType, enum: true)
   field(:conname, 2, type: :string)
   field(:deferrable, 3, type: :bool)
@@ -7284,19 +4213,10 @@ defmodule(PgQuery.Constraint) do
   field(:initially_valid, 28, type: :bool)
 end
 
-defmodule(PgQuery.DefElem) do
+defmodule PgQuery.DefElem do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          defnamespace: String.t(),
-          defname: String.t(),
-          arg: PgQuery.Node.t() | nil,
-          defaction: PgQuery.DefElemAction.t(),
-          location: integer
-        }
-  defstruct([:defnamespace, :defname, :arg, :defaction, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:defnamespace, 1, type: :string)
   field(:defname, 2, type: :string)
   field(:arg, 3, type: PgQuery.Node)
@@ -7304,88 +4224,10 @@ defmodule(PgQuery.DefElem) do
   field(:location, 5, type: :int32)
 end
 
-defmodule(PgQuery.RangeTblEntry) do
+defmodule PgQuery.RangeTblEntry do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          rtekind: PgQuery.RTEKind.t(),
-          relid: non_neg_integer,
-          relkind: String.t(),
-          rellockmode: integer,
-          tablesample: PgQuery.TableSampleClause.t() | nil,
-          subquery: PgQuery.Query.t() | nil,
-          security_barrier: boolean,
-          jointype: PgQuery.JoinType.t(),
-          joinmergedcols: integer,
-          joinaliasvars: [PgQuery.Node.t()],
-          joinleftcols: [PgQuery.Node.t()],
-          joinrightcols: [PgQuery.Node.t()],
-          functions: [PgQuery.Node.t()],
-          funcordinality: boolean,
-          tablefunc: PgQuery.TableFunc.t() | nil,
-          values_lists: [PgQuery.Node.t()],
-          ctename: String.t(),
-          ctelevelsup: non_neg_integer,
-          self_reference: boolean,
-          coltypes: [PgQuery.Node.t()],
-          coltypmods: [PgQuery.Node.t()],
-          colcollations: [PgQuery.Node.t()],
-          enrname: String.t(),
-          enrtuples: float | :infinity | :negative_infinity | :nan,
-          alias: PgQuery.Alias.t() | nil,
-          eref: PgQuery.Alias.t() | nil,
-          lateral: boolean,
-          inh: boolean,
-          in_from_cl: boolean,
-          required_perms: non_neg_integer,
-          check_as_user: non_neg_integer,
-          selected_cols: non_neg_integer,
-          inserted_cols: non_neg_integer,
-          updated_cols: non_neg_integer,
-          extra_updated_cols: non_neg_integer,
-          security_quals: [PgQuery.Node.t()]
-        }
-  defstruct([
-    :rtekind,
-    :relid,
-    :relkind,
-    :rellockmode,
-    :tablesample,
-    :subquery,
-    :security_barrier,
-    :jointype,
-    :joinmergedcols,
-    :joinaliasvars,
-    :joinleftcols,
-    :joinrightcols,
-    :functions,
-    :funcordinality,
-    :tablefunc,
-    :values_lists,
-    :ctename,
-    :ctelevelsup,
-    :self_reference,
-    :coltypes,
-    :coltypmods,
-    :colcollations,
-    :enrname,
-    :enrtuples,
-    :alias,
-    :eref,
-    :lateral,
-    :inh,
-    :in_from_cl,
-    :required_perms,
-    :check_as_user,
-    :selected_cols,
-    :inserted_cols,
-    :updated_cols,
-    :extra_updated_cols,
-    :security_quals
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:rtekind, 1, type: PgQuery.RTEKind, enum: true)
   field(:relid, 2, type: :uint32)
   field(:relkind, 3, type: :string)
@@ -7424,30 +4266,10 @@ defmodule(PgQuery.RangeTblEntry) do
   field(:security_quals, 36, repeated: true, type: PgQuery.Node, json_name: "securityQuals")
 end
 
-defmodule(PgQuery.RangeTblFunction) do
+defmodule PgQuery.RangeTblFunction do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          funcexpr: PgQuery.Node.t() | nil,
-          funccolcount: integer,
-          funccolnames: [PgQuery.Node.t()],
-          funccoltypes: [PgQuery.Node.t()],
-          funccoltypmods: [PgQuery.Node.t()],
-          funccolcollations: [PgQuery.Node.t()],
-          funcparams: non_neg_integer
-        }
-  defstruct([
-    :funcexpr,
-    :funccolcount,
-    :funccolnames,
-    :funccoltypes,
-    :funccoltypmods,
-    :funccolcollations,
-    :funcparams
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:funcexpr, 1, type: PgQuery.Node)
   field(:funccolcount, 2, type: :int32)
   field(:funccolnames, 3, repeated: true, type: PgQuery.Node)
@@ -7457,35 +4279,19 @@ defmodule(PgQuery.RangeTblFunction) do
   field(:funcparams, 7, repeated: true, type: :uint64)
 end
 
-defmodule(PgQuery.TableSampleClause) do
+defmodule PgQuery.TableSampleClause do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          tsmhandler: non_neg_integer,
-          args: [PgQuery.Node.t()],
-          repeatable: PgQuery.Node.t() | nil
-        }
-  defstruct([:tsmhandler, :args, :repeatable])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:tsmhandler, 1, type: :uint32)
   field(:args, 2, repeated: true, type: PgQuery.Node)
   field(:repeatable, 3, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.WithCheckOption) do
+defmodule PgQuery.WithCheckOption do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          kind: PgQuery.WCOKind.t(),
-          relname: String.t(),
-          polname: String.t(),
-          qual: PgQuery.Node.t() | nil,
-          cascaded: boolean
-        }
-  defstruct([:kind, :relname, :polname, :qual, :cascaded])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:kind, 1, type: PgQuery.WCOKind, enum: true)
   field(:relname, 2, type: :string)
   field(:polname, 3, type: :string)
@@ -7493,19 +4299,10 @@ defmodule(PgQuery.WithCheckOption) do
   field(:cascaded, 5, type: :bool)
 end
 
-defmodule(PgQuery.SortGroupClause) do
+defmodule PgQuery.SortGroupClause do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          tle_sort_group_ref: non_neg_integer,
-          eqop: non_neg_integer,
-          sortop: non_neg_integer,
-          nulls_first: boolean,
-          hashable: boolean
-        }
-  defstruct([:tle_sort_group_ref, :eqop, :sortop, :nulls_first, :hashable])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:tle_sort_group_ref, 1, type: :uint32, json_name: "tleSortGroupRef")
   field(:eqop, 2, type: :uint32)
   field(:sortop, 3, type: :uint32)
@@ -7513,60 +4310,19 @@ defmodule(PgQuery.SortGroupClause) do
   field(:hashable, 5, type: :bool)
 end
 
-defmodule(PgQuery.GroupingSet) do
+defmodule PgQuery.GroupingSet do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          kind: PgQuery.GroupingSetKind.t(),
-          content: [PgQuery.Node.t()],
-          location: integer
-        }
-  defstruct([:kind, :content, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:kind, 1, type: PgQuery.GroupingSetKind, enum: true)
   field(:content, 2, repeated: true, type: PgQuery.Node)
   field(:location, 3, type: :int32)
 end
 
-defmodule(PgQuery.WindowClause) do
+defmodule PgQuery.WindowClause do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          refname: String.t(),
-          partition_clause: [PgQuery.Node.t()],
-          order_clause: [PgQuery.Node.t()],
-          frame_options: integer,
-          start_offset: PgQuery.Node.t() | nil,
-          end_offset: PgQuery.Node.t() | nil,
-          start_in_range_func: non_neg_integer,
-          end_in_range_func: non_neg_integer,
-          in_range_coll: non_neg_integer,
-          in_range_asc: boolean,
-          in_range_nulls_first: boolean,
-          winref: non_neg_integer,
-          copied_order: boolean
-        }
-  defstruct([
-    :name,
-    :refname,
-    :partition_clause,
-    :order_clause,
-    :frame_options,
-    :start_offset,
-    :end_offset,
-    :start_in_range_func,
-    :end_in_range_func,
-    :in_range_coll,
-    :in_range_asc,
-    :in_range_nulls_first,
-    :winref,
-    :copied_order
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:name, 1, type: :string)
   field(:refname, 2, type: :string)
   field(:partition_clause, 3, repeated: true, type: PgQuery.Node, json_name: "partitionClause")
@@ -7583,46 +4339,27 @@ defmodule(PgQuery.WindowClause) do
   field(:copied_order, 14, type: :bool, json_name: "copiedOrder")
 end
 
-defmodule(PgQuery.ObjectWithArgs) do
+defmodule PgQuery.ObjectWithArgs do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          objname: [PgQuery.Node.t()],
-          objargs: [PgQuery.Node.t()],
-          args_unspecified: boolean
-        }
-  defstruct([:objname, :objargs, :args_unspecified])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:objname, 1, repeated: true, type: PgQuery.Node)
   field(:objargs, 2, repeated: true, type: PgQuery.Node)
   field(:args_unspecified, 3, type: :bool)
 end
 
-defmodule(PgQuery.AccessPriv) do
+defmodule PgQuery.AccessPriv do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{priv_name: String.t(), cols: [PgQuery.Node.t()]}
-  defstruct([:priv_name, :cols])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:priv_name, 1, type: :string)
   field(:cols, 2, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.CreateOpClassItem) do
+defmodule PgQuery.CreateOpClassItem do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          itemtype: integer,
-          name: PgQuery.ObjectWithArgs.t() | nil,
-          number: integer,
-          order_family: [PgQuery.Node.t()],
-          class_args: [PgQuery.Node.t()],
-          storedtype: PgQuery.TypeName.t() | nil
-        }
-  defstruct([:itemtype, :name, :number, :order_family, :class_args, :storedtype])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:itemtype, 1, type: :int32)
   field(:name, 2, type: PgQuery.ObjectWithArgs)
   field(:number, 3, type: :int32)
@@ -7631,134 +4368,77 @@ defmodule(PgQuery.CreateOpClassItem) do
   field(:storedtype, 6, type: PgQuery.TypeName)
 end
 
-defmodule(PgQuery.TableLikeClause) do
+defmodule PgQuery.TableLikeClause do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          relation: PgQuery.RangeVar.t() | nil,
-          options: non_neg_integer,
-          relation_oid: non_neg_integer
-        }
-  defstruct([:relation, :options, :relation_oid])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:relation, 1, type: PgQuery.RangeVar)
   field(:options, 2, type: :uint32)
   field(:relation_oid, 3, type: :uint32, json_name: "relationOid")
 end
 
-defmodule(PgQuery.FunctionParameter) do
+defmodule PgQuery.FunctionParameter do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          arg_type: PgQuery.TypeName.t() | nil,
-          mode: PgQuery.FunctionParameterMode.t(),
-          defexpr: PgQuery.Node.t() | nil
-        }
-  defstruct([:name, :arg_type, :mode, :defexpr])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:name, 1, type: :string)
   field(:arg_type, 2, type: PgQuery.TypeName, json_name: "argType")
   field(:mode, 3, type: PgQuery.FunctionParameterMode, enum: true)
   field(:defexpr, 4, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.LockingClause) do
+defmodule PgQuery.LockingClause do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          locked_rels: [PgQuery.Node.t()],
-          strength: PgQuery.LockClauseStrength.t(),
-          wait_policy: PgQuery.LockWaitPolicy.t()
-        }
-  defstruct([:locked_rels, :strength, :wait_policy])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:locked_rels, 1, repeated: true, type: PgQuery.Node, json_name: "lockedRels")
   field(:strength, 2, type: PgQuery.LockClauseStrength, enum: true)
-  field(:wait_policy, 3, type: PgQuery.LockWaitPolicy, enum: true, json_name: "waitPolicy")
+  field(:wait_policy, 3, type: PgQuery.LockWaitPolicy, json_name: "waitPolicy", enum: true)
 end
 
-defmodule(PgQuery.RowMarkClause) do
+defmodule PgQuery.RowMarkClause do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          rti: non_neg_integer,
-          strength: PgQuery.LockClauseStrength.t(),
-          wait_policy: PgQuery.LockWaitPolicy.t(),
-          pushed_down: boolean
-        }
-  defstruct([:rti, :strength, :wait_policy, :pushed_down])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:rti, 1, type: :uint32)
   field(:strength, 2, type: PgQuery.LockClauseStrength, enum: true)
-  field(:wait_policy, 3, type: PgQuery.LockWaitPolicy, enum: true, json_name: "waitPolicy")
+  field(:wait_policy, 3, type: PgQuery.LockWaitPolicy, json_name: "waitPolicy", enum: true)
   field(:pushed_down, 4, type: :bool, json_name: "pushedDown")
 end
 
-defmodule(PgQuery.XmlSerialize) do
+defmodule PgQuery.XmlSerialize do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          xmloption: PgQuery.XmlOptionType.t(),
-          expr: PgQuery.Node.t() | nil,
-          type_name: PgQuery.TypeName.t() | nil,
-          location: integer
-        }
-  defstruct([:xmloption, :expr, :type_name, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:xmloption, 1, type: PgQuery.XmlOptionType, enum: true)
   field(:expr, 2, type: PgQuery.Node)
   field(:type_name, 3, type: PgQuery.TypeName, json_name: "typeName")
   field(:location, 4, type: :int32)
 end
 
-defmodule(PgQuery.WithClause) do
+defmodule PgQuery.WithClause do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{ctes: [PgQuery.Node.t()], recursive: boolean, location: integer}
-  defstruct([:ctes, :recursive, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:ctes, 1, repeated: true, type: PgQuery.Node)
   field(:recursive, 2, type: :bool)
   field(:location, 3, type: :int32)
 end
 
-defmodule(PgQuery.InferClause) do
+defmodule PgQuery.InferClause do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          index_elems: [PgQuery.Node.t()],
-          where_clause: PgQuery.Node.t() | nil,
-          conname: String.t(),
-          location: integer
-        }
-  defstruct([:index_elems, :where_clause, :conname, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:index_elems, 1, repeated: true, type: PgQuery.Node, json_name: "indexElems")
   field(:where_clause, 2, type: PgQuery.Node, json_name: "whereClause")
   field(:conname, 3, type: :string)
   field(:location, 4, type: :int32)
 end
 
-defmodule(PgQuery.OnConflictClause) do
+defmodule PgQuery.OnConflictClause do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          action: PgQuery.OnConflictAction.t(),
-          infer: PgQuery.InferClause.t() | nil,
-          target_list: [PgQuery.Node.t()],
-          where_clause: PgQuery.Node.t() | nil,
-          location: integer
-        }
-  defstruct([:action, :infer, :target_list, :where_clause, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:action, 1, type: PgQuery.OnConflictAction, enum: true)
   field(:infer, 2, type: PgQuery.InferClause)
   field(:target_list, 3, repeated: true, type: PgQuery.Node, json_name: "targetList")
@@ -7766,38 +4446,10 @@ defmodule(PgQuery.OnConflictClause) do
   field(:location, 5, type: :int32)
 end
 
-defmodule(PgQuery.CommonTableExpr) do
+defmodule PgQuery.CommonTableExpr do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          ctename: String.t(),
-          aliascolnames: [PgQuery.Node.t()],
-          ctematerialized: PgQuery.CTEMaterialize.t(),
-          ctequery: PgQuery.Node.t() | nil,
-          location: integer,
-          cterecursive: boolean,
-          cterefcount: integer,
-          ctecolnames: [PgQuery.Node.t()],
-          ctecoltypes: [PgQuery.Node.t()],
-          ctecoltypmods: [PgQuery.Node.t()],
-          ctecolcollations: [PgQuery.Node.t()]
-        }
-  defstruct([
-    :ctename,
-    :aliascolnames,
-    :ctematerialized,
-    :ctequery,
-    :location,
-    :cterecursive,
-    :cterefcount,
-    :ctecolnames,
-    :ctecoltypes,
-    :ctecoltypmods,
-    :ctecolcollations
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:ctename, 1, type: :string)
   field(:aliascolnames, 2, repeated: true, type: PgQuery.Node)
   field(:ctematerialized, 3, type: PgQuery.CTEMaterialize, enum: true)
@@ -7811,46 +4463,28 @@ defmodule(PgQuery.CommonTableExpr) do
   field(:ctecolcollations, 11, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.RoleSpec) do
+defmodule PgQuery.RoleSpec do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          roletype: PgQuery.RoleSpecType.t(),
-          rolename: String.t(),
-          location: integer
-        }
-  defstruct([:roletype, :rolename, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:roletype, 1, type: PgQuery.RoleSpecType, enum: true)
   field(:rolename, 2, type: :string)
   field(:location, 3, type: :int32)
 end
 
-defmodule(PgQuery.TriggerTransition) do
+defmodule PgQuery.TriggerTransition do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{name: String.t(), is_new: boolean, is_table: boolean}
-  defstruct([:name, :is_new, :is_table])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:name, 1, type: :string)
   field(:is_new, 2, type: :bool, json_name: "isNew")
   field(:is_table, 3, type: :bool, json_name: "isTable")
 end
 
-defmodule(PgQuery.PartitionElem) do
+defmodule PgQuery.PartitionElem do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          expr: PgQuery.Node.t() | nil,
-          collation: [PgQuery.Node.t()],
-          opclass: [PgQuery.Node.t()],
-          location: integer
-        }
-  defstruct([:name, :expr, :collation, :opclass, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:name, 1, type: :string)
   field(:expr, 2, type: PgQuery.Node)
   field(:collation, 3, repeated: true, type: PgQuery.Node)
@@ -7858,43 +4492,19 @@ defmodule(PgQuery.PartitionElem) do
   field(:location, 5, type: :int32)
 end
 
-defmodule(PgQuery.PartitionSpec) do
+defmodule PgQuery.PartitionSpec do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{strategy: String.t(), part_params: [PgQuery.Node.t()], location: integer}
-  defstruct([:strategy, :part_params, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:strategy, 1, type: :string)
   field(:part_params, 2, repeated: true, type: PgQuery.Node, json_name: "partParams")
   field(:location, 3, type: :int32)
 end
 
-defmodule(PgQuery.PartitionBoundSpec) do
+defmodule PgQuery.PartitionBoundSpec do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          strategy: String.t(),
-          is_default: boolean,
-          modulus: integer,
-          remainder: integer,
-          listdatums: [PgQuery.Node.t()],
-          lowerdatums: [PgQuery.Node.t()],
-          upperdatums: [PgQuery.Node.t()],
-          location: integer
-        }
-  defstruct([
-    :strategy,
-    :is_default,
-    :modulus,
-    :remainder,
-    :listdatums,
-    :lowerdatums,
-    :upperdatums,
-    :location
-  ])
-
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:strategy, 1, type: :string)
   field(:is_default, 2, type: :bool)
   field(:modulus, 3, type: :int32)
@@ -7905,93 +4515,55 @@ defmodule(PgQuery.PartitionBoundSpec) do
   field(:location, 8, type: :int32)
 end
 
-defmodule(PgQuery.PartitionRangeDatum) do
+defmodule PgQuery.PartitionRangeDatum do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          kind: PgQuery.PartitionRangeDatumKind.t(),
-          value: PgQuery.Node.t() | nil,
-          location: integer
-        }
-  defstruct([:kind, :value, :location])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:kind, 1, type: PgQuery.PartitionRangeDatumKind, enum: true)
   field(:value, 2, type: PgQuery.Node)
   field(:location, 3, type: :int32)
 end
 
-defmodule(PgQuery.PartitionCmd) do
+defmodule PgQuery.PartitionCmd do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          name: PgQuery.RangeVar.t() | nil,
-          bound: PgQuery.PartitionBoundSpec.t() | nil
-        }
-  defstruct([:name, :bound])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:name, 1, type: PgQuery.RangeVar)
   field(:bound, 2, type: PgQuery.PartitionBoundSpec)
 end
 
-defmodule(PgQuery.VacuumRelation) do
+defmodule PgQuery.VacuumRelation do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          relation: PgQuery.RangeVar.t() | nil,
-          oid: non_neg_integer,
-          va_cols: [PgQuery.Node.t()]
-        }
-  defstruct([:relation, :oid, :va_cols])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:relation, 1, type: PgQuery.RangeVar)
   field(:oid, 2, type: :uint32)
   field(:va_cols, 3, repeated: true, type: PgQuery.Node)
 end
 
-defmodule(PgQuery.InlineCodeBlock) do
+defmodule PgQuery.InlineCodeBlock do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          source_text: String.t(),
-          lang_oid: non_neg_integer,
-          lang_is_trusted: boolean,
-          atomic: boolean
-        }
-  defstruct([:source_text, :lang_oid, :lang_is_trusted, :atomic])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:source_text, 1, type: :string)
   field(:lang_oid, 2, type: :uint32, json_name: "langOid")
   field(:lang_is_trusted, 3, type: :bool, json_name: "langIsTrusted")
   field(:atomic, 4, type: :bool)
 end
 
-defmodule(PgQuery.CallContext) do
+defmodule PgQuery.CallContext do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-  @type t :: %__MODULE__{atomic: boolean}
-  defstruct([:atomic])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:atomic, 1, type: :bool)
 end
 
-defmodule(PgQuery.ScanToken) do
+defmodule PgQuery.ScanToken do
   @moduledoc false
-  use(Protobuf, syntax: :proto3)
-  use(Accessible)
-
-  @type t :: %__MODULE__{
-          start: integer,
-          end: integer,
-          token: PgQuery.Token.t(),
-          keyword_kind: PgQuery.KeywordKind.t()
-        }
-  defstruct([:start, :end, :token, :keyword_kind])
+  use Protobuf, protoc_gen_elixir_version: "0.9.0-dev", syntax: :proto3
+  use Accessible
   field(:start, 1, type: :int32)
   field(:end, 2, type: :int32)
   field(:token, 4, type: PgQuery.Token, enum: true)
-  field(:keyword_kind, 5, type: PgQuery.KeywordKind, enum: true, json_name: "keywordKind")
+  field(:keyword_kind, 5, type: PgQuery.KeywordKind, json_name: "keywordKind", enum: true)
 end
